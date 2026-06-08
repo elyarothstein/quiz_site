@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovies Study Guide</title>
     <style>
         body {
@@ -141,6 +142,56 @@
             display: inline-block;
             margin: 10px 0;
         }
+
+    @media (max-width: 600px) {
+        body {
+            margin: 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+        }
+
+        #homeScreen,
+        #quizScreen,
+        #importScreen {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            width: 90%;
+            max-width: 350px;
+            font-size: 18px;
+            padding: 12px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        input,
+        textarea {
+            width: 90%;
+            max-width: 350px;
+            font-size: 16px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #choices button {
+            width: 95%;
+            text-align: left;
+        }
+    }
+
     </style>
 </head>
 <body>
