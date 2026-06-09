@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<!-- Tells the browser this file is an HTML5 document -->
+
+<html>
+<!-- Opens the main HTML page -->
+
+<head>
+    <!-- The head contains settings, title, and CSS -->
+
+    <meta charset="UTF-8">
+    <!-- Allows normal English, Hebrew, Spanish, symbols, etc. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the website work better on phones -->
+
+    <title>Lovies Study Guide</title>
+    <!-- The title shown in the browser tab -->
+
+    <style>
+        /* CSS starts here */
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        #homeScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #homeScreen img {
+            width: 700px;
+            max-width: 90vw;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        #quizScreen {
+            background-image: url("quiz.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #importScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("import.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #importScreen input,
+        #importScreen textarea {
+            width: 70%;
+            max-width: 600px;
+            padding: 12px;
+            margin: 8px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #importScreen textarea {
+            height: 100px;
+        }
+
+        #importScreen button {
+            font-size: 18px;
+            padding: 12px 24px;
+            margin: 10px;
+        }
+
+        #importTitle {
+            background: rgba(255,255,255,0.9);
+            padding: 12px 25px;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+            font-size: 24px;
+            display: inline-block;
+            margin-top: 80px;
+            margin-bottom: 20px;
+        }
+
+        #choices {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #choices button {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        #choices button:hover {
+            background-color: #2980b9;
+        }
+
+        #question,
+        #startButton,
+        #newQuestionsButton,
+        #backHomeButton,
+        #nextButton {
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        #result,
+        #explanation,
+        #score,
+        #importMessage {
+            background: rgba(255,255,255,0.85);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 0;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            #homeScreen,
+            #quizScreen,
+            #importScreen {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            button {
+                width: 90%;
+                max-width: 350px;
+                font-size: 18px;
+                padding: 12px;
+                margin: 10px auto;
+                display: block;
+            }
+
+            input,
+            textarea {
+                width: 90%;
+                max-width: 350px;
+                font-size: 16px;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            #choices button {
+                width: 90%;
+                max-width: 330px;
+                font-size: 15px;
+                padding: 12px;
+                white-space: normal;
+                text-align: left;
+            }
+
+            #quizScreen,
+            #importScreen {
+                background-size: cover;
+                background-position: center top;
+                min-height: 100vh;
+                padding: 15px;
+            }
+
+            #question {
+                width: 90%;
+                max-width: 350px;
+                font-size: 16px;
+            }
+
+            #importTitle {
+                margin-top: 20px;
+                font-size: 20px;
+            }
+        }
+
+        /* CSS ends here */
+    </style>
+</head>
+
+<body>
+    <!-- Everything visible on the page goes inside body -->
+
+    <h1 id="title" style="cursor: pointer;">Lovies Study Guide</h1>
+    <!-- Main title. Clicking it brings user back home -->
+
+    <div id="homeScreen" class="screen">
+        <!-- Home screen -->
+
+        <button id="startButton">Start Quiz</button>
+        <!-- Starts the quiz -->
+
+        <button id="newQuestionsButton">Add New Word</button>
+        <!-- Opens the add-word screen -->
+
+        <img src="image.jpg" alt="Homepage image">
+        <!-- Homepage image -->
+    </div>
+
+    <div id="quizScreen" class="screen">
+        <!-- Quiz screen -->
+
+        <h2 id="question"></h2>
+        <!-- The question appears here -->
+
+        <div id="choices"></div>
+        <!-- Answer buttons appear here -->
+
+        <p id="result"></p>
+        <!-- Correct or incorrect message appears here -->
+
+        <p id="explanation"></p>
+        <!-- Explanation appears here -->
+
+        <p id="score"></p>
+        <!-- Score appears here -->
+
+        <button id="nextButton" style="display: none;">Next Question</button>
+        <!-- Next button hidden until user answers -->
+    </div>
+
+    <div id="importScreen" class="screen">
+        <!-- Add vocabulary word screen -->
+
+        <h2 id="importTitle">Add Vocabulary Word</h2>
+        <!-- Title for add-word screen -->
+
+        <input id="newWord" placeholder="English word">
+        <!-- User types English word here -->
+
+        <br><br>
+
+        <input id="newDefinition" placeholder="Spanish definition">
+        <!-- User types Spanish definition here -->
+
+        <br><br>
+
+        <textarea id="newExplanation" placeholder="Explanation, optional"></textarea>
+        <!-- Optional explanation -->
+
+        <br><br>
+
+        <button id="addWordButton">Add Word</button>
+        <!-- Saves the new word -->
+
+        <br><br>
+
+        <button id="backHomeButton">Back to Home</button>
+        <!-- Goes back to homepage -->
+
+        <p id="importMessage"></p>
+        <!-- Message after adding word -->
+    </div>
+
+    <script>
+        // JavaScript starts here
+
+
+       let vocabulary = [];
+
+        // This will hold the shuffled words for the current quiz.
+        let quizWords = [];
+
+        // This tracks which question number the user is on.
+        let currentQuestion = 0;
+
+        // This tracks the user's score.
+        let score = 0;
+
+        // This stores the correct answer for the current question.
+        let correctAnswer = "";
+
+        // Get the home screen from the HTML.
+        const homeScreen = document.getElementById("homeScreen");
+
+        // Get the quiz screen from the HTML.
+        const quizScreen = document.getElementById("quizScreen");
+
+        // Get the add-word screen from the HTML.
+        const importScreen = document.getElementById("importScreen");
+
+        // Get the title.
+        const title = document.getElementById("title");
+
+        // Get the Start Quiz button.
+        const startButton = document.getElementById("startButton");
+
+        // Get the Add New Word button.
+        const newQuestionsButton = document.getElementById("newQuestionsButton");
+
+        // Get the Back Home button.
+        const backHomeButton = document.getElementById("backHomeButton");
+
+        // Get the Next Question button.
+        const nextButton = document.getElementById("nextButton");
+
+        // Get the question text element.
+        const questionEl = document.getElementById("question");
+
+        // Get the choices container.
+        const choicesEl = document.getElementById("choices");
+
+        // Get the result message element.
+        const resultEl = document.getElementById("result");
+
+        // Get the explanation element.
+        const explanationEl = document.getElementById("explanation");
+
+        // Get the score element.
+        const scoreEl = document.getElementById("score");
+
+        // Get the import message element.
+        const importMessage = document.getElementById("importMessage");
+
+        // Get the new word input.
+        const newWord = document.getElementById("newWord");
+
+        // Get the new definition input.
+        const newDefinition = document.getElementById("newDefinition");
+
+        // Get the new explanation textarea.
+        const newExplanation = document.getElementById("newExplanation");
+
+        // Get the Add Word button.
+        const addWordButton = document.getElementById("addWordButton");
+
+        // This function saves vocabulary into the browser.
+        function saveVocabulary() {
+            // Convert the vocabulary array into text and save it.
+            localStorage.setItem("vocabularyWords", JSON.stringify(vocabulary));
+        }
+        async function loadVocabularyFromFile(){
+            try {
+                const response = await fetch("vocabulary_template.json");
+                vocabulary = await response.json();
+
+                console.log("Vocabulary loaded:", vocabulary.length);
+            } catch (error) {
+                console.error("Could not load vocabulary file:", error)
+                alert("Could not load vocabulary_template.json");
+            }
+        }
+        // This function shows the home screen.
+        loadVocabularyFromFile().then(function() {
+            showHome();
+        });
+        function showHome() {
+            // Show home screen.
+            homeScreen.style.display = "flex";
+
+            // Hide quiz screen.
+            quizScreen.style.display = "none";
+
+            // Hide add-word screen.
+            importScreen.style.display = "none";
+
+            // Clear result text.
+            resultEl.textContent = "";
+
+            // Clear explanation text.
+            explanationEl.textContent = "";
+        }
+
+        // This function shows the quiz screen.
+        function showQuiz() {
+            // Hide home screen.
+            homeScreen.style.display = "none";
+
+            // Show quiz screen.
+            quizScreen.style.display = "block";
+
+            // Hide add-word screen.
+            importScreen.style.display = "none";
+        }
+
+        // This function shows the add-word screen.
+        function showImport() {
+            // Hide home screen.
+            homeScreen.style.display = "none";
+
+            // Hide quiz screen.
+            quizScreen.style.display = "none";
+
+            // Show add-word screen.
+            importScreen.style.display = "flex";
+        }
+
+        // This function shuffles an array randomly.
+        function shuffleArray(array) {
+            // Make a copy of the array and randomly sort it.
+            return [...array].sort(() => Math.random() - 0.5);
+        }
+
+        // This function gets 3 wrong definitions.
+        function getWrongDefinitions(correctWord) {
+            // Start with all vocabulary words.
+            return vocabulary
+
+                // Remove the current correct word.
+                .filter(item => item.word !== correctWord.word)
+
+                // Keep only the definitions.
+                .map(item => item.explanation)
+
+                // Shuffle the definitions.
+                .sort(() => Math.random() - 0.5)
+
+                // Take only 3 wrong answers.
+                .slice(0, 3);
+        }
+
+        // This function displays one question.
+        function showQuestion() {
+            // Get the current word object.
+            const currentWord = quizWords[currentQuestion];
+
+            // Save the correct answer.
+            correctAnswer = currentWord.explanation;
+
+            // Create the question text.
+            questionEl.textContent = `What does "${currentWord.word}" mean?`;
+
+            // Clear old answer buttons.
+            choicesEl.innerHTML = "";
+
+            // Clear old result.
+            resultEl.textContent = "";
+
+            // Clear old explanation.
+            explanationEl.textContent = "";
+
+            // Hide the next button until user answers.
+            nextButton.style.display = "none";
+
+            // Get 3 wrong answers.
+            let wrongAnswers = getWrongDefinitions(currentWord);
+
+            // Put correct answer and wrong answers together, then shuffle them.
+            let allChoices = shuffleArray([
+                correctAnswer,
+                ...wrongAnswers
+            ]);
+
+            // Create one button for every answer choice.
+            allChoices.forEach(choiceText => {
+                // Create a button element.
+                const button = document.createElement("button");
+
+                // Put the answer text inside the button.
+                button.textContent = choiceText;
+
+                // When the user clicks the button, check the answer.
+                button.onclick = function() {
+                    checkAnswer(choiceText, currentWord);
+                };
+
+                // Add the button to the choices area.
+                choicesEl.appendChild(button);
+            });
+
+            // Show the current score.
+            scoreEl.textContent = "Score: " + score + " / " + quizWords.length;
+        }
+
+        // This function checks if the selected answer is correct.
+        function checkAnswer(userAnswer, currentWord) {
+            // Get all answer buttons.
+            const allButtons = choicesEl.querySelectorAll("button");
+
+            // Loop through every answer button.
+            allButtons.forEach(button => {
+                // Disable the button so user cannot answer twice.
+                button.disabled = true;
+
+                // If this button is the correct answer, make it green.
+                if (button.textContent === correctAnswer) {
+                    button.style.backgroundColor = "green";
+                }
+
+                // If this button is the wrong answer the user clicked, make it red.
+                if (button.textContent === userAnswer && userAnswer !== correctAnswer) {
+                    button.style.backgroundColor = "red";
+                }
+            });
+
+            // If user chose correct answer...
+            if (userAnswer === correctAnswer) {
+                // Show correct message.
+                resultEl.textContent = "Correct!";
+
+                // Add 1 point.
+                score++;
+            } else {
+                // Show incorrect message and correct answer.
+                resultEl.textContent = "Incorrect. Correct answer: " + correctAnswer;
+            }
+
+            // Show explanation if there is one.
+            explanationEl.textContent = currentWord.explanation || "";
+
+            // Show the next button.
+            nextButton.style.display = "inline-block";
+
+            // Update score.
+            scoreEl.textContent = "Score: " + score + " / " + quizWords.length;
+        }
+
+        // When user clicks the title, go home.
+        title.onclick = function() {
+            showHome();
+        };
+
+        // When user clicks Start Quiz...
+        startButton.onclick = function() {
+            // Make sure there are at least 4 words.
+            // One correct answer plus 3 wrong answers.
+            if (vocabulary.length < 4) {
+                alert("You need at least 4 vocabulary words to start the quiz.");
+                return;
+            }
+
+            // Start from first question.
+            currentQuestion = 0;
+
+            // Reset score.
+            score = 0;
+
+            // Shuffle vocabulary for this quiz.
+            quizWords = shuffleArray(vocabulary);
+
+            // Show quiz screen.
+            showQuiz();
+
+            // Show first question.
+            showQuestion();
+        };
+
+        // When user clicks Add New Word...
+        newQuestionsButton.onclick = function() {
+            showImport();
+        };
+
+        // When user clicks Back Home...
+        backHomeButton.onclick = function() {
+            showHome();
+        };
+
+        // When user clicks Next Question...
+        nextButton.onclick = function() {
+            // Move to next question number.
+            currentQuestion++;
+
+            // If there are still questions left...
+            if (currentQuestion < quizWords.length) {
+                // Show next question.
+                showQuestion();
+            } else {
+                // Quiz is finished.
+                questionEl.textContent = "Quiz Finished!";
+
+                // Remove answer buttons.
+                choicesEl.innerHTML = "";
+
+                // Clear result.
+                resultEl.textContent = "";
+
+                // Show final score.
+                explanationEl.textContent = "Final score: " + score + " / " + quizWords.length;
+
+                // Hide next button.
+                nextButton.style.display = "none";
+            }
+        };
+
+        // When user clicks Add Word...
+        addWordButton.onclick = function() {
+            // Get the word typed by the user.
+            const word = newWord.value.trim();
+
+            // Get the definition typed by the user.
+            const definition = newDefinition.value.trim();
+
+            // Get the optional explanation.
+            const explanation = newExplanation.value.trim();
+
+            // If word or definition is empty, show error.
+            if (word === "" || definition === "") {
+                importMessage.textContent = "Please enter both a word and a definition.";
+                return;
+            }
+
+            // Create new vocabulary object.
+            const vocabularyObj = {
+                word: word,
+                definition: definition,
+                explanation: explanation
+            };
+
+            // Add the new word to the vocabulary array.
+            vocabulary.push(vocabularyObj);
+
+            // Save vocabulary in browser.
+            saveVocabulary();
+
+            // Show success message.
+            importMessage.textContent = "Word added! Total words: " + vocabulary.length;
+
+            // Clear word input.
+            newWord.value = "";
+
+            // Clear definition input.
+            newDefinition.value = "";
+
+            // Clear explanation input.
+            newExplanation.value = "";
+        };
+
+        // Show the home screen when the page first loads.
+        showHome();
+
+        // JavaScript ends here
+    </script>
+
+</body>
+</html>
