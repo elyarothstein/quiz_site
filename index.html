@@ -135,7 +135,6 @@
         }
 
         #result,
-        #explanation,
         #score,
         #importMessage {
             background: rgba(255,255,255,0.85);
@@ -143,6 +142,17 @@
             border-radius: 10px;
             display: inline-block;
             margin: 10px 0;
+        }
+
+        #explanation {
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            margin: 15px auto;
+            width: 80%;
+            max-width: 500px;
+            line-height: 1.4;
         }
 
         @media (max-width: 600px) {
@@ -469,7 +479,6 @@
             // Clear old result.
             resultEl.textContent = "";
 
-            // Clear old explanation.
             explanationEl.textContent = "";
 
             // Hide the next button until user answers.
@@ -526,20 +535,21 @@
                 }
             });
 
-            // If user chose correct answer...
             if (userAnswer === correctAnswer) {
-                // Show correct message.
                 resultEl.textContent = "Correct!";
-
-                // Add 1 point.
-                score++;
-            } else {
-                // Show incorrect message and correct answer.
-                resultEl.textContent = "Incorrect. Correct answer: " + correctAnswer;
-            }
-
-            // Show explanation if there is one.
-            explanationEl.textContent = currentWord.explanation || "";
+                explanationEl.innerHTML =
+                "<strong>Example:</strong><br>" +
+                (currentWord.example || "");
+            score++;
+        } else {
+            resultEl.textContent = "Incorrect.";
+            explanationEl.innerHTML =
+                "<strong>Meaning:</strong><br>" +
+                (currentWord.explanation || "") +
+                "<br><br>" +
+                "<strong>Example:</strong><br>" +
+                (currentWord.example || "");
+        }
 
             // Show the next button.
             nextButton.style.display = "inline-block";
@@ -658,8 +668,7 @@
             newExplanation.value = "";
         };
 
-        // Show the home screen when the page first loads.
-        showHome();
+
 
         // JavaScript ends here
     </script>
