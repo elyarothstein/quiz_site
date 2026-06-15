@@ -2,1951 +2,2682 @@
   {
     "word": "accompany",
     "explanation": "To go somewhere with someone; to be present with something.",
-    "example": "The teacher accompanied the students on the field trip."
+    "example": "The teacher accompanied the students on the field trip.",
+    "blankExample": "The teacher will _____ the students on the field trip.",
+    "blankAnswer": "accompany"
   },
   {
     "word": "accomplish",
     "explanation": "To successfully complete or achieve something.",
-    "example": "She accomplished her goal of learning Hebrew."
+    "example": "She accomplished her goal of learning Hebrew.",
+    "blankExample": "She _____ her goal of learning Hebrew.",
+    "blankAnswer": "accomplished"
   },
   {
     "word": "accomplished",
     "explanation": "Highly skilled or successful in a particular area.",
-    "example": "He is an accomplished musician and composer."
+    "example": "He is an accomplished musician and composer.",
+    "blankExample": "He is an _____ musician and composer.",
+    "blankAnswer": "accomplished"
   },
   {
     "word": "accomplishment",
     "explanation": "Something that has been successfully achieved.",
-    "example": "Graduating from college was a major accomplishment."
+    "example": "Graduating from college was a major accomplishment.",
+    "blankExample": "Graduating from college was a major _____.",
+    "blankAnswer": "accomplishment"
   },
   {
     "word": "according to",
     "explanation": "As stated by; in agreement with.",
-    "example": "According to the report, sales increased this year."
+    "example": "According to the report, sales increased this year.",
+    "blankExample": "_____ the report, sales increased this year.",
+    "blankAnswer": "According to"
   },
   {
     "word": "accordingly",
     "explanation": "In a way that is appropriate to the circumstances.",
-    "example": "The weather changed, and we adjusted our plans accordingly."
+    "example": "The weather changed, and we adjusted our plans accordingly.",
+    "blankExample": "The weather changed, and we adjusted our plans _____.",
+    "blankAnswer": "accordingly"
   },
   {
     "word": "account for",
     "explanation": "To explain the reason for something.",
-    "example": "Scientists cannot fully account for the phenomenon."
+    "example": "Scientists cannot fully account for the phenomenon.",
+    "blankExample": "Scientists cannot fully _____ the phenomenon.",
+    "blankAnswer": "account for"
   },
   {
     "word": "accountable",
     "explanation": "Responsible for one's actions or decisions.",
-    "example": "Managers are accountable for the performance of their teams."
+    "example": "Managers are accountable for the performance of their teams.",
+    "blankExample": "Managers are _____ for the performance of their teams.",
+    "blankAnswer": "accountable"
   },
   {
     "word": "accurate",
     "explanation": "Correct and free from mistakes.",
-    "example": "The scientist collected accurate measurements."
+    "example": "The scientist collected accurate measurements.",
+    "blankExample": "The scientist collected _____ measurements.",
+    "blankAnswer": "accurate"
   },
   {
     "word": "accurately",
     "explanation": "In a correct and precise manner.",
-    "example": "The witness accurately described the event."
+    "example": "The witness accurately described the event.",
+    "blankExample": "The witness _____ described the event.",
+    "blankAnswer": "accurately"
   },
   {
     "word": "achievable",
     "explanation": "Possible to accomplish or attain.",
-    "example": "Setting achievable goals helps maintain motivation."
+    "example": "Setting achievable goals helps maintain motivation.",
+    "blankExample": "Setting _____ goals helps maintain motivation.",
+    "blankAnswer": "achievable"
   },
   {
     "word": "achieve",
     "explanation": "To successfully reach a goal.",
-    "example": "She worked hard to achieve success."
+    "example": "She worked hard to achieve success.",
+    "blankExample": "She worked hard to _____ success.",
+    "blankAnswer": "achieve"
   },
   {
     "word": "achievement",
     "explanation": "A goal or accomplishment that has been reached.",
-    "example": "Winning the competition was a great achievement."
+    "example": "Winning the competition was a great achievement.",
+    "blankExample": "Winning the competition was a great _____.",
+    "blankAnswer": "achievement"
   },
   {
     "word": "acquire",
     "explanation": "To obtain or gain possession of something.",
-    "example": "Children acquire language skills naturally."
+    "example": "Children acquire language skills naturally.",
+    "blankExample": "Children _____ language skills naturally.",
+    "blankAnswer": "acquire"
   },
   {
     "word": "acute",
     "explanation": "Very serious, severe, or intense.",
-    "example": "The country is facing an acute shortage of water."
+    "example": "The country is facing an acute shortage of water.",
+    "blankExample": "The country is facing an _____ shortage of water.",
+    "blankAnswer": "acute"
   },
   {
     "word": "admit",
     "explanation": "To acknowledge the truth of something; to allow entry.",
-    "example": "He admitted that he had made a mistake."
+    "example": "He admitted that he had made a mistake.",
+    "blankExample": "He _____ that he had made a mistake.",
+    "blankAnswer": "admitted"
   },
   {
     "word": "admit into",
     "explanation": "To allow someone to enter a place or organization.",
-    "example": "The university admitted her into its honors program."
+    "example": "The university admitted her into its honors program.",
+    "blankExample": "The university decided to _____ her into its honors program.",
+    "blankAnswer": "admit"
   },
   {
     "word": "admittance",
     "explanation": "Permission or right to enter.",
-    "example": "Only employees were granted admittance to the building."
+    "example": "Only employees were granted admittance to the building.",
+    "blankExample": "Only employees were granted _____ to the building.",
+    "blankAnswer": "admittance"
   },
   {
     "word": "admittedly",
     "explanation": "It must be acknowledged; as is true.",
-    "example": "Admittedly, the project took longer than expected."
+    "example": "Admittedly, the project took longer than expected.",
+    "blankExample": "_____, the project took longer than expected.",
+    "blankAnswer": "Admittedly"
   },
   {
     "word": "advocate",
     "explanation": "To publicly support or recommend something.",
-    "example": "She advocates for environmental protection."
+    "example": "She advocates for environmental protection.",
+    "blankExample": "She _____ for environmental protection.",
+    "blankAnswer": "advocates"
   },
   {
     "word": "afflict",
     "explanation": "To cause pain, suffering, or trouble.",
-    "example": "The disease continues to afflict millions of people."
+    "example": "The disease continues to afflict millions of people.",
+    "blankExample": "The disease continues to _____ millions of people.",
+    "blankAnswer": "afflict"
   },
   {
     "word": "aim",
     "explanation": "A goal or purpose; to direct efforts toward something.",
-    "example": "Her aim is to become a doctor."
+    "example": "Her aim is to become a doctor.",
+    "blankExample": "Her _____ is to become a doctor.",
+    "blankAnswer": "aim"
   },
   {
     "word": "allegedly",
     "explanation": "According to claims that have not been proven.",
-    "example": "The suspect allegedly committed the crime."
+    "example": "The suspect allegedly committed the crime.",
+    "blankExample": "The suspect _____ committed the crime.",
+    "blankAnswer": "allegedly"
   },
   {
     "word": "allow for",
     "explanation": "To take into consideration or make provision for.",
-    "example": "The schedule allows for unexpected delays."
+    "example": "The schedule allows for unexpected delays.",
+    "blankExample": "The schedule needs to _____ unexpected delays.",
+    "blankAnswer": "allow for"
   },
   {
     "word": "allowable",
     "explanation": "Permitted according to rules or laws.",
-    "example": "Only allowable expenses can be reimbursed."
+    "example": "Only allowable expenses can be reimbursed.",
+    "blankExample": "Only _____ expenses can be reimbursed.",
+    "blankAnswer": "allowable"
   },
   {
     "word": "allowance",
     "explanation": "An amount of something that is permitted, granted, or provided regularly.",
-    "example": "His parents gave him a weekly allowance."
+    "example": "His parents gave him a weekly allowance.",
+    "blankExample": "His parents gave him a weekly _____.",
+    "blankAnswer": "allowance"
   },
   {
     "word": "ally",
     "explanation": "A person, group, or nation that cooperates with or supports another.",
-    "example": "The two countries became close allies during the war."
+    "example": "The two countries became close allies during the war.",
+    "blankExample": "The two countries became close _____ during the war.",
+    "blankAnswer": "allies"
   },
   {
     "word": "ambivalence",
     "explanation": "Having mixed or conflicting feelings about something.",
-    "example": "She felt ambivalence about moving to another city."
+    "example": "She felt ambivalence about moving to another city.",
+    "blankExample": "She felt _____ about moving to another city.",
+    "blankAnswer": "ambivalence"
   },
   {
     "word": "ambivalent",
     "explanation": "Having contradictory attitudes or emotions toward something.",
-    "example": "He was ambivalent about accepting the job offer."
+    "example": "He was ambivalent about accepting the job offer.",
+    "blankExample": "He was _____ about accepting the job offer.",
+    "blankAnswer": "ambivalent"
   },
   {
     "word": "amiss",
     "explanation": "Wrong, improper, or out of order.",
-    "example": "She sensed that something was amiss."
+    "example": "She sensed that something was amiss.",
+    "blankExample": "She sensed that something was _____.",
+    "blankAnswer": "amiss"
   },
   {
     "word": "ammunition",
     "explanation": "Materials such as bullets used in weapons; figuratively, information used to support an argument.",
-    "example": "The lawyer gathered ammunition for his case."
+    "example": "The lawyer gathered ammunition for his case.",
+    "blankExample": "The lawyer gathered _____ for his case.",
+    "blankAnswer": "ammunition"
   },
   {
     "word": "annoy",
     "explanation": "To irritate or bother someone.",
-    "example": "The constant noise began to annoy the neighbors."
+    "example": "The constant noise began to annoy the neighbors.",
+    "blankExample": "The constant noise began to _____ the neighbors.",
+    "blankAnswer": "annoy"
   },
   {
     "word": "approach",
     "explanation": "A method of dealing with something; to move closer to.",
-    "example": "Her approach to solving problems is very effective."
+    "example": "Her approach to solving problems is very effective.",
+    "blankExample": "Her _____ to solving problems is very effective.",
+    "blankAnswer": "approach"
   },
   {
     "word": "appropriate",
     "explanation": "Suitable or proper in a particular situation.",
-    "example": "Wear appropriate clothing for the interview."
+    "example": "Wear appropriate clothing for the interview.",
+    "blankExample": "Wear _____ clothing for the interview.",
+    "blankAnswer": "appropriate"
   },
   {
     "word": "appropriately",
     "explanation": "In a suitable or proper manner.",
-    "example": "The teacher responded appropriately to the situation."
+    "example": "The teacher responded appropriately to the situation.",
+    "blankExample": "The teacher responded _____ to the situation.",
+    "blankAnswer": "appropriately"
   },
   {
     "word": "bamboozle",
     "explanation": "To trick, confuse, or deceive someone.",
-    "example": "The salesman tried to bamboozle customers with false promises."
+    "example": "The salesman tried to bamboozle customers with false promises.",
+    "blankExample": "The salesman tried to _____ customers with false promises.",
+    "blankAnswer": "bamboozle"
   },
   {
     "word": "ban",
     "explanation": "To officially prohibit or forbid something.",
-    "example": "The city decided to ban smoking in public parks."
+    "example": "The city decided to ban smoking in public parks.",
+    "blankExample": "The city decided to _____ smoking in public parks.",
+    "blankAnswer": "ban"
   },
   {
     "word": "barrack",
     "explanation": "A building used to house soldiers.",
-    "example": "The recruits returned to the barrack after training."
+    "example": "The recruits returned to the barrack after training.",
+    "blankExample": "The recruits returned to the _____ after training.",
+    "blankAnswer": "barrack"
   },
   {
     "word": "barracks",
     "explanation": "Buildings used as living quarters for military personnel.",
-    "example": "The soldiers slept in the barracks."
+    "example": "The soldiers slept in the barracks.",
+    "blankExample": "The soldiers slept in the _____.",
+    "blankAnswer": "barracks"
   },
   {
     "word": "basin",
     "explanation": "A bowl-shaped container or a geographical area drained by a river.",
-    "example": "The Amazon basin contains vast rainforests."
+    "example": "The Amazon basin contains vast rainforests.",
+    "blankExample": "The Amazon _____ contains vast rainforests.",
+    "blankAnswer": "basin"
   },
   {
     "word": "bend",
     "explanation": "To curve or cause something to curve.",
-    "example": "Be careful not to bend the metal rod."
+    "example": "Be careful not to bend the metal rod.",
+    "blankExample": "Be careful not to _____ the metal rod.",
+    "blankAnswer": "bend"
   },
   {
     "word": "beneath",
     "explanation": "Under or below something.",
-    "example": "The keys were hidden beneath the cushion."
+    "example": "The keys were hidden beneath the cushion.",
+    "blankExample": "The keys were hidden _____ the cushion.",
+    "blankAnswer": "beneath"
   },
   {
     "word": "breadth",
     "explanation": "The distance from side to side; width.",
-    "example": "The breadth of the river made it difficult to cross."
+    "example": "The breadth of the river made it difficult to cross.",
+    "blankExample": "The _____ of the river made it difficult to cross.",
+    "blankAnswer": "breadth"
   },
   {
     "word": "bridle",
     "explanation": "To restrain, control, or show irritation.",
-    "example": "She bridled at the unfair criticism."
+    "example": "She bridled at the unfair criticism.",
+    "blankExample": "She _____ at the unfair criticism.",
+    "blankAnswer": "bridled"
   },
   {
     "word": "broad",
     "explanation": "Wide in extent; covering a large area or range.",
-    "example": "The professor has a broad knowledge of history."
+    "example": "The professor has a broad knowledge of history.",
+    "blankExample": "The professor has a _____ knowledge of history.",
+    "blankAnswer": "broad"
   },
   {
     "word": "broadcast",
     "explanation": "To transmit information to a wide audience by radio, television, or internet.",
-    "example": "The station broadcast the news live."
+    "example": "The station broadcast the news live.",
+    "blankExample": "The station _____ the news live.",
+    "blankAnswer": "broadcast"
   },
   {
     "word": "broaden",
     "explanation": "To make wider or expand in scope.",
-    "example": "Travel can broaden your perspective."
+    "example": "Travel can broaden your perspective.",
+    "blankExample": "Travel can _____ your perspective.",
+    "blankAnswer": "broaden"
   },
   {
     "word": "brutish",
     "explanation": "Savage, cruel, or lacking intelligence.",
-    "example": "The villain's brutish behavior shocked everyone."
+    "example": "The villain's brutish behavior shocked everyone.",
+    "blankExample": "The villain's _____ behavior shocked everyone.",
+    "blankAnswer": "brutish"
   },
   {
     "word": "brutishly",
     "explanation": "In a cruel, violent, or uncivilized manner.",
-    "example": "The prisoners were treated brutishly."
+    "example": "The prisoners were treated brutishly.",
+    "blankExample": "The prisoners were treated _____.",
+    "blankAnswer": "brutishly"
   },
   {
     "word": "commensurate",
     "explanation": "Corresponding in size, degree, or extent.",
-    "example": "The salary should be commensurate with experience."
+    "example": "The salary should be commensurate with experience.",
+    "blankExample": "The salary should be _____ with experience.",
+    "blankAnswer": "commensurate"
   },
-
   {
     "word": "commiserate",
     "explanation": "To express sympathy or sorrow for someone else's misfortune.",
-    "example": "Her friends commiserated with her after she lost her job."
+    "example": "Her friends commiserated with her after she lost her job.",
+    "blankExample": "Her friends _____ with her after she lost her job.",
+    "blankAnswer": "commiserated"
   },
   {
     "word": "commonplace",
     "explanation": "Ordinary, usual, or lacking uniqueness.",
-    "example": "Smartphones have become commonplace in modern society."
+    "example": "Smartphones have become commonplace in modern society.",
+    "blankExample": "Smartphones have become _____ in modern society.",
+    "blankAnswer": "commonplace"
   },
   {
     "word": "compel",
     "explanation": "To force or strongly persuade someone to do something.",
-    "example": "The evidence compelled the jury to reconsider its decision."
+    "example": "The evidence compelled the jury to reconsider its decision.",
+    "blankExample": "The evidence _____ the jury to reconsider its decision.",
+    "blankAnswer": "compelled"
   },
   {
     "word": "compelling",
     "explanation": "Capturing attention and convincing.",
-    "example": "The speaker presented a compelling argument."
+    "example": "The speaker presented a compelling argument.",
+    "blankExample": "The speaker presented a _____ argument.",
+    "blankAnswer": "compelling"
   },
   {
     "word": "compensate",
     "explanation": "To make up for a loss, deficiency, or inconvenience.",
-    "example": "The company compensated customers for the delay."
+    "example": "The company compensated customers for the delay.",
+    "blankExample": "The company _____ customers for the delay.",
+    "blankAnswer": "compensated"
   },
   {
     "word": "compensation",
     "explanation": "Something given in return for loss, damage, or effort.",
-    "example": "Workers received compensation for overtime hours."
+    "example": "Workers received compensation for overtime hours.",
+    "blankExample": "Workers received _____ for overtime hours.",
+    "blankAnswer": "compensation"
   },
   {
     "word": "competent",
     "explanation": "Having the necessary ability, knowledge, or skill.",
-    "example": "She is a competent engineer with years of experience."
+    "example": "She is a competent engineer with years of experience.",
+    "blankExample": "She is a _____ engineer with years of experience.",
+    "blankAnswer": "competent"
   },
   {
     "word": "compile",
     "explanation": "To gather information from various sources into one collection.",
-    "example": "The researcher compiled data from multiple studies."
+    "example": "The researcher compiled data from multiple studies.",
+    "blankExample": "The researcher _____ data from multiple studies.",
+    "blankAnswer": "compiled"
   },
   {
     "word": "complacent",
     "explanation": "Too satisfied with oneself and unaware of potential dangers.",
-    "example": "Success made the team complacent."
+    "example": "Success made the team complacent.",
+    "blankExample": "Success made the team _____.",
+    "blankAnswer": "complacent"
   },
   {
     "word": "complement",
     "explanation": "Something that completes or enhances another thing.",
-    "example": "The wine was a perfect complement to the meal."
+    "example": "The wine was a perfect complement to the meal.",
+    "blankExample": "The wine was a perfect _____ to the meal.",
+    "blankAnswer": "complement"
   },
   {
     "word": "complementary",
     "explanation": "Serving to complete or enhance something else.",
-    "example": "Their skills are complementary."
+    "example": "Their skills are complementary.",
+    "blankExample": "Their skills are _____.",
+    "blankAnswer": "complementary"
   },
   {
     "word": "complex",
     "explanation": "Consisting of many interconnected parts; complicated.",
-    "example": "The problem was more complex than expected."
+    "example": "The problem was more complex than expected.",
+    "blankExample": "The problem was more _____ than expected.",
+    "blankAnswer": "complex"
   },
   {
     "word": "complexity",
     "explanation": "The state of having many interconnected parts or being difficult to understand.",
-    "example": "The complexity of the system required careful planning."
+    "example": "The complexity of the system required careful planning.",
+    "blankExample": "The _____ of the system required careful planning.",
+    "blankAnswer": "complexity"
   },
   {
     "word": "compliance",
     "explanation": "The act of obeying rules, laws, or requests.",
-    "example": "The company is in compliance with safety regulations."
+    "example": "The company is in compliance with safety regulations.",
+    "blankExample": "The company is in _____ with safety regulations.",
+    "blankAnswer": "compliance"
   },
   {
     "word": "comply",
     "explanation": "To act according to a rule, request, or command.",
-    "example": "Employees must comply with company policies."
+    "example": "Employees must comply with company policies.",
+    "blankExample": "Employees must _____ with company policies.",
+    "blankAnswer": "comply"
   },
   {
     "word": "comprise",
     "explanation": "To consist of or be made up of.",
-    "example": "The committee comprises five members."
+    "example": "The committee comprises five members.",
+    "blankExample": "The committee _____ five members.",
+    "blankAnswer": "comprises"
   },
   {
     "word": "compromise",
     "explanation": "An agreement reached through mutual concessions.",
-    "example": "Both sides agreed to a compromise."
+    "example": "Both sides agreed to a compromise.",
+    "blankExample": "Both sides agreed to a _____.",
+    "blankAnswer": "compromise"
   },
   {
     "word": "conceal",
     "explanation": "To hide or keep something from being seen or known.",
-    "example": "He tried to conceal his disappointment."
+    "example": "He tried to conceal his disappointment.",
+    "blankExample": "He tried to _____ his disappointment.",
+    "blankAnswer": "conceal"
   },
   {
     "word": "concede",
     "explanation": "To admit that something is true after initially resisting.",
-    "example": "She conceded that her opponent had a strong point."
+    "example": "She conceded that her opponent had a strong point.",
+    "blankExample": "She _____ that her opponent had a strong point.",
+    "blankAnswer": "conceded"
   },
   {
     "word": "conceivable",
     "explanation": "Possible to imagine or believe.",
-    "example": "It is conceivable that technology will advance even further."
+    "example": "It is conceivable that technology will advance even further.",
+    "blankExample": "It is _____ that technology will advance even further.",
+    "blankAnswer": "conceivable"
   },
   {
     "word": "conceive",
     "explanation": "To form an idea or plan in the mind.",
-    "example": "The architect conceived a unique design."
+    "example": "The architect conceived a unique design.",
+    "blankExample": "The architect _____ a unique design.",
+    "blankAnswer": "conceived"
   },
   {
     "word": "concentrate",
     "explanation": "To focus attention or effort on something.",
-    "example": "Students need to concentrate during the exam."
+    "example": "Students need to concentrate during the exam.",
+    "blankExample": "Students need to _____ during the exam.",
+    "blankAnswer": "concentrate"
   },
   {
     "word": "concentration",
     "explanation": "The ability to focus attention.",
-    "example": "The task required a high level of concentration."
+    "example": "The task required a high level of concentration.",
+    "blankExample": "The task required a high level of _____.",
+    "blankAnswer": "concentration"
   },
   {
     "word": "concept",
     "explanation": "An abstract idea or general notion.",
-    "example": "Freedom is a difficult concept to define."
+    "example": "Freedom is a difficult concept to define.",
+    "blankExample": "Freedom is a difficult _____ to define.",
+    "blankAnswer": "concept"
   },
   {
     "word": "conceptual",
     "explanation": "Related to ideas, concepts, or understanding.",
-    "example": "The course focuses on conceptual understanding."
+    "example": "The course focuses on conceptual understanding.",
+    "blankExample": "The course focuses on _____ understanding.",
+    "blankAnswer": "conceptual"
   },
-
   {
     "word": "concern",
     "explanation": "A feeling of worry; a matter of interest or importance.",
-    "example": "The rising cost of living is a major concern for many families."
+    "example": "The rising cost of living is a major concern for many families.",
+    "blankExample": "The rising cost of living is a major _____ for many families.",
+    "blankAnswer": "concern"
   },
   {
     "word": "concerning",
     "explanation": "About; relating to; causing worry.",
-    "example": "The doctor noticed several concerning symptoms."
+    "example": "The doctor noticed several concerning symptoms.",
+    "blankExample": "The doctor noticed several _____ symptoms.",
+    "blankAnswer": "concerning"
   },
   {
     "word": "conclude",
     "explanation": "To bring something to an end or reach a decision.",
-    "example": "The meeting concluded after two hours of discussion."
+    "example": "The meeting concluded after two hours of discussion.",
+    "blankExample": "The meeting _____ after two hours of discussion.",
+    "blankAnswer": "concluded"
   },
   {
     "word": "conclusion",
     "explanation": "A final decision, judgment, or result.",
-    "example": "The researchers reached the conclusion that the treatment was effective."
+    "example": "The researchers reached the conclusion that the treatment was effective.",
+    "blankExample": "The researchers reached the _____ that the treatment was effective.",
+    "blankAnswer": "conclusion"
   },
   {
     "word": "conclusive",
     "explanation": "Providing definite proof or a final answer.",
-    "example": "The DNA evidence was conclusive."
+    "example": "The DNA evidence was conclusive.",
+    "blankExample": "The DNA evidence was _____.",
+    "blankAnswer": "conclusive"
   },
   {
     "word": "concur",
     "explanation": "To agree with someone or something.",
-    "example": "Most experts concur with the findings of the report."
+    "example": "Most experts concur with the findings of the report.",
+    "blankExample": "Most experts _____ with the findings of the report.",
+    "blankAnswer": "concur"
   },
   {
     "word": "concurrent",
     "explanation": "Occurring at the same time.",
-    "example": "The two events were concurrent."
+    "example": "The two events were concurrent.",
+    "blankExample": "The two events were _____.",
+    "blankAnswer": "concurrent"
   },
   {
     "word": "condemn",
     "explanation": "To express strong disapproval of something.",
-    "example": "The international community condemned the attack."
+    "example": "The international community condemned the attack.",
+    "blankExample": "The international community _____ the attack.",
+    "blankAnswer": "condemned"
   },
   {
     "word": "condense",
     "explanation": "To make something shorter, smaller, or more concentrated.",
-    "example": "The editor condensed the article into a single page."
+    "example": "The editor condensed the article into a single page.",
+    "blankExample": "The editor _____ the article into a single page.",
+    "blankAnswer": "condensed"
   },
   {
     "word": "condition",
     "explanation": "A state of being; a requirement that must be met.",
-    "example": "The car is in excellent condition."
+    "example": "The car is in excellent condition.",
+    "blankExample": "The car is in excellent _____.",
+    "blankAnswer": "condition"
   },
   {
     "word": "conditional",
     "explanation": "Dependent upon certain circumstances or requirements.",
-    "example": "The offer was conditional upon approval."
+    "example": "The offer was conditional upon approval.",
+    "blankExample": "The offer was _____ upon approval.",
+    "blankAnswer": "conditional"
   },
   {
     "word": "conduct",
     "explanation": "To organize or carry out; behavior.",
-    "example": "The scientist conducted several experiments."
+    "example": "The scientist conducted several experiments.",
+    "blankExample": "The scientist _____ several experiments.",
+    "blankAnswer": "conducted"
   },
   {
     "word": "confer",
     "explanation": "To discuss something together; to grant an honor or benefit.",
-    "example": "The committee met to confer about the proposal."
+    "example": "The committee met to confer about the proposal.",
+    "blankExample": "The committee met to _____ about the proposal.",
+    "blankAnswer": "confer"
   },
   {
     "word": "conference",
     "explanation": "A formal meeting for discussion.",
-    "example": "She attended a conference on artificial intelligence."
+    "example": "She attended a conference on artificial intelligence.",
+    "blankExample": "She attended a _____ on artificial intelligence.",
+    "blankAnswer": "conference"
   },
   {
     "word": "confess",
     "explanation": "To admit or acknowledge something, especially a fault.",
-    "example": "He confessed that he had broken the vase."
+    "example": "He confessed that he had broken the vase.",
+    "blankExample": "He _____ that he had broken the vase.",
+    "blankAnswer": "confessed"
   },
   {
     "word": "confession",
     "explanation": "A statement admitting something.",
-    "example": "The suspect's confession was recorded."
+    "example": "The suspect's confession was recorded.",
+    "blankExample": "The suspect's _____ was recorded.",
+    "blankAnswer": "confession"
   },
   {
     "word": "confident",
     "explanation": "Having belief in one's abilities or judgment.",
-    "example": "She felt confident before the interview."
+    "example": "She felt confident before the interview.",
+    "blankExample": "She felt _____ before the interview.",
+    "blankAnswer": "confident"
   },
   {
     "word": "confine",
     "explanation": "To restrict or keep within limits.",
-    "example": "The patient was confined to bed for several days."
+    "example": "The patient was confined to bed for several days.",
+    "blankExample": "The patient was _____ to bed for several days.",
+    "blankAnswer": "confined"
   },
   {
     "word": "confirm",
     "explanation": "To establish the truth or correctness of something.",
-    "example": "The test results confirmed the diagnosis."
+    "example": "The test results confirmed the diagnosis.",
+    "blankExample": "The test results _____ the diagnosis.",
+    "blankAnswer": "confirmed"
   },
   {
     "word": "confirmation",
     "explanation": "Proof or verification that something is true.",
-    "example": "We received confirmation of the reservation."
+    "example": "We received confirmation of the reservation.",
+    "blankExample": "We received _____ of the reservation.",
+    "blankAnswer": "confirmation"
   },
   {
     "word": "conflict",
     "explanation": "A serious disagreement or struggle.",
-    "example": "The conflict between the two groups lasted for years."
+    "example": "The conflict between the two groups lasted for years.",
+    "blankExample": "The _____ between the two groups lasted for years.",
+    "blankAnswer": "conflict"
   },
   {
     "word": "conform",
     "explanation": "To behave according to accepted standards or rules.",
-    "example": "Employees must conform to company policies."
+    "example": "Employees must conform to company policies.",
+    "blankExample": "Employees must _____ to company policies.",
+    "blankAnswer": "conform"
   },
   {
     "word": "conformity",
     "explanation": "The act of matching attitudes or behavior to a group standard.",
-    "example": "Peer pressure often encourages conformity."
+    "example": "Peer pressure often encourages conformity.",
+    "blankExample": "Peer pressure often encourages _____.",
+    "blankAnswer": "conformity"
   },
   {
     "word": "confound",
     "explanation": "To confuse or surprise someone.",
-    "example": "The difficult puzzle confounded the students."
+    "example": "The difficult puzzle confounded the students.",
+    "blankExample": "The difficult puzzle _____ the students.",
+    "blankAnswer": "confounded"
   },
   {
     "word": "confront",
     "explanation": "To face or deal with a difficult situation directly.",
-    "example": "She decided to confront the problem immediately."
+    "example": "She decided to confront the problem immediately.",
+    "blankExample": "She decided to _____ the problem immediately.",
+    "blankAnswer": "confront"
   },
-
-
   {
     "word": "confrontation",
     "explanation": "A direct and often hostile encounter between opposing parties.",
-    "example": "The confrontation between the two leaders attracted media attention."
+    "example": "The confrontation between the two leaders attracted media attention.",
+    "blankExample": "The _____ between the two leaders attracted media attention.",
+    "blankAnswer": "confrontation"
   },
   {
     "word": "confuse",
     "explanation": "To make someone unable to think clearly or understand.",
-    "example": "The complicated instructions confused the students."
+    "example": "The complicated instructions confused the students.",
+    "blankExample": "The complicated instructions _____ the students.",
+    "blankAnswer": "confused"
   },
   {
     "word": "confusion",
     "explanation": "A state of uncertainty or lack of understanding.",
-    "example": "The sudden announcement caused confusion among employees."
+    "example": "The sudden announcement caused confusion among employees.",
+    "blankExample": "The sudden announcement caused _____ among employees.",
+    "blankAnswer": "confusion"
   },
   {
     "word": "congestion",
     "explanation": "Overcrowding or blockage that prevents smooth movement.",
-    "example": "Heavy traffic congestion delayed the commute."
+    "example": "Heavy traffic congestion delayed the commute.",
+    "blankExample": "Heavy traffic _____ delayed the commute.",
+    "blankAnswer": "congestion"
   },
   {
     "word": "congregate",
     "explanation": "To gather together in a group.",
-    "example": "People congregated in the town square to celebrate."
+    "example": "People congregated in the town square to celebrate.",
+    "blankExample": "People _____ in the town square to celebrate.",
+    "blankAnswer": "congregated"
   },
   {
     "word": "conjecture",
     "explanation": "An opinion or conclusion based on incomplete information.",
-    "example": "Without evidence, the theory remained mere conjecture."
+    "example": "Without evidence, the theory remained mere conjecture.",
+    "blankExample": "Without evidence, the theory remained mere _____.",
+    "blankAnswer": "conjecture"
   },
   {
     "word": "conscientious",
     "explanation": "Careful, responsible, and diligent in doing one's work.",
-    "example": "She is a conscientious student who always completes assignments on time."
+    "example": "She is a conscientious student who always completes assignments on time.",
+    "blankExample": "She is a _____ student who always completes assignments on time.",
+    "blankAnswer": "conscientious"
   },
   {
     "word": "conscious",
     "explanation": "Aware of one's surroundings, thoughts, or actions.",
-    "example": "He remained conscious after the accident."
+    "example": "He remained conscious after the accident.",
+    "blankExample": "He remained _____ after the accident.",
+    "blankAnswer": "conscious"
   },
   {
     "word": "consciousness",
     "explanation": "The state of being aware and able to think and perceive.",
-    "example": "The patient gradually regained consciousness."
+    "example": "The patient gradually regained consciousness.",
+    "blankExample": "The patient gradually regained _____.",
+    "blankAnswer": "consciousness"
   },
   {
     "word": "consensus",
     "explanation": "General agreement among a group of people.",
-    "example": "The committee reached a consensus after hours of discussion."
+    "example": "The committee reached a consensus after hours of discussion.",
+    "blankExample": "The committee reached a _____ after hours of discussion.",
+    "blankAnswer": "consensus"
   },
   {
     "word": "consent",
     "explanation": "Permission or agreement to do something.",
-    "example": "The doctor obtained the patient's consent before the procedure."
+    "example": "The doctor obtained the patient's consent before the procedure.",
+    "blankExample": "The doctor obtained the patient's _____ before the procedure.",
+    "blankAnswer": "consent"
   },
   {
     "word": "consequence",
     "explanation": "A result or effect of an action or condition.",
-    "example": "One consequence of neglecting maintenance was equipment failure."
+    "example": "One consequence of neglecting maintenance was equipment failure.",
+    "blankExample": "One _____ of neglecting maintenance was equipment failure.",
+    "blankAnswer": "consequence"
   },
   {
     "word": "consequently",
     "explanation": "As a result; therefore.",
-    "example": "The roads were icy; consequently, many schools were closed."
+    "example": "The roads were icy; consequently, many schools were closed.",
+    "blankExample": "The roads were icy; _____, many schools were closed.",
+    "blankAnswer": "consequently"
   },
   {
     "word": "conservation",
     "explanation": "The protection and preservation of natural resources.",
-    "example": "Conservation efforts helped save the endangered species."
+    "example": "Conservation efforts helped save the endangered species.",
+    "blankExample": "_____ efforts helped save the endangered species.",
+    "blankAnswer": "Conservation"
   },
   {
     "word": "conservative",
     "explanation": "Favoring traditional methods and cautious change.",
-    "example": "The company adopted a conservative approach to investments."
+    "example": "The company adopted a conservative approach to investments.",
+    "blankExample": "The company adopted a _____ approach to investments.",
+    "blankAnswer": "conservative"
   },
   {
     "word": "consider",
     "explanation": "To think carefully about something before making a decision.",
-    "example": "Please consider all the options before choosing."
+    "example": "Please consider all the options before choosing.",
+    "blankExample": "Please _____ all the options before choosing.",
+    "blankAnswer": "consider"
   },
   {
     "word": "considerable",
     "explanation": "Large in amount, size, or importance.",
-    "example": "The project required a considerable amount of time."
+    "example": "The project required a considerable amount of time.",
+    "blankExample": "The project required a _____ amount of time.",
+    "blankAnswer": "considerable"
   },
   {
     "word": "considerably",
     "explanation": "To a significant degree or extent.",
-    "example": "Prices have increased considerably over the past year."
+    "example": "Prices have increased considerably over the past year.",
+    "blankExample": "Prices have increased _____ over the past year.",
+    "blankAnswer": "considerably"
   },
   {
     "word": "considerate",
     "explanation": "Showing concern for the needs and feelings of others.",
-    "example": "It was considerate of her to help her elderly neighbor."
+    "example": "It was considerate of her to help her elderly neighbor.",
+    "blankExample": "It was _____ of her to help her elderly neighbor.",
+    "blankAnswer": "considerate"
   },
   {
     "word": "consideration",
     "explanation": "Careful thought; concern for others.",
-    "example": "The proposal is currently under consideration."
+    "example": "The proposal is currently under consideration.",
+    "blankExample": "The proposal is currently under _____.",
+    "blankAnswer": "consideration"
   },
   {
     "word": "consist",
     "explanation": "To be made up of or composed of.",
-    "example": "The team consists of five members."
+    "example": "The team consists of five members.",
+    "blankExample": "The team _____ of five members.",
+    "blankAnswer": "consists"
   },
   {
     "word": "consistent",
     "explanation": "Acting or occurring in the same way over time.",
-    "example": "His performance has been consistently excellent."
+    "example": "His performance has been consistently excellent.",
+    "blankExample": "His performance has been _____ excellent.",
+    "blankAnswer": "consistently"
   },
   {
     "word": "consistently",
     "explanation": "In a steady and reliable manner.",
-    "example": "She consistently arrives early to work."
+    "example": "She consistently arrives early to work.",
+    "blankExample": "She _____ arrives early to work.",
+    "blankAnswer": "consistently"
   },
   {
     "word": "conspicuous",
     "explanation": "Easy to notice; clearly visible.",
-    "example": "The bright red jacket made him conspicuous in the crowd."
+    "example": "The bright red jacket made him conspicuous in the crowd.",
+    "blankExample": "The bright red jacket made him _____ in the crowd.",
+    "blankAnswer": "conspicuous"
   },
   {
     "word": "conspiracy",
     "explanation": "A secret plan by a group to do something harmful or illegal.",
-    "example": "The investigation uncovered a conspiracy to commit fraud."
+    "example": "The investigation uncovered a conspiracy to commit fraud.",
+    "blankExample": "The investigation uncovered a _____ to commit fraud.",
+    "blankAnswer": "conspiracy"
   },
-
-
   {
     "word": "constant",
     "explanation": "Remaining the same over time; continuous and unchanging.",
-    "example": "The constant noise made it difficult to concentrate."
+    "example": "The constant noise made it difficult to concentrate.",
+    "blankExample": "The _____ noise made it difficult to concentrate.",
+    "blankAnswer": "constant"
   },
   {
     "word": "constantly",
     "explanation": "Continuously; occurring all the time.",
-    "example": "Technology is constantly evolving."
+    "example": "Technology is constantly evolving.",
+    "blankExample": "Technology is _____ evolving.",
+    "blankAnswer": "constantly"
   },
   {
     "word": "constitute",
     "explanation": "To form, compose, or make up something.",
-    "example": "Women constitute more than half of the workforce."
+    "example": "Women constitute more than half of the workforce.",
+    "blankExample": "Women _____ more than half of the workforce.",
+    "blankAnswer": "constitute"
   },
   {
     "word": "constraint",
     "explanation": "A limitation or restriction on action or behavior.",
-    "example": "Budget constraints delayed the project."
+    "example": "Budget constraints delayed the project.",
+    "blankExample": "Budget _____ delayed the project.",
+    "blankAnswer": "constraints"
   },
   {
     "word": "constrain",
     "explanation": "To limit or restrict someone's actions or choices.",
-    "example": "Financial difficulties constrained their options."
+    "example": "Financial difficulties constrained their options.",
+    "blankExample": "Financial difficulties _____ their options.",
+    "blankAnswer": "constrained"
   },
   {
     "word": "construct",
     "explanation": "To build or create something.",
-    "example": "Workers constructed a new bridge across the river."
+    "example": "Workers constructed a new bridge across the river.",
+    "blankExample": "Workers _____ a new bridge across the river.",
+    "blankAnswer": "constructed"
   },
   {
     "word": "construction",
     "explanation": "The process of building something.",
-    "example": "Construction of the new hospital began last year."
+    "example": "Construction of the new hospital began last year.",
+    "blankExample": "_____ of the new hospital began last year.",
+    "blankAnswer": "Construction"
   },
   {
     "word": "consult",
     "explanation": "To seek advice or information from someone.",
-    "example": "You should consult a doctor before taking the medication."
+    "example": "You should consult a doctor before taking the medication.",
+    "blankExample": "You should _____ a doctor before taking the medication.",
+    "blankAnswer": "consult"
   },
   {
     "word": "consultation",
     "explanation": "A meeting held to seek advice or discuss something.",
-    "example": "The lawyer offered a free consultation."
+    "example": "The lawyer offered a free consultation.",
+    "blankExample": "The lawyer offered a free _____.",
+    "blankAnswer": "consultation"
   },
   {
     "word": "consume",
     "explanation": "To use up, eat, drink, or absorb.",
-    "example": "The machine consumes a large amount of electricity."
+    "example": "The machine consumes a large amount of electricity.",
+    "blankExample": "The machine _____ a large amount of electricity.",
+    "blankAnswer": "consumes"
   },
   {
     "word": "consumer",
     "explanation": "A person who purchases or uses goods and services.",
-    "example": "Consumers are demanding more environmentally friendly products."
+    "example": "Consumers are demanding more environmentally friendly products.",
+    "blankExample": "_____ are demanding more environmentally friendly products.",
+    "blankAnswer": "Consumers"
   },
   {
     "word": "consumption",
     "explanation": "The act of using, eating, or drinking something.",
-    "example": "Water consumption increases during the summer."
+    "example": "Water consumption increases during the summer.",
+    "blankExample": "Water _____ increases during the summer.",
+    "blankAnswer": "consumption"
   },
   {
     "word": "contact",
     "explanation": "Communication or connection with someone or something.",
-    "example": "Please contact me if you have any questions."
+    "example": "Please contact me if you have any questions.",
+    "blankExample": "Please _____ me if you have any questions.",
+    "blankAnswer": "contact"
   },
   {
     "word": "contain",
     "explanation": "To hold or include something within limits.",
-    "example": "The box contains important documents."
+    "example": "The box contains important documents.",
+    "blankExample": "The box _____ important documents.",
+    "blankAnswer": "contains"
   },
   {
     "word": "container",
     "explanation": "An object used to hold or store something.",
-    "example": "The food was stored in a plastic container."
+    "example": "The food was stored in a plastic container.",
+    "blankExample": "The food was stored in a plastic _____.",
+    "blankAnswer": "container"
   },
   {
     "word": "contaminate",
     "explanation": "To make something impure, dirty, or unsafe.",
-    "example": "Chemicals contaminated the water supply."
+    "example": "Chemicals contaminated the water supply.",
+    "blankExample": "Chemicals _____ the water supply.",
+    "blankAnswer": "contaminated"
   },
   {
     "word": "contamination",
     "explanation": "The process or result of making something impure or unsafe.",
-    "example": "The factory was blamed for environmental contamination."
+    "example": "The factory was blamed for environmental contamination.",
+    "blankExample": "The factory was blamed for environmental _____.",
+    "blankAnswer": "contamination"
   },
   {
     "word": "contemplate",
     "explanation": "To think deeply and carefully about something.",
-    "example": "She contemplated moving to another country."
+    "example": "She contemplated moving to another country.",
+    "blankExample": "She _____ moving to another country.",
+    "blankAnswer": "contemplated"
   },
   {
     "word": "contemporary",
     "explanation": "Belonging to the present time; modern.",
-    "example": "The museum specializes in contemporary art."
+    "example": "The museum specializes in contemporary art.",
+    "blankExample": "The museum specializes in _____ art.",
+    "blankAnswer": "contemporary"
   },
   {
     "word": "contend",
     "explanation": "To argue, assert, or compete against difficulties.",
-    "example": "The author contends that the policy will fail."
+    "example": "The author contends that the policy will fail.",
+    "blankExample": "The author _____ that the policy will fail.",
+    "blankAnswer": "contends"
   },
   {
     "word": "content",
     "explanation": "The information or substance contained within something; satisfied.",
-    "example": "The content of the book was fascinating."
+    "example": "The content of the book was fascinating.",
+    "blankExample": "The _____ of the book was fascinating.",
+    "blankAnswer": "content"
   },
   {
     "word": "contention",
     "explanation": "A disagreement, argument, or claim.",
-    "example": "The main contention between the groups concerned funding."
+    "example": "The main contention between the groups concerned funding.",
+    "blankExample": "The main _____ between the groups concerned funding.",
+    "blankAnswer": "contention"
   },
   {
     "word": "contest",
     "explanation": "A competition; to challenge or dispute something.",
-    "example": "She won first place in the writing contest."
+    "example": "She won first place in the writing contest.",
+    "blankExample": "She won first place in the writing _____.",
+    "blankAnswer": "contest"
   },
   {
     "word": "context",
     "explanation": "The circumstances surrounding an event, statement, or idea.",
-    "example": "The quote was misunderstood because it was taken out of context."
+    "example": "The quote was misunderstood because it was taken out of context.",
+    "blankExample": "The quote was misunderstood because it was taken out of _____.",
+    "blankAnswer": "context"
   },
   {
     "word": "continual",
     "explanation": "Occurring repeatedly with interruptions.",
-    "example": "The continual interruptions slowed the meeting."
+    "example": "The continual interruptions slowed the meeting.",
+    "blankExample": "The _____ interruptions slowed the meeting.",
+    "blankAnswer": "continual"
   },
-
-
   {
     "word": "continue",
     "explanation": "To keep doing something without stopping.",
-    "example": "Despite the rain, they continued the game."
+    "example": "Despite the rain, they continued the game.",
+    "blankExample": "Despite the rain, they _____ the game.",
+    "blankAnswer": "continued"
   },
   {
     "word": "continuous",
     "explanation": "Occurring without interruption.",
-    "example": "The machine operates in a continuous cycle."
+    "example": "The machine operates in a continuous cycle.",
+    "blankExample": "The machine operates in a _____ cycle.",
+    "blankAnswer": "continuous"
   },
   {
     "word": "continuously",
     "explanation": "Without stopping or interruption.",
-    "example": "The baby cried continuously throughout the night."
+    "example": "The baby cried continuously throughout the night.",
+    "blankExample": "The baby cried _____ throughout the night.",
+    "blankAnswer": "continuously"
   },
   {
     "word": "contract",
     "explanation": "A legal agreement between two or more parties.",
-    "example": "Both companies signed a contract."
+    "example": "Both companies signed a contract.",
+    "blankExample": "Both companies signed a _____.",
+    "blankAnswer": "contract"
   },
   {
     "word": "contradict",
     "explanation": "To say the opposite of something or prove it false.",
-    "example": "The witness's testimony contradicted earlier reports."
+    "example": "The witness's testimony contradicted earlier reports.",
+    "blankExample": "The witness's testimony _____ earlier reports.",
+    "blankAnswer": "contradicted"
   },
   {
     "word": "contradiction",
     "explanation": "A statement or situation that is inconsistent with another.",
-    "example": "There was a contradiction between the two accounts."
+    "example": "There was a contradiction between the two accounts.",
+    "blankExample": "There was a _____ between the two accounts.",
+    "blankAnswer": "contradiction"
   },
   {
     "word": "contrary",
     "explanation": "Opposite in nature, direction, or meaning.",
-    "example": "Contrary to expectations, the experiment succeeded."
+    "example": "Contrary to expectations, the experiment succeeded.",
+    "blankExample": "_____ to expectations, the experiment succeeded.",
+    "blankAnswer": "Contrary"
   },
   {
     "word": "contrast",
     "explanation": "A noticeable difference between things.",
-    "example": "The contrast between the two paintings was striking."
+    "example": "The contrast between the two paintings was striking.",
+    "blankExample": "The _____ between the two paintings was striking.",
+    "blankAnswer": "contrast"
   },
   {
     "word": "contribute",
     "explanation": "To give, provide, or help bring about a result.",
-    "example": "Many factors contributed to the team's success."
+    "example": "Many factors contributed to the team's success.",
+    "blankExample": "Many factors _____ to the team's success.",
+    "blankAnswer": "contributed"
   },
   {
     "word": "contribution",
     "explanation": "Something given to help achieve a result.",
-    "example": "Her contribution to the project was invaluable."
+    "example": "Her contribution to the project was invaluable.",
+    "blankExample": "Her _____ to the project was invaluable.",
+    "blankAnswer": "contribution"
   },
   {
     "word": "controversial",
     "explanation": "Causing disagreement or public debate.",
-    "example": "The politician made a controversial statement."
+    "example": "The politician made a controversial statement.",
+    "blankExample": "The politician made a _____ statement.",
+    "blankAnswer": "controversial"
   },
   {
     "word": "controversy",
     "explanation": "A prolonged public disagreement or debate.",
-    "example": "The decision sparked widespread controversy."
+    "example": "The decision sparked widespread controversy.",
+    "blankExample": "The decision sparked widespread _____.",
+    "blankAnswer": "controversy"
   },
   {
     "word": "convenience",
     "explanation": "The quality of being easy and practical to use.",
-    "example": "Online shopping offers great convenience."
+    "example": "Online shopping offers great convenience.",
+    "blankExample": "Online shopping offers great _____.",
+    "blankAnswer": "convenience"
   },
   {
     "word": "convenient",
     "explanation": "Easy to use, reach, or obtain.",
-    "example": "The store is in a convenient location."
+    "example": "The store is in a convenient location.",
+    "blankExample": "The store is in a _____ location.",
+    "blankAnswer": "convenient"
   },
   {
     "word": "convention",
     "explanation": "A traditional practice or large formal meeting.",
-    "example": "Thousands attended the annual convention."
+    "example": "Thousands attended the annual convention.",
+    "blankExample": "Thousands attended the annual _____.",
+    "blankAnswer": "convention"
   },
   {
     "word": "conventional",
     "explanation": "Following traditional or commonly accepted methods.",
-    "example": "They chose a conventional approach to solving the problem."
+    "example": "They chose a conventional approach to solving the problem.",
+    "blankExample": "They chose a _____ approach to solving the problem.",
+    "blankAnswer": "conventional"
   },
   {
     "word": "converge",
     "explanation": "To come together from different directions toward one point.",
-    "example": "The roads converge near the city center."
+    "example": "The roads converge near the city center.",
+    "blankExample": "The roads _____ near the city center.",
+    "blankAnswer": "converge"
   },
   {
     "word": "conversely",
     "explanation": "Introducing a statement that is the opposite of the previous one.",
-    "example": "Some people save money; conversely, others spend freely."
+    "example": "Some people save money; conversely, others spend freely.",
+    "blankExample": "Some people save money; _____, others spend freely.",
+    "blankAnswer": "conversely"
   },
   {
     "word": "convert",
     "explanation": "To change something into a different form or purpose.",
-    "example": "The warehouse was converted into apartments."
+    "example": "The warehouse was converted into apartments.",
+    "blankExample": "The warehouse was _____ into apartments.",
+    "blankAnswer": "converted"
   },
   {
     "word": "convey",
     "explanation": "To communicate or make an idea known.",
-    "example": "Her words conveyed a sense of optimism."
+    "example": "Her words conveyed a sense of optimism.",
+    "blankExample": "Her words _____ a sense of optimism.",
+    "blankAnswer": "conveyed"
   },
   {
     "word": "convict",
     "explanation": "To find someone guilty of a crime in court.",
-    "example": "The jury convicted the defendant of theft."
+    "example": "The jury convicted the defendant of theft.",
+    "blankExample": "The jury _____ the defendant of theft.",
+    "blankAnswer": "convicted"
   },
   {
     "word": "conviction",
     "explanation": "A strong belief or a formal declaration of guilt.",
-    "example": "She spoke with conviction about her principles."
+    "example": "She spoke with conviction about her principles.",
+    "blankExample": "She spoke with _____ about her principles.",
+    "blankAnswer": "conviction"
   },
   {
     "word": "convince",
     "explanation": "To persuade someone to believe or do something.",
-    "example": "He convinced his friend to join the club."
+    "example": "He convinced his friend to join the club.",
+    "blankExample": "He _____ his friend to join the club.",
+    "blankAnswer": "convinced"
   },
   {
     "word": "convincing",
     "explanation": "Able to persuade others that something is true.",
-    "example": "The lawyer presented a convincing argument."
+    "example": "The lawyer presented a convincing argument.",
+    "blankExample": "The lawyer presented a _____ argument.",
+    "blankAnswer": "convincing"
   },
   {
     "word": "cooperate",
     "explanation": "To work together toward a common goal.",
-    "example": "The two organizations cooperated on the project."
+    "example": "The two organizations cooperated on the project.",
+    "blankExample": "The two organizations _____ on the project.",
+    "blankAnswer": "cooperated"
   },
-
-
-
   {
     "word": "cooperation",
     "explanation": "The process of working together toward a common goal.",
-    "example": "The project succeeded because of excellent cooperation between the teams."
+    "example": "The project succeeded because of excellent cooperation between the teams.",
+    "blankExample": "The project succeeded because of excellent _____ between the teams.",
+    "blankAnswer": "cooperation"
   },
   {
     "word": "coordinate",
     "explanation": "To organize different activities so they work together effectively.",
-    "example": "She coordinated the volunteers for the event."
+    "example": "She coordinated the volunteers for the event.",
+    "blankExample": "She _____ the volunteers for the event.",
+    "blankAnswer": "coordinated"
   },
   {
     "word": "cope",
     "explanation": "To deal successfully with a difficult situation.",
-    "example": "It took him time to cope with the loss."
+    "example": "It took him time to cope with the loss.",
+    "blankExample": "It took him time to _____ with the loss.",
+    "blankAnswer": "cope"
   },
   {
     "word": "core",
     "explanation": "The central or most important part of something.",
-    "example": "Trust is at the core of every strong relationship."
+    "example": "Trust is at the core of every strong relationship.",
+    "blankExample": "Trust is at the _____ of every strong relationship.",
+    "blankAnswer": "core"
   },
   {
     "word": "corporate",
     "explanation": "Related to a large company or business organization.",
-    "example": "She works in the corporate headquarters."
+    "example": "She works in the corporate headquarters.",
+    "blankExample": "She works in the _____ headquarters.",
+    "blankAnswer": "corporate"
   },
   {
     "word": "correspond",
     "explanation": "To match, be similar, or communicate by letters or messages.",
-    "example": "The results correspond to our expectations."
+    "example": "The results correspond to our expectations.",
+    "blankExample": "The results _____ to our expectations.",
+    "blankAnswer": "correspond"
   },
   {
     "word": "correspondence",
     "explanation": "Communication through letters, emails, or messages.",
-    "example": "The office keeps records of all correspondence."
+    "example": "The office keeps records of all correspondence.",
+    "blankExample": "The office keeps records of all _____.",
+    "blankAnswer": "correspondence"
   },
   {
     "word": "corresponding",
     "explanation": "Matching or equivalent to something else.",
-    "example": "Each department has a corresponding manager."
+    "example": "Each department has a corresponding manager.",
+    "blankExample": "Each department has a _____ manager.",
+    "blankAnswer": "corresponding"
   },
   {
     "word": "corridor",
     "explanation": "A long passage connecting rooms or areas.",
-    "example": "Students gathered in the corridor between classes."
+    "example": "Students gathered in the corridor between classes.",
+    "blankExample": "Students gathered in the _____ between classes.",
+    "blankAnswer": "corridor"
   },
   {
     "word": "counsel",
     "explanation": "Advice or guidance; to give advice.",
-    "example": "The lawyer provided legal counsel."
+    "example": "The lawyer provided legal counsel.",
+    "blankExample": "The lawyer provided legal _____.",
+    "blankAnswer": "counsel"
   },
   {
     "word": "counterpart",
     "explanation": "A person or thing that has a similar role in another place or situation.",
-    "example": "She met her counterpart from the London office."
+    "example": "She met her counterpart from the London office.",
+    "blankExample": "She met her _____ from the London office.",
+    "blankAnswer": "counterpart"
   },
   {
     "word": "courageous",
     "explanation": "Showing bravery in the face of danger or difficulty.",
-    "example": "The firefighter made a courageous rescue."
+    "example": "The firefighter made a courageous rescue.",
+    "blankExample": "The firefighter made a _____ rescue.",
+    "blankAnswer": "courageous"
   },
   {
     "word": "courtesy",
     "explanation": "Polite behavior and respect toward others.",
-    "example": "As a courtesy, he held the door open."
+    "example": "As a courtesy, he held the door open.",
+    "blankExample": "As a _____, he held the door open.",
+    "blankAnswer": "courtesy"
   },
   {
     "word": "credible",
     "explanation": "Believable and trustworthy.",
-    "example": "The witness gave a credible account of the event."
+    "example": "The witness gave a credible account of the event.",
+    "blankExample": "The witness gave a _____ account of the event.",
+    "blankAnswer": "credible"
   },
   {
     "word": "credibility",
     "explanation": "The quality of being trusted and believed.",
-    "example": "The scandal damaged the company's credibility."
+    "example": "The scandal damaged the company's credibility.",
+    "blankExample": "The scandal damaged the company's _____.",
+    "blankAnswer": "credibility"
   },
   {
     "word": "criterion",
     "explanation": "A standard by which something is judged or evaluated.",
-    "example": "Cost was an important criterion in choosing a supplier."
+    "example": "Cost was an important criterion in choosing a supplier.",
+    "blankExample": "Cost was an important _____ in choosing a supplier.",
+    "blankAnswer": "criterion"
   },
   {
     "word": "crucial",
     "explanation": "Extremely important or necessary.",
-    "example": "Good communication is crucial for success."
+    "example": "Good communication is crucial for success.",
+    "blankExample": "Good communication is _____ for success.",
+    "blankAnswer": "crucial"
   },
   {
     "word": "cumulative",
     "explanation": "Increasing by successive additions over time.",
-    "example": "The cumulative effect of small changes was significant."
+    "example": "The cumulative effect of small changes was significant.",
+    "blankExample": "The _____ effect of small changes was significant.",
+    "blankAnswer": "cumulative"
   },
   {
     "word": "curb",
     "explanation": "To control, limit, or restrain something.",
-    "example": "The government introduced measures to curb inflation."
+    "example": "The government introduced measures to curb inflation.",
+    "blankExample": "The government introduced measures to _____ inflation.",
+    "blankAnswer": "curb"
   },
   {
     "word": "custom",
     "explanation": "A traditional way of behaving in a particular society.",
-    "example": "It is a local custom to remove shoes before entering a home."
+    "example": "It is a local custom to remove shoes before entering a home.",
+    "blankExample": "It is a local _____ to remove shoes before entering a home.",
+    "blankAnswer": "custom"
   },
   {
     "word": "customary",
     "explanation": "Usual or traditionally practiced.",
-    "example": "It is customary to tip restaurant servers."
+    "example": "It is customary to tip restaurant servers.",
+    "blankExample": "It is _____ to tip restaurant servers.",
+    "blankAnswer": "customary"
   },
   {
     "word": "cynical",
     "explanation": "Distrustful of people's motives and sincerity.",
-    "example": "He was cynical about the politician's promises."
+    "example": "He was cynical about the politician's promises.",
+    "blankExample": "He was _____ about the politician's promises.",
+    "blankAnswer": "cynical"
   },
   {
     "word": "debris",
     "explanation": "Scattered pieces of waste, remains, or broken material.",
-    "example": "The storm left debris across the roads."
+    "example": "The storm left debris across the roads.",
+    "blankExample": "The storm left _____ across the roads.",
+    "blankAnswer": "debris"
   },
   {
     "word": "decade",
     "explanation": "A period of ten years.",
-    "example": "The company has grown rapidly over the last decade."
+    "example": "The company has grown rapidly over the last decade.",
+    "blankExample": "The company has grown rapidly over the last _____.",
+    "blankAnswer": "decade"
   },
   {
     "word": "decay",
     "explanation": "To gradually deteriorate, rot, or decline.",
-    "example": "Without maintenance, the building began to decay."
+    "example": "Without maintenance, the building began to decay.",
+    "blankExample": "Without maintenance, the building began to _____.",
+    "blankAnswer": "decay"
   },
-
-
-
   {
     "word": "deceive",
     "explanation": "To mislead someone by giving false information.",
-    "example": "The advertisement was designed to deceive consumers."
+    "example": "The advertisement was designed to deceive consumers.",
+    "blankExample": "The advertisement was designed to _____ consumers.",
+    "blankAnswer": "deceive"
   },
   {
     "word": "deception",
     "explanation": "The act of misleading or tricking someone.",
-    "example": "The plan relied on deception to succeed."
+    "example": "The plan relied on deception to succeed.",
+    "blankExample": "The plan relied on _____ to succeed.",
+    "blankAnswer": "deception"
   },
   {
     "word": "deceptive",
     "explanation": "Giving a false impression; misleading.",
-    "example": "The simple appearance of the problem was deceptive."
+    "example": "The simple appearance of the problem was deceptive.",
+    "blankExample": "The simple appearance of the problem was _____.",
+    "blankAnswer": "deceptive"
   },
   {
     "word": "decisive",
     "explanation": "Able to make decisions quickly and effectively; determining the outcome.",
-    "example": "Her decisive action prevented a disaster."
+    "example": "Her decisive action prevented a disaster.",
+    "blankExample": "Her _____ action prevented a disaster.",
+    "blankAnswer": "decisive"
   },
   {
     "word": "declare",
     "explanation": "To announce something officially or publicly.",
-    "example": "The government declared a state of emergency."
+    "example": "The government declared a state of emergency.",
+    "blankExample": "The government _____ a state of emergency.",
+    "blankAnswer": "declared"
   },
   {
     "word": "decline",
     "explanation": "To decrease, weaken, or refuse politely.",
-    "example": "Sales continued to decline throughout the year."
+    "example": "Sales continued to decline throughout the year.",
+    "blankExample": "Sales continued to _____ throughout the year.",
+    "blankAnswer": "decline"
   },
   {
     "word": "deduce",
     "explanation": "To reach a conclusion using logic and evidence.",
-    "example": "The detective deduced who committed the crime."
+    "example": "The detective deduced who committed the crime.",
+    "blankExample": "The detective _____ who committed the crime.",
+    "blankAnswer": "deduced"
   },
   {
     "word": "deduct",
     "explanation": "To subtract an amount from a total.",
-    "example": "Taxes were deducted from his paycheck."
+    "example": "Taxes were deducted from his paycheck.",
+    "blankExample": "Taxes were _____ from his paycheck.",
+    "blankAnswer": "deducted"
   },
   {
     "word": "deduction",
     "explanation": "A conclusion reached through reasoning; an amount subtracted.",
-    "example": "The scientist made an important deduction from the data."
+    "example": "The scientist made an important deduction from the data.",
+    "blankExample": "The scientist made an important _____ from the data.",
+    "blankAnswer": "deduction"
   },
   {
     "word": "deem",
     "explanation": "To consider or judge something in a particular way.",
-    "example": "The proposal was deemed acceptable."
+    "example": "The proposal was deemed acceptable.",
+    "blankExample": "The proposal was _____ acceptable.",
+    "blankAnswer": "deemed"
   },
   {
     "word": "defect",
     "explanation": "A flaw, fault, or imperfection.",
-    "example": "The manufacturer recalled the product because of a defect."
+    "example": "The manufacturer recalled the product because of a defect.",
+    "blankExample": "The manufacturer recalled the product because of a _____.",
+    "blankAnswer": "defect"
   },
   {
     "word": "deficiency",
     "explanation": "A lack or shortage of something necessary.",
-    "example": "Vitamin D deficiency can affect bone health."
+    "example": "Vitamin D deficiency can affect bone health.",
+    "blankExample": "Vitamin D _____ can affect bone health.",
+    "blankAnswer": "deficiency"
   },
   {
     "word": "define",
     "explanation": "To explain the meaning or nature of something.",
-    "example": "Can you define the term 'democracy'?"
+    "example": "Can you define the term 'democracy'?",
+    "blankExample": "Can you _____ the term 'democracy'?",
+    "blankAnswer": "define"
   },
   {
     "word": "definition",
     "explanation": "A statement explaining the meaning of a word or concept.",
-    "example": "The dictionary provides a clear definition."
+    "example": "The dictionary provides a clear definition.",
+    "blankExample": "The dictionary provides a clear _____.",
+    "blankAnswer": "definition"
   },
   {
     "word": "deliberate",
     "explanation": "Done intentionally; to think carefully before deciding.",
-    "example": "The committee deliberated before making its decision."
+    "example": "The committee deliberated before making its decision.",
+    "blankExample": "The committee _____ before making its decision.",
+    "blankAnswer": "deliberated"
   },
   {
     "word": "delicate",
     "explanation": "Easily damaged; requiring careful handling.",
-    "example": "The vase was too delicate to move carelessly."
+    "example": "The vase was too delicate to move carelessly.",
+    "blankExample": "The vase was too _____ to move carelessly.",
+    "blankAnswer": "delicate"
   },
   {
     "word": "demand",
     "explanation": "A strong request; a need or desire for something.",
-    "example": "There is growing demand for renewable energy."
+    "example": "There is growing demand for renewable energy.",
+    "blankExample": "There is growing _____ for renewable energy.",
+    "blankAnswer": "demand"
   },
   {
     "word": "demonstrate",
     "explanation": "To show clearly through evidence, action, or example.",
-    "example": "The experiment demonstrated the theory."
+    "example": "The experiment demonstrated the theory.",
+    "blankExample": "The experiment _____ the theory.",
+    "blankAnswer": "demonstrated"
   },
   {
     "word": "deny",
     "explanation": "To state that something is not true or refuse to allow something.",
-    "example": "The suspect denied the accusations."
+    "example": "The suspect denied the accusations.",
+    "blankExample": "The suspect continued to _____ the accusations.",
+    "blankAnswer": "deny"
   },
   {
     "word": "depart",
     "explanation": "To leave a place, especially to begin a journey.",
-    "example": "The train will depart at noon."
+    "example": "The train will depart at noon.",
+    "blankExample": "The train will _____ at noon.",
+    "blankAnswer": "depart"
   },
   {
     "word": "depend",
     "explanation": "To rely on someone or something.",
-    "example": "Many businesses depend on internet access."
+    "example": "Many businesses depend on internet access.",
+    "blankExample": "Many businesses _____ on internet access.",
+    "blankAnswer": "depend"
   },
   {
     "word": "depict",
     "explanation": "To represent or describe something in words or images.",
-    "example": "The painting depicts a rural landscape."
+    "example": "The painting depicts a rural landscape.",
+    "blankExample": "The painting _____ a rural landscape.",
+    "blankAnswer": "depicts"
   },
   {
     "word": "derive",
     "explanation": "To obtain something from a source.",
-    "example": "Many English words derive from Latin."
+    "example": "Many English words derive from Latin.",
+    "blankExample": "Many English words _____ from Latin.",
+    "blankAnswer": "derive"
   },
   {
     "word": "designate",
     "explanation": "To officially choose or assign someone or something for a purpose.",
-    "example": "The building was designated a historic landmark."
+    "example": "The building was designated a historic landmark.",
+    "blankExample": "The building was _____ a historic landmark.",
+    "blankAnswer": "designated"
   },
   {
     "word": "despite",
     "explanation": "Without being affected by; in spite of.",
-    "example": "Despite the rain, the event continued as planned."
+    "example": "Despite the rain, the event continued as planned.",
+    "blankExample": "_____ the rain, the event continued as planned.",
+    "blankAnswer": "Despite"
   },
-
-
-
   {
     "word": "deteriorate",
     "explanation": "To become worse in quality, condition, or value.",
-    "example": "Without proper care, the building began to deteriorate."
+    "example": "Without proper care, the building began to deteriorate.",
+    "blankExample": "Without proper care, the building began to _____.",
+    "blankAnswer": "deteriorate"
   },
   {
     "word": "determine",
     "explanation": "To decide, establish, or find out something.",
-    "example": "The investigation will determine the cause of the accident."
+    "example": "The investigation will determine the cause of the accident.",
+    "blankExample": "The investigation will _____ the cause of the accident.",
+    "blankAnswer": "determine"
   },
   {
     "word": "detrimental",
     "explanation": "Causing harm or damage.",
-    "example": "Smoking is detrimental to your health."
+    "example": "Smoking is detrimental to your health.",
+    "blankExample": "Smoking is _____ to your health.",
+    "blankAnswer": "detrimental"
   },
   {
     "word": "devise",
     "explanation": "To invent, plan, or create something carefully.",
-    "example": "The engineers devised a solution to the problem."
+    "example": "The engineers devised a solution to the problem.",
+    "blankExample": "The engineers _____ a solution to the problem.",
+    "blankAnswer": "devised"
   },
   {
     "word": "devote",
     "explanation": "To dedicate time, effort, or resources to something.",
-    "example": "She devoted years to scientific research."
+    "example": "She devoted years to scientific research.",
+    "blankExample": "She _____ years to scientific research.",
+    "blankAnswer": "devoted"
   },
   {
     "word": "diminish",
     "explanation": "To make or become smaller, weaker, or less important.",
-    "example": "The pain gradually diminished over time."
+    "example": "The pain gradually diminished over time.",
+    "blankExample": "The pain gradually _____ over time.",
+    "blankAnswer": "diminished"
   },
   {
     "word": "dimension",
     "explanation": "A measurable aspect or feature of something.",
-    "example": "The problem has several dimensions that must be considered."
+    "example": "The problem has several dimensions that must be considered.",
+    "blankExample": "The problem has several _____ that must be considered.",
+    "blankAnswer": "dimensions"
   },
   {
     "word": "diplomatic",
     "explanation": "Skillful in dealing with people without causing offense.",
-    "example": "He gave a diplomatic response to the criticism."
+    "example": "He gave a diplomatic response to the criticism.",
+    "blankExample": "He gave a _____ response to the criticism.",
+    "blankAnswer": "diplomatic"
   },
   {
     "word": "direct",
     "explanation": "Straightforward; to guide or control something.",
-    "example": "The manager directed the team toward its goal."
+    "example": "The manager directed the team toward its goal.",
+    "blankExample": "The manager _____ the team toward its goal.",
+    "blankAnswer": "directed"
   },
   {
     "word": "disclose",
     "explanation": "To reveal or make information known.",
-    "example": "The company disclosed its financial results."
+    "example": "The company disclosed its financial results.",
+    "blankExample": "The company _____ its financial results.",
+    "blankAnswer": "disclosed"
   },
   {
     "word": "discourage",
     "explanation": "To reduce someone's confidence or enthusiasm.",
-    "example": "Early failures should not discourage you."
+    "example": "Early failures should not discourage you.",
+    "blankExample": "Early failures should not _____ you.",
+    "blankAnswer": "discourage"
   },
   {
     "word": "discriminate",
     "explanation": "To treat people unfairly based on group characteristics; to recognize differences.",
-    "example": "The law prohibits employers from discriminating against applicants."
+    "example": "The law prohibits employers from discriminating against applicants.",
+    "blankExample": "The law prohibits employers from choosing to _____ against applicants.",
+    "blankAnswer": "discriminate"
   },
   {
     "word": "discrimination",
     "explanation": "Unfair treatment based on race, gender, age, or other characteristics.",
-    "example": "The organization works to eliminate discrimination."
+    "example": "The organization works to eliminate discrimination.",
+    "blankExample": "The organization works to eliminate _____.",
+    "blankAnswer": "discrimination"
   },
   {
     "word": "disguise",
     "explanation": "To hide the true appearance or nature of something.",
-    "example": "The spy used a disguise to avoid recognition."
+    "example": "The spy used a disguise to avoid recognition.",
+    "blankExample": "The spy used a _____ to avoid recognition.",
+    "blankAnswer": "disguise"
   },
   {
     "word": "disperse",
     "explanation": "To scatter or spread over a wide area.",
-    "example": "The crowd dispersed after the concert ended."
+    "example": "The crowd dispersed after the concert ended.",
+    "blankExample": "The crowd _____ after the concert ended.",
+    "blankAnswer": "dispersed"
   },
   {
     "word": "displace",
     "explanation": "To force someone or something out of its usual place.",
-    "example": "The flood displaced hundreds of families."
+    "example": "The flood displaced hundreds of families.",
+    "blankExample": "The flood _____ hundreds of families.",
+    "blankAnswer": "displaced"
   },
   {
     "word": "display",
     "explanation": "To show something so it can be seen.",
-    "example": "The museum displayed ancient artifacts."
+    "example": "The museum displayed ancient artifacts.",
+    "blankExample": "The museum _____ ancient artifacts.",
+    "blankAnswer": "displayed"
   },
   {
     "word": "dispute",
     "explanation": "A disagreement or argument; to question the truth of something.",
-    "example": "The two countries were involved in a border dispute."
+    "example": "The two countries were involved in a border dispute.",
+    "blankExample": "The two countries were involved in a border _____.",
+    "blankAnswer": "dispute"
   },
   {
     "word": "disrupt",
     "explanation": "To interrupt or cause disorder in a process or activity.",
-    "example": "The storm disrupted transportation across the region."
+    "example": "The storm disrupted transportation across the region.",
+    "blankExample": "The storm _____ transportation across the region.",
+    "blankAnswer": "disrupted"
   },
   {
     "word": "distinct",
     "explanation": "Clearly different and separate.",
-    "example": "The twins have distinct personalities."
+    "example": "The twins have distinct personalities.",
+    "blankExample": "The twins have _____ personalities.",
+    "blankAnswer": "distinct"
   },
   {
     "word": "distinction",
     "explanation": "A difference or contrast between things.",
-    "example": "There is an important distinction between the two concepts."
+    "example": "There is an important distinction between the two concepts.",
+    "blankExample": "There is an important _____ between the two concepts.",
+    "blankAnswer": "distinction"
   },
   {
     "word": "distinguish",
     "explanation": "To recognize or identify differences.",
-    "example": "It is difficult to distinguish the two species."
+    "example": "It is difficult to distinguish the two species.",
+    "blankExample": "It is difficult to _____ the two species.",
+    "blankAnswer": "distinguish"
   },
   {
     "word": "distort",
     "explanation": "To twist or misrepresent something.",
-    "example": "The media report distorted the facts."
+    "example": "The media report distorted the facts.",
+    "blankExample": "The media report _____ the facts.",
+    "blankAnswer": "distorted"
   },
   {
     "word": "distribute",
     "explanation": "To give out or spread among people or places.",
-    "example": "Volunteers distributed food to those in need."
+    "example": "Volunteers distributed food to those in need.",
+    "blankExample": "Volunteers _____ food to those in need.",
+    "blankAnswer": "distributed"
   },
   {
     "word": "distribution",
     "explanation": "The process of delivering or spreading something.",
-    "example": "The distribution of supplies took several days."
+    "example": "The distribution of supplies took several days.",
+    "blankExample": "The _____ of supplies took several days.",
+    "blankAnswer": "distribution"
   },
-
-
-
   {
     "word": "doctrine",
     "explanation": "A set of beliefs, principles, or teachings.",
-    "example": "The church's doctrine influenced its members' behavior."
+    "example": "The church's doctrine influenced its members' behavior.",
+    "blankExample": "The church's _____ influenced its members' behavior.",
+    "blankAnswer": "doctrine"
   },
   {
     "word": "domain",
     "explanation": "An area of knowledge, activity, or control.",
-    "example": "Physics is not my domain of expertise."
+    "example": "Physics is not my domain of expertise.",
+    "blankExample": "Physics is not my _____ of expertise.",
+    "blankAnswer": "domain"
   },
   {
     "word": "dominant",
     "explanation": "More powerful, influential, or important than others.",
-    "example": "The company became the dominant force in the industry."
+    "example": "The company became the dominant force in the industry.",
+    "blankExample": "The company became the _____ force in the industry.",
+    "blankAnswer": "dominant"
   },
   {
     "word": "dominate",
     "explanation": "To control or have a major influence over something.",
-    "example": "One team dominated the entire tournament."
+    "example": "One team dominated the entire tournament.",
+    "blankExample": "One team _____ the entire tournament.",
+    "blankAnswer": "dominated"
   },
   {
     "word": "duration",
     "explanation": "The length of time something lasts.",
-    "example": "The duration of the flight was eight hours."
+    "example": "The duration of the flight was eight hours.",
+    "blankExample": "The _____ of the flight was eight hours.",
+    "blankAnswer": "duration"
   },
   {
     "word": "elaborate",
     "explanation": "Detailed and carefully developed; to explain in greater detail.",
-    "example": "She gave an elaborate explanation of the process."
+    "example": "She gave an elaborate explanation of the process.",
+    "blankExample": "She gave an _____ explanation of the process.",
+    "blankAnswer": "elaborate"
   },
   {
     "word": "eliminate",
     "explanation": "To remove or get rid of something.",
-    "example": "The new policy aims to eliminate waste."
+    "example": "The new policy aims to eliminate waste.",
+    "blankExample": "The new policy aims to _____ waste.",
+    "blankAnswer": "eliminate"
   },
   {
     "word": "emerge",
     "explanation": "To come into view or become known.",
-    "example": "New evidence emerged during the investigation."
+    "example": "New evidence emerged during the investigation.",
+    "blankExample": "New evidence _____ during the investigation.",
+    "blankAnswer": "emerged"
   },
   {
     "word": "emphasis",
     "explanation": "Special importance or attention given to something.",
-    "example": "The course places emphasis on critical thinking."
+    "example": "The course places emphasis on critical thinking.",
+    "blankExample": "The course places _____ on critical thinking.",
+    "blankAnswer": "emphasis"
   },
   {
     "word": "emphasize",
     "explanation": "To give special importance to something.",
-    "example": "The teacher emphasized the importance of practice."
+    "example": "The teacher emphasized the importance of practice.",
+    "blankExample": "The teacher _____ the importance of practice.",
+    "blankAnswer": "emphasized"
   },
   {
     "word": "empirical",
     "explanation": "Based on observation, experience, or experimentation rather than theory.",
-    "example": "The study relied on empirical evidence."
+    "example": "The study relied on empirical evidence.",
+    "blankExample": "The study relied on _____ evidence.",
+    "blankAnswer": "empirical"
   },
   {
     "word": "encounter",
     "explanation": "To meet unexpectedly or experience something.",
-    "example": "Researchers encountered several challenges during the project."
+    "example": "Researchers encountered several challenges during the project.",
+    "blankExample": "Researchers _____ several challenges during the project.",
+    "blankAnswer": "encountered"
   },
   {
     "word": "encourage",
     "explanation": "To give support, confidence, or hope.",
-    "example": "Parents should encourage children to read."
+    "example": "Parents should encourage children to read.",
+    "blankExample": "Parents should _____ children to read.",
+    "blankAnswer": "encourage"
   },
   {
     "word": "endure",
     "explanation": "To suffer through or withstand difficulty.",
-    "example": "The explorers endured harsh weather conditions."
+    "example": "The explorers endured harsh weather conditions.",
+    "blankExample": "The explorers _____ harsh weather conditions.",
+    "blankAnswer": "endured"
   },
   {
     "word": "enforce",
     "explanation": "To make sure rules or laws are followed.",
-    "example": "Police officers enforce traffic laws."
+    "example": "Police officers enforce traffic laws.",
+    "blankExample": "Police officers _____ traffic laws.",
+    "blankAnswer": "enforce"
   },
   {
     "word": "enhance",
     "explanation": "To improve or increase the quality, value, or effectiveness of something.",
-    "example": "Exercise can enhance mental health."
+    "example": "Exercise can enhance mental health.",
+    "blankExample": "Exercise can _____ mental health.",
+    "blankAnswer": "enhance"
   },
   {
     "word": "enormous",
     "explanation": "Extremely large in size, amount, or degree.",
-    "example": "The project required an enormous amount of effort."
+    "example": "The project required an enormous amount of effort.",
+    "blankExample": "The project required an _____ amount of effort.",
+    "blankAnswer": "enormous"
   },
   {
     "word": "ensure",
     "explanation": "To make certain that something happens.",
-    "example": "Please ensure that all doors are locked."
+    "example": "Please ensure that all doors are locked.",
+    "blankExample": "Please _____ that all doors are locked.",
+    "blankAnswer": "ensure"
   },
   {
     "word": "entity",
     "explanation": "Something that exists as a distinct and independent unit.",
-    "example": "The company operates as a separate legal entity."
+    "example": "The company operates as a separate legal entity.",
+    "blankExample": "The company operates as a separate legal _____.",
+    "blankAnswer": "entity"
   },
   {
     "word": "environment",
     "explanation": "The surroundings or conditions in which someone or something exists.",
-    "example": "A positive environment helps students learn."
+    "example": "A positive environment helps students learn.",
+    "blankExample": "A positive _____ helps students learn.",
+    "blankAnswer": "environment"
   },
   {
     "word": "equivalent",
     "explanation": "Equal in value, meaning, function, or effect.",
-    "example": "One euro is roughly equivalent to a certain amount of another currency."
+    "example": "One euro is roughly equivalent to a certain amount of another currency.",
+    "blankExample": "One euro is roughly _____ to a certain amount of another currency.",
+    "blankAnswer": "equivalent"
   },
   {
     "word": "establish",
     "explanation": "To set up, create, or prove something firmly.",
-    "example": "The organization was established in 1995."
+    "example": "The organization was established in 1995.",
+    "blankExample": "The organization was _____ in 1995.",
+    "blankAnswer": "established"
   },
   {
     "word": "evaluate",
     "explanation": "To assess or judge the value, quality, or importance of something.",
-    "example": "The committee will evaluate all applications."
+    "example": "The committee will evaluate all applications.",
+    "blankExample": "The committee will _____ all applications.",
+    "blankAnswer": "evaluate"
   },
   {
     "word": "evident",
     "explanation": "Clearly seen, understood, or obvious.",
-    "example": "It was evident that she had prepared thoroughly."
+    "example": "It was evident that she had prepared thoroughly.",
+    "blankExample": "It was _____ that she had prepared thoroughly.",
+    "blankAnswer": "evident"
   },
   {
     "word": "evolve",
     "explanation": "To develop gradually over time.",
-    "example": "Languages evolve as societies change."
+    "example": "Languages evolve as societies change.",
+    "blankExample": "Languages _____ as societies change.",
+    "blankAnswer": "evolve"
   },
-
-
-
   {
     "word": "exceed",
     "explanation": "To go beyond a limit, expectation, or amount.",
-    "example": "The company's profits exceeded expectations."
+    "example": "The company's profits exceeded expectations.",
+    "blankExample": "The company's profits _____ expectations.",
+    "blankAnswer": "exceeded"
   },
   {
     "word": "exclude",
     "explanation": "To leave out or prevent from being included.",
-    "example": "The price excludes taxes and fees."
+    "example": "The price excludes taxes and fees.",
+    "blankExample": "The price _____ taxes and fees.",
+    "blankAnswer": "excludes"
   },
   {
     "word": "exclusive",
     "explanation": "Limited to a particular person, group, or purpose.",
-    "example": "Members received exclusive access to the event."
+    "example": "Members received exclusive access to the event.",
+    "blankExample": "Members received _____ access to the event.",
+    "blankAnswer": "exclusive"
   },
   {
     "word": "expand",
     "explanation": "To increase in size, scope, or extent.",
-    "example": "The company plans to expand into new markets."
+    "example": "The company plans to expand into new markets.",
+    "blankExample": "The company plans to _____ into new markets.",
+    "blankAnswer": "expand"
   },
   {
     "word": "expansion",
     "explanation": "The process of becoming larger or more extensive.",
-    "example": "The expansion of the business created new jobs."
+    "example": "The expansion of the business created new jobs.",
+    "blankExample": "The _____ of the business created new jobs.",
+    "blankAnswer": "expansion"
   },
   {
     "word": "explicit",
     "explanation": "Clearly stated and leaving no room for confusion.",
-    "example": "The instructions were explicit and easy to follow."
+    "example": "The instructions were explicit and easy to follow.",
+    "blankExample": "The instructions were _____ and easy to follow.",
+    "blankAnswer": "explicit"
   },
   {
     "word": "exploit",
     "explanation": "To use something for advantage, often unfairly or selfishly.",
-    "example": "Some companies exploit workers by paying low wages."
+    "example": "Some companies exploit workers by paying low wages.",
+    "blankExample": "Some companies _____ workers by paying low wages.",
+    "blankAnswer": "exploit"
   },
   {
     "word": "extract",
     "explanation": "To remove or obtain something from a source.",
-    "example": "Scientists extracted DNA from the sample."
+    "example": "Scientists extracted DNA from the sample.",
+    "blankExample": "Scientists _____ DNA from the sample.",
+    "blankAnswer": "extracted"
   },
   {
     "word": "facilitate",
     "explanation": "To make a process easier or more efficient.",
-    "example": "Technology can facilitate communication."
+    "example": "Technology can facilitate communication.",
+    "blankExample": "Technology can _____ communication.",
+    "blankAnswer": "facilitate"
   },
   {
     "word": "factor",
     "explanation": "An element that contributes to a result or situation.",
-    "example": "Cost was an important factor in the decision."
+    "example": "Cost was an important factor in the decision.",
+    "blankExample": "Cost was an important _____ in the decision.",
+    "blankAnswer": "factor"
   },
   {
     "word": "feature",
     "explanation": "A distinctive characteristic or part of something.",
-    "example": "The phone's best feature is its camera."
+    "example": "The phone's best feature is its camera.",
+    "blankExample": "The phone's best _____ is its camera.",
+    "blankAnswer": "feature"
   },
   {
     "word": "fluctuate",
     "explanation": "To rise and fall irregularly.",
-    "example": "Stock prices fluctuate throughout the day."
+    "example": "Stock prices fluctuate throughout the day.",
+    "blankExample": "Stock prices _____ throughout the day.",
+    "blankAnswer": "fluctuate"
   },
   {
     "word": "formulate",
     "explanation": "To create or develop systematically.",
-    "example": "The scientist formulated a new theory."
+    "example": "The scientist formulated a new theory.",
+    "blankExample": "The scientist _____ a new theory.",
+    "blankAnswer": "formulated"
   },
   {
     "word": "framework",
     "explanation": "A basic structure that supports or organizes something.",
-    "example": "The proposal provides a framework for future discussions."
+    "example": "The proposal provides a framework for future discussions.",
+    "blankExample": "The proposal provides a _____ for future discussions.",
+    "blankAnswer": "framework"
   },
   {
     "word": "function",
     "explanation": "The purpose or activity of something; to operate.",
-    "example": "The primary function of the heart is to pump blood."
+    "example": "The primary function of the heart is to pump blood.",
+    "blankExample": "The primary _____ of the heart is to pump blood.",
+    "blankAnswer": "function"
   },
   {
     "word": "fundamental",
     "explanation": "Forming the foundation or essential part of something.",
-    "example": "Reading is a fundamental skill."
+    "example": "Reading is a fundamental skill.",
+    "blankExample": "Reading is a _____ skill.",
+    "blankAnswer": "fundamental"
   },
   {
     "word": "generate",
     "explanation": "To produce or create something.",
-    "example": "The solar panels generate electricity."
+    "example": "The solar panels generate electricity.",
+    "blankExample": "The solar panels _____ electricity.",
+    "blankAnswer": "generate"
   },
   {
     "word": "grant",
     "explanation": "To give, allow, or award something officially.",
-    "example": "The university granted her a scholarship."
+    "example": "The university granted her a scholarship.",
+    "blankExample": "The university _____ her a scholarship.",
+    "blankAnswer": "granted"
   },
   {
     "word": "hypothesis",
     "explanation": "A proposed explanation that can be tested through research.",
-    "example": "The experiment was designed to test the hypothesis."
+    "example": "The experiment was designed to test the hypothesis.",
+    "blankExample": "The experiment was designed to test the _____.",
+    "blankAnswer": "hypothesis"
   },
   {
     "word": "identify",
     "explanation": "To recognize, name, or establish the identity of something.",
-    "example": "Researchers identified the source of the problem."
+    "example": "Researchers identified the source of the problem.",
+    "blankExample": "Researchers were able to _____ the source of the problem.",
+    "blankAnswer": "identify"
   },
   {
     "word": "illustrate",
     "explanation": "To explain or make clear through examples or images.",
-    "example": "The teacher used diagrams to illustrate the concept."
+    "example": "The teacher used diagrams to illustrate the concept.",
+    "blankExample": "The teacher used diagrams to _____ the concept.",
+    "blankAnswer": "illustrate"
   },
   {
     "word": "imply",
     "explanation": "To suggest something indirectly without stating it explicitly.",
-    "example": "His tone implied that he disagreed."
+    "example": "His tone implied that he disagreed.",
+    "blankExample": "His tone seemed to _____ that he disagreed.",
+    "blankAnswer": "imply"
   },
   {
     "word": "incentive",
     "explanation": "Something that motivates or encourages action.",
-    "example": "The bonus provided an incentive to work harder."
+    "example": "The bonus provided an incentive to work harder.",
+    "blankExample": "The bonus provided an _____ to work harder.",
+    "blankAnswer": "incentive"
   },
   {
     "word": "incorporate",
     "explanation": "To include something as part of a whole.",
-    "example": "The design incorporates several innovative features."
+    "example": "The design incorporates several innovative features.",
+    "blankExample": "The design _____ several innovative features.",
+    "blankAnswer": "incorporates"
   },
   {
     "word": "indicate",
     "explanation": "To show, point out, or suggest something.",
-    "example": "The results indicate a strong relationship between the variables."
+    "example": "The results indicate a strong relationship between the variables.",
+    "blankExample": "The results _____ a strong relationship between the variables.",
+    "blankAnswer": "indicate"
   },
-
-
-
   {
     "word": "inevitable",
     "explanation": "Certain to happen and impossible to avoid.",
-    "example": "Change is an inevitable part of life."
+    "example": "Change is an inevitable part of life.",
+    "blankExample": "Change is an _____ part of life.",
+    "blankAnswer": "inevitable"
   },
   {
     "word": "infer",
     "explanation": "To reach a conclusion based on evidence and reasoning.",
-    "example": "From the evidence, the detective inferred that the suspect had left early."
+    "example": "From the evidence, the detective inferred that the suspect had left early.",
+    "blankExample": "From the evidence, the detective _____ that the suspect had left early.",
+    "blankAnswer": "inferred"
   },
   {
     "word": "infrastructure",
     "explanation": "The basic systems and facilities needed for a society or organization to function.",
-    "example": "The government invested heavily in transportation infrastructure."
+    "example": "The government invested heavily in transportation infrastructure.",
+    "blankExample": "The government invested heavily in transportation _____.",
+    "blankAnswer": "infrastructure"
   },
   {
     "word": "inherent",
     "explanation": "Existing as a natural or essential part of something.",
-    "example": "Risk is an inherent part of investing."
+    "example": "Risk is an inherent part of investing.",
+    "blankExample": "Risk is an _____ part of investing.",
+    "blankAnswer": "inherent"
   },
   {
     "word": "inhibit",
     "explanation": "To prevent, restrain, or slow down an action or process.",
-    "example": "Fear can inhibit creativity."
+    "example": "Fear can inhibit creativity.",
+    "blankExample": "Fear can _____ creativity.",
+    "blankAnswer": "inhibit"
   },
   {
     "word": "innovate",
     "explanation": "To introduce new ideas, methods, or products.",
-    "example": "Successful companies continue to innovate."
+    "example": "Successful companies continue to innovate.",
+    "blankExample": "Successful companies continue to _____.",
+    "blankAnswer": "innovate"
   },
   {
     "word": "innovation",
     "explanation": "A new idea, method, or invention.",
-    "example": "The smartphone was a major technological innovation."
+    "example": "The smartphone was a major technological innovation.",
+    "blankExample": "The smartphone was a major technological _____.",
+    "blankAnswer": "innovation"
   },
   {
     "word": "insight",
     "explanation": "A deep understanding of a person, situation, or subject.",
-    "example": "The study provided valuable insight into consumer behavior."
+    "example": "The study provided valuable insight into consumer behavior.",
+    "blankExample": "The study provided valuable _____ into consumer behavior.",
+    "blankAnswer": "insight"
   },
   {
     "word": "integrate",
     "explanation": "To combine parts into a unified whole.",
-    "example": "The school integrated technology into its curriculum."
+    "example": "The school integrated technology into its curriculum.",
+    "blankExample": "The school _____ technology into its curriculum.",
+    "blankAnswer": "integrated"
   },
   {
     "word": "integrity",
     "explanation": "Honesty, strong moral principles, and consistency.",
-    "example": "She is respected for her integrity."
+    "example": "She is respected for her integrity.",
+    "blankExample": "She is respected for her _____.",
+    "blankAnswer": "integrity"
   },
   {
     "word": "interact",
     "explanation": "To communicate or work together with others.",
-    "example": "Students interact with teachers both online and in person."
+    "example": "Students interact with teachers both online and in person.",
+    "blankExample": "Students _____ with teachers both online and in person.",
+    "blankAnswer": "interact"
   },
   {
     "word": "interaction",
     "explanation": "Communication or influence between people or things.",
-    "example": "Social interaction is important for mental health."
+    "example": "Social interaction is important for mental health.",
+    "blankExample": "Social _____ is important for mental health.",
+    "blankAnswer": "interaction"
   },
   {
     "word": "interpret",
     "explanation": "To explain or understand the meaning of something.",
-    "example": "Different people may interpret the same event differently."
+    "example": "Different people may interpret the same event differently.",
+    "blankExample": "Different people may _____ the same event differently.",
+    "blankAnswer": "interpret"
   },
   {
     "word": "interpretation",
     "explanation": "An explanation or understanding of something.",
-    "example": "His interpretation of the poem was unique."
+    "example": "His interpretation of the poem was unique.",
+    "blankExample": "His _____ of the poem was unique.",
+    "blankAnswer": "interpretation"
   },
   {
     "word": "intervene",
     "explanation": "To become involved in a situation in order to influence it.",
-    "example": "The teacher intervened to stop the argument."
+    "example": "The teacher intervened to stop the argument.",
+    "blankExample": "The teacher _____ to stop the argument.",
+    "blankAnswer": "intervened"
   },
   {
     "word": "isolate",
     "explanation": "To separate something from others.",
-    "example": "Researchers isolated the cause of the disease."
+    "example": "Researchers isolated the cause of the disease.",
+    "blankExample": "Researchers _____ the cause of the disease.",
+    "blankAnswer": "isolated"
   },
   {
     "word": "justify",
     "explanation": "To show or prove that something is reasonable or correct.",
-    "example": "The results justified the decision."
+    "example": "The results justified the decision.",
+    "blankExample": "The results helped _____ the decision.",
+    "blankAnswer": "justify"
   },
   {
     "word": "maintain",
     "explanation": "To keep something in good condition or continue it.",
-    "example": "It is important to maintain healthy habits."
+    "example": "It is important to maintain healthy habits.",
+    "blankExample": "It is important to _____ healthy habits.",
+    "blankAnswer": "maintain"
   },
   {
     "word": "manipulate",
     "explanation": "To control or influence something skillfully, sometimes unfairly.",
-    "example": "The data was manipulated to support the argument."
+    "example": "The data was manipulated to support the argument.",
+    "blankExample": "The data was _____ to support the argument.",
+    "blankAnswer": "manipulated"
   },
   {
     "word": "mature",
     "explanation": "Fully developed physically, mentally, or emotionally.",
-    "example": "She handled the situation in a mature way."
+    "example": "She handled the situation in a mature way.",
+    "blankExample": "She handled the situation in a _____ way.",
+    "blankAnswer": "mature"
   },
   {
     "word": "maximize",
     "explanation": "To make as large, effective, or successful as possible.",
-    "example": "The company wants to maximize profits."
+    "example": "The company wants to maximize profits.",
+    "blankExample": "The company wants to _____ profits.",
+    "blankAnswer": "maximize"
   },
   {
     "word": "methodology",
     "explanation": "A system of methods used in a particular field or study.",
-    "example": "The researchers explained their methodology in detail."
+    "example": "The researchers explained their methodology in detail.",
+    "blankExample": "The researchers explained their _____ in detail.",
+    "blankAnswer": "methodology"
   },
   {
     "word": "modify",
     "explanation": "To change something slightly.",
-    "example": "The plan was modified after feedback."
+    "example": "The plan was modified after feedback.",
+    "blankExample": "The team had to _____ the plan after feedback.",
+    "blankAnswer": "modify"
   },
   {
     "word": "monitor",
     "explanation": "To observe and check something over time.",
-    "example": "Doctors monitored the patient's condition closely."
+    "example": "Doctors monitored the patient's condition closely.",
+    "blankExample": "Doctors _____ the patient's condition closely.",
+    "blankAnswer": "monitored"
   },
   {
     "word": "mutual",
     "explanation": "Shared by two or more people or groups.",
-    "example": "The agreement was based on mutual respect."
+    "example": "The agreement was based on mutual respect.",
+    "blankExample": "The agreement was based on _____ respect.",
+    "blankAnswer": "mutual"
   },
-
-
   {
     "word": "obtain",
     "explanation": "To get, acquire, or gain possession of something.",
-    "example": "She obtained a copy of the report."
+    "example": "She obtained a copy of the report.",
+    "blankExample": "She _____ a copy of the report.",
+    "blankAnswer": "obtained"
   },
   {
     "word": "perceive",
     "explanation": "To become aware of, understand, or interpret something.",
-    "example": "People often perceive the situation differently."
+    "example": "People often perceive the situation differently.",
+    "blankExample": "People often _____ the situation differently.",
+    "blankAnswer": "perceive"
   },
   {
     "word": "persist",
     "explanation": "To continue despite difficulties or obstacles.",
-    "example": "If you persist, you will eventually succeed."
+    "example": "If you persist, you will eventually succeed.",
+    "blankExample": "If you _____, you will eventually succeed.",
+    "blankAnswer": "persist"
   },
   {
     "word": "persistence",
     "explanation": "The quality of continuing despite challenges or setbacks.",
-    "example": "Her persistence helped her achieve her goals."
+    "example": "Her persistence helped her achieve her goals.",
+    "blankExample": "Her _____ helped her achieve her goals.",
+    "blankAnswer": "persistence"
   },
   {
     "word": "phenomenon",
     "explanation": "An observable event, fact, or occurrence.",
-    "example": "Scientists studied the unusual weather phenomenon."
+    "example": "Scientists studied the unusual weather phenomenon.",
+    "blankExample": "Scientists studied the unusual weather _____.",
+    "blankAnswer": "phenomenon"
   },
   {
     "word": "preliminary",
     "explanation": "Coming before the main part; introductory.",
-    "example": "The researchers released preliminary findings."
+    "example": "The researchers released preliminary findings.",
+    "blankExample": "The researchers released _____ findings.",
+    "blankAnswer": "preliminary"
   },
   {
     "word": "presume",
     "explanation": "To assume something is true based on probability or evidence.",
-    "example": "I presume that the meeting will start on time."
+    "example": "I presume that the meeting will start on time.",
+    "blankExample": "I _____ that the meeting will start on time.",
+    "blankAnswer": "presume"
   },
   {
     "word": "pursue",
     "explanation": "To follow, seek, or continue working toward something.",
-    "example": "She decided to pursue a career in medicine."
+    "example": "She decided to pursue a career in medicine.",
+    "blankExample": "She decided to _____ a career in medicine.",
+    "blankAnswer": "pursue"
   },
   {
     "word": "rational",
     "explanation": "Based on reason, logic, or sound judgment.",
-    "example": "He made a rational decision after considering the facts."
+    "example": "He made a rational decision after considering the facts.",
+    "blankExample": "He made a _____ decision after considering the facts.",
+    "blankAnswer": "rational"
   },
   {
     "word": "reinforce",
     "explanation": "To strengthen or support something.",
-    "example": "The teacher used examples to reinforce the lesson."
+    "example": "The teacher used examples to reinforce the lesson.",
+    "blankExample": "The teacher used examples to _____ the lesson.",
+    "blankAnswer": "reinforce"
   },
   {
     "word": "reluctant",
     "explanation": "Unwilling or hesitant to do something.",
-    "example": "He was reluctant to accept the offer."
+    "example": "He was reluctant to accept the offer.",
+    "blankExample": "He was _____ to accept the offer.",
+    "blankAnswer": "reluctant"
   },
   {
     "word": "retain",
     "explanation": "To keep, continue to have, or remember something.",
-    "example": "Students retain information better through practice."
+    "example": "Students retain information better through practice.",
+    "blankExample": "Students _____ information better through practice.",
+    "blankAnswer": "retain"
   },
   {
     "word": "significant",
     "explanation": "Important, meaningful, or having a noticeable effect.",
-    "example": "The discovery had a significant impact on science."
+    "example": "The discovery had a significant impact on science.",
+    "blankExample": "The discovery had a _____ impact on science.",
+    "blankAnswer": "significant"
   },
   {
     "word": "significantly",
     "explanation": "In an important or noticeable way.",
-    "example": "Profits increased significantly this year."
+    "example": "Profits increased significantly this year.",
+    "blankExample": "Profits increased _____ this year.",
+    "blankAnswer": "significantly"
   },
   {
     "word": "undertake",
     "explanation": "To begin or commit oneself to a task or responsibility.",
-    "example": "The company undertook a major renovation project."
+    "example": "The company undertook a major renovation project.",
+    "blankExample": "The company decided to _____ a major renovation project.",
+    "blankAnswer": "undertake"
   },
-
-
-
-
   {
     "word": "realms",
     "explanation": "Areas, fields, or kingdoms.",
-    "example": "The story takes place in magical realms."
+    "example": "The story takes place in magical realms.",
+    "blankExample": "The story takes place in magical _____.",
+    "blankAnswer": "realms"
   },
   {
     "word": "amused",
     "explanation": "Entertained or finding something funny.",
-    "example": "She was amused by the funny joke."
+    "example": "She was amused by the funny joke.",
+    "blankExample": "She was _____ by the funny joke.",
+    "blankAnswer": "amused"
   },
   {
     "word": "amicable",
     "explanation": "Friendly and peaceful.",
-    "example": "They had an amicable conversation after the disagreement."
+    "example": "They had an amicable conversation after the disagreement.",
+    "blankExample": "They had an _____ conversation after the disagreement.",
+    "blankAnswer": "amicable"
   },
   {
     "word": "undermined",
     "explanation": "Weakened or damaged gradually.",
-    "example": "His confidence was undermined by constant criticism."
+    "example": "His confidence was undermined by constant criticism.",
+    "blankExample": "His confidence was _____ by constant criticism.",
+    "blankAnswer": "undermined"
   },
   {
     "word": "blissful",
     "explanation": "Extremely happy or peaceful.",
-    "example": "They spent a blissful afternoon by the lake."
+    "example": "They spent a blissful afternoon by the lake.",
+    "blankExample": "They spent a _____ afternoon by the lake.",
+    "blankAnswer": "blissful"
   },
   {
     "word": "flawlessly",
     "explanation": "Without any mistakes or problems.",
-    "example": "She performed the song flawlessly."
+    "example": "She performed the song flawlessly.",
+    "blankExample": "She performed the song _____.",
+    "blankAnswer": "flawlessly"
   },
   {
     "word": "pitifully",
     "explanation": "In a way that causes sadness or pity.",
-    "example": "The injured dog looked up pitifully."
+    "example": "The injured dog looked up pitifully.",
+    "blankExample": "The injured dog looked up _____.",
+    "blankAnswer": "pitifully"
   },
   {
     "word": "loathed",
     "explanation": "Hated very strongly.",
-    "example": "He loathed waking up early on weekends."
+    "example": "He loathed waking up early on weekends.",
+    "blankExample": "He _____ waking up early on weekends.",
+    "blankAnswer": "loathed"
   },
   {
     "word": "littered",
     "explanation": "Covered with scattered objects or trash.",
-    "example": "The park was littered with empty bottles."
+    "example": "The park was littered with empty bottles.",
+    "blankExample": "The park was _____ with empty bottles.",
+    "blankAnswer": "littered"
   },
   {
     "word": "regal",
     "explanation": "Royal, majestic, or fit for a king or queen.",
-    "example": "The queen wore a regal purple robe."
+    "example": "The queen wore a regal purple robe.",
+    "blankExample": "The queen wore a _____ purple robe.",
+    "blankAnswer": "regal"
   },
   {
     "word": "relapse",
     "explanation": "To return to a worse condition after improving.",
-    "example": "Without rest, he might relapse and become sick again."
+    "example": "Without rest, he might relapse and become sick again.",
+    "blankExample": "Without rest, he might _____ and become sick again.",
+    "blankAnswer": "relapse"
   },
   {
     "word": "summarize",
     "explanation": "To give the main points briefly.",
-    "example": "Please summarize the chapter in a few sentences."
+    "example": "Please summarize the chapter in a few sentences.",
+    "blankExample": "Please _____ the chapter in a few sentences.",
+    "blankAnswer": "summarize"
   },
   {
     "word": "boast",
     "explanation": "To talk with too much pride about something.",
-    "example": "He liked to boast about winning the race."
+    "example": "He liked to boast about winning the race.",
+    "blankExample": "He liked to _____ about winning the race.",
+    "blankAnswer": "boast"
   },
   {
     "word": "loanwords",
     "explanation": "Words borrowed from another language.",
-    "example": "English has many loanwords from French."
+    "example": "English has many loanwords from French.",
+    "blankExample": "English has many _____ from French.",
+    "blankAnswer": "loanwords"
   },
   {
     "word": "outnumber",
     "explanation": "To be greater in number than another group.",
-    "example": "The students outnumber the teachers at the school."
+    "example": "The students outnumber the teachers at the school.",
+    "blankExample": "The students _____ the teachers at the school.",
+    "blankAnswer": "outnumber"
   },
   {
     "word": "ensue",
     "explanation": "To happen afterward as a result.",
-    "example": "If the rules are ignored, confusion may ensue."
+    "example": "If the rules are ignored, confusion may ensue.",
+    "blankExample": "If the rules are ignored, confusion may _____.",
+    "blankAnswer": "ensue"
   },
   {
     "word": "alienated",
     "explanation": "Made someone feel isolated or unwelcome.",
-    "example": "He felt alienated when no one included him."
+    "example": "He felt alienated when no one included him.",
+    "blankExample": "He felt _____ when no one included him.",
+    "blankAnswer": "alienated"
   },
   {
     "word": "quarries",
     "explanation": "Places where stone, rock, or minerals are dug from the ground.",
-    "example": "Workers removed large blocks of marble from the quarries."
+    "example": "Workers removed large blocks of marble from the quarries.",
+    "blankExample": "Workers removed large blocks of marble from the _____.",
+    "blankAnswer": "quarries"
   },
   {
     "word": "census",
     "explanation": "An official count of a population.",
-    "example": "The government conducts a census every ten years."
+    "example": "The government conducts a census every ten years.",
+    "blankExample": "The government conducts a _____ every ten years.",
+    "blankAnswer": "census"
   },
   {
     "word": "portrait",
     "explanation": "A picture, painting, or description of a person.",
-    "example": "The artist painted a portrait of the president."
+    "example": "The artist painted a portrait of the president.",
+    "blankExample": "The artist painted a _____ of the president.",
+    "blankAnswer": "portrait"
   },
   {
     "word": "famine",
     "explanation": "A severe shortage of food.",
-    "example": "The drought caused a famine in the region."
+    "example": "The drought caused a famine in the region.",
+    "blankExample": "The drought caused a _____ in the region.",
+    "blankAnswer": "famine"
   },
   {
     "word": "retrieving",
     "explanation": "Getting something back.",
-    "example": "She was retrieving her books from the locker."
+    "example": "She was retrieving her books from the locker.",
+    "blankExample": "She was _____ her books from the locker.",
+    "blankAnswer": "retrieving"
   },
   {
     "word": "rehearsing",
     "explanation": "Practicing before a performance or event.",
-    "example": "The actors were rehearsing for the school play."
+    "example": "The actors were rehearsing for the school play.",
+    "blankExample": "The actors were _____ for the school play.",
+    "blankAnswer": "rehearsing"
   },
   {
     "word": "awe",
     "explanation": "A feeling of wonder, respect, or amazement.",
-    "example": "They stared in awe at the tall mountains."
+    "example": "They stared in awe at the tall mountains.",
+    "blankExample": "They stared in _____ at the tall mountains.",
+    "blankAnswer": "awe"
   },
   {
     "word": "wielding",
     "explanation": "Holding and using a tool, weapon, or power.",
-    "example": "The knight was wielding a shining sword."
+    "example": "The knight was wielding a shining sword.",
+    "blankExample": "The knight was _____ a shining sword.",
+    "blankAnswer": "wielding"
   },
   {
     "word": "facet",
     "explanation": "One part or side of something.",
-    "example": "Kindness is an important facet of her personality."
+    "example": "Kindness is an important facet of her personality.",
+    "blankExample": "Kindness is an important _____ of her personality.",
+    "blankAnswer": "facet"
   },
   {
     "word": "soaring",
     "explanation": "Flying or rising high in the air.",
-    "example": "The eagle was soaring above the trees."
+    "example": "The eagle was soaring above the trees.",
+    "blankExample": "The eagle was _____ above the trees.",
+    "blankAnswer": "soaring"
   },
-
-  
   {
     "word": "ventured",
     "explanation": "Went somewhere or tried something risky or uncertain.",
-    "example": "They ventured into the forest before sunset."
+    "example": "They ventured into the forest before sunset.",
+    "blankExample": "They _____ into the forest before sunset.",
+    "blankAnswer": "ventured"
   },
   {
     "word": "flee",
     "explanation": "To run away from danger or trouble.",
-    "example": "The villagers had to flee when the fire spread."
+    "example": "The villagers had to flee when the fire spread.",
+    "blankExample": "The villagers had to _____ when the fire spread.",
+    "blankAnswer": "flee"
   },
   {
     "word": "grudge",
     "explanation": "A lasting feeling of anger toward someone for something they did.",
-    "example": "He held a grudge after his friend broke the promise."
+    "example": "He held a grudge after his friend broke the promise.",
+    "blankExample": "He held a _____ after his friend broke the promise.",
+    "blankAnswer": "grudge"
   },
   {
     "word": "grasped",
     "explanation": "Held something firmly or understood something clearly.",
-    "example": "She grasped the rope tightly as she climbed."
+    "example": "She grasped the rope tightly as she climbed.",
+    "blankExample": "She _____ the rope tightly as she climbed.",
+    "blankAnswer": "grasped"
   },
   {
     "word": "numbing",
     "explanation": "Causing a loss of feeling or making someone feel unable to react.",
-    "example": "The numbing cold made it hard to move her fingers."
+    "example": "The numbing cold made it hard to move her fingers.",
+    "blankExample": "The _____ cold made it hard to move her fingers.",
+    "blankAnswer": "numbing"
   },
   {
     "word": "yielding",
     "explanation": "Giving way, giving in, or producing something.",
-    "example": "The soft ground was yielding under their feet."
+    "example": "The soft ground was yielding under their feet.",
+    "blankExample": "The soft ground was _____ under their feet.",
+    "blankAnswer": "yielding"
   },
   {
     "word": "mock",
     "explanation": "To make fun of someone or something.",
-    "example": "It is unkind to mock someone for making a mistake."
+    "example": "It is unkind to mock someone for making a mistake.",
+    "blankExample": "It is unkind to _____ someone for making a mistake.",
+    "blankAnswer": "mock"
   },
   {
     "word": "posed",
     "explanation": "Presented, asked, or created something to be considered.",
-    "example": "The difficult question posed a challenge for the class."
+    "example": "The difficult question posed a challenge for the class.",
+    "blankExample": "The difficult question _____ a challenge for the class.",
+    "blankAnswer": "posed"
   },
   {
     "word": "clasp",
     "explanation": "To hold something tightly, or a fastener that holds things together.",
-    "example": "She used a clasp to close the necklace."
+    "example": "She used a clasp to close the necklace.",
+    "blankExample": "She used a _____ to close the necklace.",
+    "blankAnswer": "clasp"
   },
   {
     "word": "harnessed",
     "explanation": "Controlled and used something for a purpose.",
-    "example": "The engineers harnessed wind power to create electricity."
+    "example": "The engineers harnessed wind power to create electricity.",
+    "blankExample": "The engineers _____ wind power to create electricity.",
+    "blankAnswer": "harnessed"
   },
   {
     "word": "ablaze",
     "explanation": "Burning strongly or glowing brightly.",
-    "example": "The sky was ablaze with color at sunset."
+    "example": "The sky was ablaze with color at sunset.",
+    "blankExample": "The sky was _____ with color at sunset.",
+    "blankAnswer": "ablaze"
   },
   {
     "word": "mended",
     "explanation": "Repaired or healed something that was broken or damaged.",
-    "example": "He mended the torn jacket with a needle and thread."
+    "example": "He mended the torn jacket with a needle and thread.",
+    "blankExample": "He _____ the torn jacket with a needle and thread.",
+    "blankAnswer": "mended"
   },
   {
     "word": "lulled",
     "explanation": "Calmed, soothed, or made someone feel safe or sleepy.",
-    "example": "The soft music lulled the baby to sleep."
+    "example": "The soft music lulled the baby to sleep.",
+    "blankExample": "The soft music _____ the baby to sleep.",
+    "blankAnswer": "lulled"
   },
   {
     "word": "sips",
     "explanation": "Drinks small amounts at a time.",
-    "example": "She takes small sips of tea while reading."
+    "example": "She takes small sips of tea while reading.",
+    "blankExample": "She takes small _____ of tea while reading.",
+    "blankAnswer": "sips"
   },
   {
     "word": "gadget",
     "explanation": "A small tool or device, often useful or clever.",
-    "example": "He bought a new kitchen gadget to slice vegetables."
+    "example": "He bought a new kitchen gadget to slice vegetables.",
+    "blankExample": "He bought a new kitchen _____ to slice vegetables.",
+    "blankAnswer": "gadget"
   },
   {
     "word": "deem",
     "explanation": "To consider or judge something in a particular way.",
-    "example": "The teacher may deem the project ready to present."
+    "example": "The teacher may deem the project ready to present.",
+    "blankExample": "The teacher may _____ the project ready to present.",
+    "blankAnswer": "deem"
   }
 ]
-

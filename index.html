@@ -24,6 +24,8 @@
             text-align: center;
             margin: 0;
             padding: 20px;
+            color: #3b0055;
+            background: #ff69b4;
         }
 
         .screen {
@@ -35,6 +37,7 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            background: #ff69b4;
         }
 
         #homeScreen img {
@@ -47,7 +50,15 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
+        #optionsMenu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
         #quizScreen {
+            background-color: #ff69b4;
             background-image: url("quiz.jpg");
             background-size: cover;
             background-position: center;
@@ -58,17 +69,21 @@
         #quickScreen {
             min-height: 100vh;
             padding: 20px;
-            background: linear-gradient(135deg, #f3f7fb, #e9f0df);
+            background-color: #ff69b4;
+            background-image: url("image3.jpg");
+            background-size: min(700px, 90vw) auto;
+            background-position: center 120px;
+            background-repeat: no-repeat;
         }
 
         #quickBox {
-            background: rgba(255,255,255,0.92);
-            border-radius: 8px;
+            background: transparent;
+            border-radius: 0;
             padding: 18px;
             width: 620px;
             max-width: 90vw;
             margin: 20px auto;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: none;
         }
 
         #quickChoices {
@@ -84,20 +99,75 @@
             margin: 8px 0;
             font-size: 15px;
             cursor: pointer;
-            background-color: #526b9a;
-            color: white;
+            background-color: #87ceeb;
+            color: #3b0055;
             border: none;
             border-radius: 8px;
         }
 
         #quickChoices button:hover {
-            background-color: #40557b;
+            background-color: #6fc2e7;
+        }
+
+        #testScreen {
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #ff69b4;
+            background-image: url("image4.jpg");
+            background-size: min(700px, 90vw) auto;
+            background-position: center 120px;
+            background-repeat: no-repeat;
+        }
+
+        #testBox {
+            background: transparent;
+            border-radius: 0;
+            padding: 18px;
+            width: 760px;
+            max-width: 92vw;
+            margin: 20px auto;
+            box-shadow: none;
+        }
+
+        #testTopBar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #testChoices {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #testChoices button {
+            width: 420px;
+            max-width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #87ceeb;
+            color: #3b0055;
+            border: none;
+            border-radius: 8px;
+        }
+
+        #testChoices button:hover {
+            background-color: #6fc2e7;
         }
 
         #gameScreen {
             min-height: 100vh;
             padding: 20px;
-            background: linear-gradient(135deg, #f8f7f2, #dfeee8);
+            background-color: #ff69b4;
+            background-image: url("image5.jpg");
+            background-size: min(700px, 90vw) auto;
+            background-position: center 120px;
+            background-repeat: no-repeat;
         }
 
         #gameArea {
@@ -111,10 +181,10 @@
 
         #gameQuestionBox,
         #gameBoardBox {
-            background: rgba(255,255,255,0.92);
-            border-radius: 8px;
+            background: transparent;
+            border-radius: 0;
             padding: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: none;
         }
 
         #gameQuestionBox {
@@ -135,14 +205,14 @@
             margin: 8px 0;
             font-size: 15px;
             cursor: pointer;
-            background-color: #2f80a7;
-            color: white;
+            background-color: #87ceeb;
+            color: #3b0055;
             border: none;
             border-radius: 8px;
         }
 
         #gameChoices button:hover {
-            background-color: #256987;
+            background-color: #6fc2e7;
         }
 
         #gameBoard {
@@ -157,15 +227,15 @@
         .gameCell {
             width: 30px;
             height: 30px;
-            background: #eef2f0;
-            border: 1px solid #bac8c2;
+            background: #ffc1df;
+            border: 1px solid #3b0055;
             border-radius: 4px;
             cursor: pointer;
         }
 
         .gameCell.filled {
-            background: #f2b84b;
-            border-color: #b87f1e;
+            background: #87ceeb;
+            border-color: #3b0055;
         }
 
         .gameCell.pending {
@@ -185,12 +255,12 @@
         .previewCell {
             width: 24px;
             height: 24px;
-            background: #edf0ee;
+            background: #ffc1df;
             border-radius: 4px;
         }
 
         .previewCell.filled {
-            background: #f2b84b;
+            background: #87ceeb;
         }
 
         #gameMessage,
@@ -210,35 +280,38 @@
             margin: 10px 0;
             font-size: 16px;
             cursor: pointer;
-            background-color: #3498db;
-            color: white;
+            background-color: #87ceeb;
+            color: #3b0055;
             border: none;
             border-radius: 8px;
             transition: 0.3s;
         }
 
         #choices button:hover {
-            background-color: #2980b9;
+            background-color: #6fc2e7;
         }
 
         #question,
         #quickQuestion,
+        #testQuestion,
         #gameQuestion,
+        #optionsButton,
         #startButton,
         #quickQuizButton,
         #wrongWordsButton,
+        #testButton,
         #nextQuickButton,
-        #backFromQuickButton,
+        #nextTestButton,
         #gameButton,
         #rotateShapeButton,
         #confirmShapeButton,
         #nextGameQuestionButton,
-        #backFromGameButton,
         #nextButton {
             padding: 12px 20px;
             font-size: 18px;
             cursor: pointer;
-            background: rgba(255,255,255,0.9);
+            background: #87ceeb;
+            color: #3b0055;
             border-radius: 10px;
             margin-top: 15px;
         }
@@ -248,10 +321,15 @@
         #quickResult,
         #quickProgress,
         #quickStats,
+        #testTimer,
+        #testProgress,
+        #testResult,
+        #testStats,
         #gameResult,
         #gameMessage,
         #gameScore {
-            background: rgba(255,255,255,0.85);
+            background: rgba(255,105,180,0.88);
+            color: #3b0055;
             padding: 10px;
             border-radius: 10px;
             display: inline-block;
@@ -259,7 +337,8 @@
         }
 
         #explanation {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,105,180,0.88);
+            color: #3b0055;
             padding: 15px;
             border-radius: 10px;
             display: block;
@@ -284,6 +363,7 @@
             #homeScreen,
             #quizScreen,
             #quickScreen,
+            #testScreen,
             #gameScreen {
                 width: 100%;
                 max-width: 100%;
@@ -322,10 +402,19 @@
                 text-align: left;
             }
 
-            #quizScreen,
-            #quickScreen {
+            #quizScreen {
                 background-size: cover;
                 background-position: center top;
+                min-height: 100vh;
+                padding: 15px;
+            }
+
+            #quickScreen,
+            #testScreen,
+            #gameScreen {
+                background-size: min(520px, 90vw) auto;
+                background-position: center 100px;
+                background-repeat: no-repeat;
                 min-height: 100vh;
                 padding: 15px;
             }
@@ -347,6 +436,7 @@
 
             #question,
             #quickQuestion,
+            #testQuestion,
             #gameQuestion {
                 width: 90%;
                 max-width: 350px;
@@ -367,19 +457,29 @@
     <div id="homeScreen" class="screen">
         <!-- Home screen -->
 
-        <button id="startButton">Start Quiz</button>
-        <!-- Starts the quiz -->
+        <button id="optionsButton">Options</button>
+        <!-- Shows the quiz options -->
 
-        <button id="quickQuizButton">Quick Quiz</button>
-        <!-- Starts a 10 word quick quiz -->
+        <div id="optionsMenu">
+            <!-- Hidden options menu -->
 
-        <button id="wrongWordsButton">Practice Wrong Words</button>
-        <!-- Starts a quiz with words missed in quick quiz -->
+            <button id="startButton">Start Quiz</button>
+            <!-- Starts the quiz -->
 
-        <button id="gameButton">Play Quiz Game</button>
-        <!-- Opens the quiz game screen -->
+            <button id="quickQuizButton">Quick Quiz</button>
+            <!-- Starts a 10 word quick quiz -->
 
-        <img src="image.jpg" alt="Homepage image">
+            <button id="wrongWordsButton">Practice Wrong Words</button>
+            <!-- Starts a quiz with words missed in quick quiz -->
+
+            <button id="testButton">Test</button>
+            <!-- Starts the 90 minute sentence blank test -->
+
+            <button id="gameButton">Play Quiz Game</button>
+            <!-- Opens the quiz game screen -->
+        </div>
+
+        <img src="image2.jpg" alt="Homepage image">
         <!-- Homepage image -->
     </div>
 
@@ -432,8 +532,40 @@
 
             <br>
 
-            <button id="backFromQuickButton">Back to Home</button>
-            <!-- Leaves quick quiz screen -->
+
+        </div>
+    </div>
+
+    <div id="testScreen" class="screen">
+        <!-- Test screen -->
+
+        <div id="testBox">
+            <h2>Test</h2>
+            <!-- Test title -->
+
+            <div id="testTopBar">
+                <p id="testTimer"></p>
+                <!-- Test timer appears here -->
+
+                <p id="testProgress"></p>
+                <!-- Test progress appears here -->
+
+                <p id="testStats"></p>
+                <!-- Test score appears here -->
+            </div>
+
+            <h2 id="testQuestion"></h2>
+            <!-- Test sentence appears here -->
+
+            <div id="testChoices"></div>
+            <!-- Test answer choices appear here -->
+
+            <p id="testResult"></p>
+            <!-- Test result appears here -->
+
+            <button id="nextTestButton" style="display: none;">Next Question</button>
+            <!-- Moves to next test question -->
+
         </div>
     </div>
 
@@ -460,10 +592,9 @@
                 <button id="nextGameQuestionButton" style="display: none;">Next Question</button>
                 <!-- Next game question button -->
 
-                <br>
 
-                <button id="backFromGameButton">Back to Home</button>
-                <!-- Leaves the game screen -->
+
+
             </div>
 
             <div id="gameBoardBox">
@@ -523,6 +654,27 @@
         // This stores whether quick quiz is normal mode or wrong words mode.
         let quickMode = "quick";
 
+        // This stores the 100 random words for the test.
+        let testWords = [];
+
+        // This tracks which test question number the user is on.
+        let testQuestionNumber = 0;
+
+        // This tracks the test score.
+        let testScore = 0;
+
+        // This stores the correct answer for the current test question.
+        let testCorrectAnswer = "";
+
+        // This stores the current test word object.
+        let currentTestWord = null;
+
+        // This stores the 90 minute timer.
+        let testTimer = null;
+
+        // This stores how much test time is left in seconds.
+        let testTimeLeft = 90 * 60;
+
         // This stores the shuffled words for the game mode.
         let gameWords = [];
 
@@ -570,11 +722,20 @@
         // Get the quick quiz screen from the HTML.
         const quickScreen = document.getElementById("quickScreen");
 
+        // Get the test screen from the HTML.
+        const testScreen = document.getElementById("testScreen");
+
         // Get the game screen from the HTML.
         const gameScreen = document.getElementById("gameScreen");
 
         // Get the title.
         const title = document.getElementById("title");
+
+        // Get the Options button.
+        const optionsButton = document.getElementById("optionsButton");
+
+        // Get the options menu.
+        const optionsMenu = document.getElementById("optionsMenu");
 
         // Get the Start Quiz button.
         const startButton = document.getElementById("startButton");
@@ -584,6 +745,9 @@
 
         // Get the Practice Wrong Words button.
         const wrongWordsButton = document.getElementById("wrongWordsButton");
+
+        // Get the Test button.
+        const testButton = document.getElementById("testButton");
 
         // Get the Play Quiz Game button.
         const gameButton = document.getElementById("gameButton");
@@ -627,8 +791,26 @@
         // Get the next quick quiz button.
         const nextQuickButton = document.getElementById("nextQuickButton");
 
-        // Get the back from quick quiz button.
-        const backFromQuickButton = document.getElementById("backFromQuickButton");
+        // Get the test timer element.
+        const testTimerEl = document.getElementById("testTimer");
+
+        // Get the test progress element.
+        const testProgressEl = document.getElementById("testProgress");
+
+        // Get the test question element.
+        const testQuestionEl = document.getElementById("testQuestion");
+
+        // Get the test choices container.
+        const testChoicesEl = document.getElementById("testChoices");
+
+        // Get the test result element.
+        const testResultEl = document.getElementById("testResult");
+
+        // Get the test stats element.
+        const testStatsEl = document.getElementById("testStats");
+
+        // Get the next test button.
+        const nextTestButton = document.getElementById("nextTestButton");
 
         // Get the game question element.
         const gameQuestionEl = document.getElementById("gameQuestion");
@@ -663,9 +845,6 @@
         // Get the next game question button.
         const nextGameQuestionButton = document.getElementById("nextGameQuestionButton");
 
-        // Get the back from game button.
-        const backFromGameButton = document.getElementById("backFromGameButton");
-
 
         async function loadVocabularyFromFile(){
             try {
@@ -682,15 +861,32 @@
         loadVocabularyFromFile().then(function() {
             showHome();
         });
+
+        // This function stops the test timer.
+        function stopTestTimer() {
+            if (testTimer) {
+                clearInterval(testTimer);
+                testTimer = null;
+            }
+        }
+
         function showHome() {
+            stopTestTimer();
+
             // Show home screen.
             homeScreen.style.display = "flex";
+
+            // Hide the options menu.
+            optionsMenu.style.display = "none";
 
             // Hide quiz screen.
             quizScreen.style.display = "none";
 
             // Hide quick quiz screen.
             quickScreen.style.display = "none";
+
+            // Hide test screen.
+            testScreen.style.display = "none";
 
             // Hide game screen.
             gameScreen.style.display = "none";
@@ -704,6 +900,8 @@
 
         // This function shows the quiz screen.
         function showQuiz() {
+            stopTestTimer();
+
             // Hide home screen.
             homeScreen.style.display = "none";
 
@@ -713,12 +911,17 @@
             // Hide quick quiz screen.
             quickScreen.style.display = "none";
 
+            // Hide test screen.
+            testScreen.style.display = "none";
+
             // Hide game screen.
             gameScreen.style.display = "none";
         }
 
         // This function shows the quick quiz screen.
         function showQuickQuiz() {
+            stopTestTimer();
+
             // Hide home screen.
             homeScreen.style.display = "none";
 
@@ -728,12 +931,15 @@
             // Show quick quiz screen.
             quickScreen.style.display = "block";
 
+            // Hide test screen.
+            testScreen.style.display = "none";
+
             // Hide game screen.
             gameScreen.style.display = "none";
         }
 
-        // This function shows the game screen.
-        function showGame() {
+        // This function shows the test screen.
+        function showTest() {
             // Hide home screen.
             homeScreen.style.display = "none";
 
@@ -742,6 +948,29 @@
 
             // Hide quick quiz screen.
             quickScreen.style.display = "none";
+
+            // Show test screen.
+            testScreen.style.display = "block";
+
+            // Hide game screen.
+            gameScreen.style.display = "none";
+        }
+
+        // This function shows the game screen.
+        function showGame() {
+            stopTestTimer();
+
+            // Hide home screen.
+            homeScreen.style.display = "none";
+
+            // Hide quiz screen.
+            quizScreen.style.display = "none";
+
+            // Hide quick quiz screen.
+            quickScreen.style.display = "none";
+
+            // Hide test screen.
+            testScreen.style.display = "none";
 
             // Show game screen.
             gameScreen.style.display = "block";
@@ -836,12 +1065,12 @@
 
                 // If this button is the correct answer, make it green.
                 if (button.textContent === correctAnswer) {
-                    button.style.backgroundColor = "green";
+                    button.style.border = "3px solid green";
                 }
 
                 // If this button is the wrong answer the user clicked, make it red.
                 if (button.textContent === userAnswer && userAnswer !== correctAnswer) {
-                    button.style.backgroundColor = "red";
+                    button.style.border = "3px solid red";
                 }
             });
 
@@ -944,6 +1173,7 @@
             quickMode = "quick";
             quickWords = getQuickQuizWords();
             quickTitleEl.textContent = "Quick Quiz";
+            quickScreen.style.backgroundImage = 'url("image3.jpg")';
             beginQuickQuiz();
         }
 
@@ -965,6 +1195,7 @@
             quickMode = "wrong";
             quickWords = shuffleArray(wrongWordObjects);
             quickTitleEl.textContent = "Wrong Words Quiz";
+            quickScreen.style.backgroundImage = 'url("image6.jpg")';
             beginQuickQuiz();
         }
 
@@ -1017,11 +1248,11 @@
                 button.disabled = true;
 
                 if (button.textContent === quickCorrectAnswer) {
-                    button.style.backgroundColor = "green";
+                    button.style.border = "3px solid green";
                 }
 
                 if (button.textContent === userAnswer && userAnswer !== quickCorrectAnswer) {
-                    button.style.backgroundColor = "red";
+                    button.style.border = "3px solid red";
                 }
             });
 
@@ -1080,6 +1311,161 @@
             } else {
                 updateQuickStats();
             }
+        }
+
+        // This function chooses 3 wrong word choices for the test.
+        function getWrongTestChoices(correctWord) {
+            return shuffleArray(vocabulary)
+                .filter(item => item.word !== correctWord.word)
+                .slice(0, 3);
+        }
+
+        // This function starts the 90 minute test.
+        function startTest() {
+            const testReadyWords = vocabulary.filter(item => item.blankExample && item.blankAnswer);
+
+            if (testReadyWords.length < 4) {
+                alert("You need at least 4 words with blank examples to start the test.");
+                return;
+            }
+
+            testWords = shuffleArray(testReadyWords).slice(0, Math.min(100, testReadyWords.length));
+            testQuestionNumber = 0;
+            testScore = 0;
+            testTimeLeft = 90 * 60;
+            testResultEl.textContent = "";
+            nextTestButton.style.display = "none";
+            showTest();
+            startTestTimer();
+            showTestQuestion();
+        }
+
+        // This function starts the countdown timer.
+        function startTestTimer() {
+            stopTestTimer();
+            updateTestTimerDisplay();
+
+            testTimer = setInterval(function() {
+                testTimeLeft--;
+                updateTestTimerDisplay();
+
+                if (testTimeLeft <= 0) {
+                    finishTest("Time is up!");
+                }
+            }, 1000);
+        }
+
+        // This function updates the timer text.
+        function updateTestTimerDisplay() {
+            const minutes = Math.floor(testTimeLeft / 60);
+            const seconds = testTimeLeft % 60;
+            const secondsText = seconds < 10 ? "0" + seconds : seconds;
+
+            testTimerEl.textContent = "Time: " + minutes + ":" + secondsText;
+        }
+
+        // This function displays one test question.
+        function showTestQuestion() {
+            currentTestWord = testWords[testQuestionNumber];
+            testCorrectAnswer = currentTestWord.blankAnswer || currentTestWord.word;
+            testQuestionEl.textContent = currentTestWord.blankExample;
+            testChoicesEl.innerHTML = "";
+            testResultEl.textContent = "";
+            nextTestButton.style.display = "none";
+
+            const wrongChoices = getWrongTestChoices(currentTestWord);
+            const allChoices = shuffleArray([
+                {
+                    label: testCorrectAnswer,
+                    item: currentTestWord,
+                    correct: true
+                },
+                ...wrongChoices.map(item => ({
+                    label: item.blankAnswer || item.word,
+                    item: item,
+                    correct: false
+                }))
+            ]);
+
+            allChoices.forEach(choice => {
+                const button = document.createElement("button");
+                button.textContent = choice.label;
+
+                button.onclick = function() {
+                    checkTestAnswer(choice);
+                };
+
+                testChoicesEl.appendChild(button);
+            });
+
+            updateTestStats();
+        }
+
+        // This function checks the chosen test answer.
+        function checkTestAnswer(choice) {
+            const allButtons = testChoicesEl.querySelectorAll("button");
+
+            allButtons.forEach(button => {
+                button.disabled = true;
+
+                if (button.textContent === testCorrectAnswer) {
+                    button.style.border = "3px solid green";
+                }
+
+                if (button.textContent === choice.label && !choice.correct) {
+                    button.style.border = "3px solid red";
+                }
+            });
+
+            if (choice.correct) {
+                testScore++;
+                testResultEl.innerHTML =
+                    "Correct!<br><strong>Full sentence:</strong><br>" +
+                    currentTestWord.example;
+            } else {
+                testResultEl.innerHTML =
+                    "Incorrect.<br><strong>Correct answer:</strong> " +
+                    testCorrectAnswer +
+                    "<br><strong>Correct sentence:</strong><br>" +
+                    currentTestWord.example +
+                    "<br><br><strong>The word you chose:</strong> " +
+                    choice.label +
+                    "<br><strong>Sentence for that word:</strong><br>" +
+                    (choice.item.example || "");
+            }
+
+            nextTestButton.style.display = "inline-block";
+            updateTestStats();
+        }
+
+        // This function updates test progress and score.
+        function updateTestStats() {
+            const questionNumber = Math.min(testQuestionNumber + 1, testWords.length);
+
+            testProgressEl.textContent = "Question " + questionNumber + " / " + testWords.length;
+            testStatsEl.textContent = "Score: " + testScore + " / " + testWords.length;
+        }
+
+        // This function moves to the next test question.
+        function goToNextTestQuestion() {
+            testQuestionNumber++;
+
+            if (testQuestionNumber < testWords.length) {
+                showTestQuestion();
+            } else {
+                finishTest("Test finished!");
+            }
+        }
+
+        // This function finishes the test.
+        function finishTest(message) {
+            stopTestTimer();
+            testQuestionEl.textContent = message;
+            testChoicesEl.innerHTML = "";
+            testResultEl.textContent = "Final score: " + testScore + " / " + testWords.length;
+            testProgressEl.textContent = "Complete";
+            testStatsEl.textContent = "Score: " + testScore + " / " + testWords.length;
+            nextTestButton.style.display = "none";
         }
 
         // This function creates an empty 10 by 10 game board.
@@ -1329,11 +1715,11 @@
                 button.disabled = true;
 
                 if (button.textContent === gameCorrectAnswer) {
-                    button.style.backgroundColor = "green";
+                    button.style.border = "3px solid green";
                 }
 
                 if (button.textContent === userAnswer && userAnswer !== gameCorrectAnswer) {
-                    button.style.backgroundColor = "red";
+                    button.style.border = "3px solid red";
                 }
             });
 
@@ -1411,6 +1797,15 @@
             showHome();
         };
 
+        // When user clicks Options...
+        optionsButton.onclick = function() {
+            if (optionsMenu.style.display === "flex") {
+                optionsMenu.style.display = "none";
+            } else {
+                optionsMenu.style.display = "flex";
+            }
+        };
+
         // When user clicks Start Quiz...
         startButton.onclick = function() {
             // Make sure there are at least 4 words.
@@ -1446,6 +1841,11 @@
             startWrongWordsQuiz();
         };
 
+        // When user clicks Test...
+        testButton.onclick = function() {
+            startTest();
+        };
+
         // When user clicks Play Quiz Game...
         gameButton.onclick = function() {
             startGame();
@@ -1466,20 +1866,21 @@
             goToNextGameQuestion();
         };
 
-        // When user clicks Back to Home in game mode...
-        backFromGameButton.onclick = function() {
-            showHome();
-        };
+
 
         // When user clicks Next Question in quick quiz...
         nextQuickButton.onclick = function() {
             goToNextQuickQuestion();
         };
 
-        // When user clicks Back to Home in quick quiz...
-        backFromQuickButton.onclick = function() {
-            showHome();
+
+
+        // When user clicks Next Question in test mode...
+        nextTestButton.onclick = function() {
+            goToNextTestQuestion();
         };
+
+
 
         // When user clicks Next Question...
         nextButton.onclick = function() {
