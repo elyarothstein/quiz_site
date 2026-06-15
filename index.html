@@ -55,6 +55,45 @@
             padding: 20px;
         }
 
+        #quickScreen {
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #f3f7fb, #e9f0df);
+        }
+
+        #quickBox {
+            background: rgba(255,255,255,0.92);
+            border-radius: 8px;
+            padding: 18px;
+            width: 620px;
+            max-width: 90vw;
+            margin: 20px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        #quickChoices {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #quickChoices button {
+            width: 420px;
+            max-width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 15px;
+            cursor: pointer;
+            background-color: #526b9a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        #quickChoices button:hover {
+            background-color: #40557b;
+        }
+
         #gameScreen {
             min-height: 100vh;
             padding: 20px;
@@ -183,8 +222,13 @@
         }
 
         #question,
+        #quickQuestion,
         #gameQuestion,
         #startButton,
+        #quickQuizButton,
+        #wrongWordsButton,
+        #nextQuickButton,
+        #backFromQuickButton,
         #gameButton,
         #rotateShapeButton,
         #confirmShapeButton,
@@ -201,6 +245,9 @@
 
         #result,
         #score,
+        #quickResult,
+        #quickProgress,
+        #quickStats,
         #gameResult,
         #gameMessage,
         #gameScore {
@@ -236,6 +283,7 @@
 
             #homeScreen,
             #quizScreen,
+            #quickScreen,
             #gameScreen {
                 width: 100%;
                 max-width: 100%;
@@ -274,7 +322,8 @@
                 text-align: left;
             }
 
-            #quizScreen {
+            #quizScreen,
+            #quickScreen {
                 background-size: cover;
                 background-position: center top;
                 min-height: 100vh;
@@ -297,6 +346,7 @@
             }
 
             #question,
+            #quickQuestion,
             #gameQuestion {
                 width: 90%;
                 max-width: 350px;
@@ -319,6 +369,12 @@
 
         <button id="startButton">Start Quiz</button>
         <!-- Starts the quiz -->
+
+        <button id="quickQuizButton">Quick Quiz</button>
+        <!-- Starts a 10 word quick quiz -->
+
+        <button id="wrongWordsButton">Practice Wrong Words</button>
+        <!-- Starts a quiz with words missed in quick quiz -->
 
         <button id="gameButton">Play Quiz Game</button>
         <!-- Opens the quiz game screen -->
@@ -347,6 +403,38 @@
 
         <button id="nextButton" style="display: none;">Next Question</button>
         <!-- Next button hidden until user answers -->
+    </div>
+
+    <div id="quickScreen" class="screen">
+        <!-- Quick quiz screen -->
+
+        <div id="quickBox">
+            <h2 id="quickTitle">Quick Quiz</h2>
+            <!-- Quick quiz title -->
+
+            <p id="quickProgress"></p>
+            <!-- Quick quiz progress appears here -->
+
+            <h2 id="quickQuestion"></h2>
+            <!-- Quick quiz question appears here -->
+
+            <div id="quickChoices"></div>
+            <!-- Quick quiz answer buttons appear here -->
+
+            <p id="quickResult"></p>
+            <!-- Correct or incorrect quick quiz message appears here -->
+
+            <p id="quickStats"></p>
+            <!-- Quick quiz right and wrong count appears here -->
+
+            <button id="nextQuickButton" style="display: none;">Next Question</button>
+            <!-- Moves to next quick quiz question -->
+
+            <br>
+
+            <button id="backFromQuickButton">Back to Home</button>
+            <!-- Leaves quick quiz screen -->
+        </div>
     </div>
 
     <div id="gameScreen" class="screen">
@@ -417,6 +505,24 @@
         // This stores the correct answer for the current question.
         let correctAnswer = "";
 
+        // This stores the words for the current quick quiz.
+        let quickWords = [];
+
+        // This tracks which quick quiz question number the user is on.
+        let quickQuestionNumber = 0;
+
+        // This tracks the current quick quiz score.
+        let quickScore = 0;
+
+        // This tracks wrong answers in the current quick quiz.
+        let quickWrongCount = 0;
+
+        // This stores the correct answer for the current quick quiz question.
+        let quickCorrectAnswer = "";
+
+        // This stores whether quick quiz is normal mode or wrong words mode.
+        let quickMode = "quick";
+
         // This stores the shuffled words for the game mode.
         let gameWords = [];
 
@@ -461,6 +567,9 @@
         // Get the quiz screen from the HTML.
         const quizScreen = document.getElementById("quizScreen");
 
+        // Get the quick quiz screen from the HTML.
+        const quickScreen = document.getElementById("quickScreen");
+
         // Get the game screen from the HTML.
         const gameScreen = document.getElementById("gameScreen");
 
@@ -469,6 +578,12 @@
 
         // Get the Start Quiz button.
         const startButton = document.getElementById("startButton");
+
+        // Get the Quick Quiz button.
+        const quickQuizButton = document.getElementById("quickQuizButton");
+
+        // Get the Practice Wrong Words button.
+        const wrongWordsButton = document.getElementById("wrongWordsButton");
 
         // Get the Play Quiz Game button.
         const gameButton = document.getElementById("gameButton");
@@ -490,6 +605,30 @@
 
         // Get the score element.
         const scoreEl = document.getElementById("score");
+
+        // Get the quick quiz title.
+        const quickTitleEl = document.getElementById("quickTitle");
+
+        // Get the quick quiz progress element.
+        const quickProgressEl = document.getElementById("quickProgress");
+
+        // Get the quick quiz question element.
+        const quickQuestionEl = document.getElementById("quickQuestion");
+
+        // Get the quick quiz choices container.
+        const quickChoicesEl = document.getElementById("quickChoices");
+
+        // Get the quick quiz result element.
+        const quickResultEl = document.getElementById("quickResult");
+
+        // Get the quick quiz stats element.
+        const quickStatsEl = document.getElementById("quickStats");
+
+        // Get the next quick quiz button.
+        const nextQuickButton = document.getElementById("nextQuickButton");
+
+        // Get the back from quick quiz button.
+        const backFromQuickButton = document.getElementById("backFromQuickButton");
 
         // Get the game question element.
         const gameQuestionEl = document.getElementById("gameQuestion");
@@ -550,6 +689,9 @@
             // Hide quiz screen.
             quizScreen.style.display = "none";
 
+            // Hide quick quiz screen.
+            quickScreen.style.display = "none";
+
             // Hide game screen.
             gameScreen.style.display = "none";
 
@@ -568,6 +710,24 @@
             // Show quiz screen.
             quizScreen.style.display = "block";
 
+            // Hide quick quiz screen.
+            quickScreen.style.display = "none";
+
+            // Hide game screen.
+            gameScreen.style.display = "none";
+        }
+
+        // This function shows the quick quiz screen.
+        function showQuickQuiz() {
+            // Hide home screen.
+            homeScreen.style.display = "none";
+
+            // Hide quiz screen.
+            quizScreen.style.display = "none";
+
+            // Show quick quiz screen.
+            quickScreen.style.display = "block";
+
             // Hide game screen.
             gameScreen.style.display = "none";
         }
@@ -579,6 +739,9 @@
 
             // Hide quiz screen.
             quizScreen.style.display = "none";
+
+            // Hide quick quiz screen.
+            quickScreen.style.display = "none";
 
             // Show game screen.
             gameScreen.style.display = "block";
@@ -703,6 +866,220 @@
 
             // Update score.
             scoreEl.textContent = "Score: " + score + " / " + quizWords.length;
+        }
+
+        // This function gets saved quick quiz progress from the browser.
+        function getQuickSeenWords() {
+            return JSON.parse(localStorage.getItem("quickSeenWords") || "[]");
+        }
+
+        // This function saves quick quiz progress into the browser.
+        function saveQuickSeenWords(words) {
+            localStorage.setItem("quickSeenWords", JSON.stringify(words));
+        }
+
+        // This function gets the saved wrong words from the browser.
+        function getQuickWrongWords() {
+            return JSON.parse(localStorage.getItem("quickWrongWords") || "[]");
+        }
+
+        // This function saves the wrong words into the browser.
+        function saveQuickWrongWords(words) {
+            localStorage.setItem("quickWrongWords", JSON.stringify(words));
+        }
+
+        // This function adds a word to the wrong words list.
+        function addQuickWrongWord(word) {
+            const wrongWords = getQuickWrongWords();
+
+            if (!wrongWords.includes(word)) {
+                wrongWords.push(word);
+                saveQuickWrongWords(wrongWords);
+            }
+        }
+
+        // This function removes a word from the wrong words list.
+        function removeQuickWrongWord(word) {
+            const wrongWords = getQuickWrongWords().filter(savedWord => savedWord !== word);
+            saveQuickWrongWords(wrongWords);
+        }
+
+        // This function chooses up to 10 new words for quick quiz.
+        function getQuickQuizWords() {
+            let seenWords = getQuickSeenWords();
+
+            if (seenWords.length >= vocabulary.length) {
+                seenWords = [];
+                saveQuickSeenWords(seenWords);
+            }
+
+            let availableWords = vocabulary.filter(item => !seenWords.includes(item.word));
+
+            if (availableWords.length === 0) {
+                seenWords = [];
+                saveQuickSeenWords(seenWords);
+                availableWords = [...vocabulary];
+            }
+
+            const selectedWords = shuffleArray(availableWords).slice(0, 10);
+            const newSeenWords = [...seenWords];
+
+            selectedWords.forEach(item => {
+                if (!newSeenWords.includes(item.word)) {
+                    newSeenWords.push(item.word);
+                }
+            });
+
+            saveQuickSeenWords(newSeenWords);
+            return selectedWords;
+        }
+
+        // This function starts a normal quick quiz.
+        function startQuickQuiz() {
+            if (vocabulary.length < 4) {
+                alert("You need at least 4 vocabulary words to start the quick quiz.");
+                return;
+            }
+
+            quickMode = "quick";
+            quickWords = getQuickQuizWords();
+            quickTitleEl.textContent = "Quick Quiz";
+            beginQuickQuiz();
+        }
+
+        // This function starts a quiz with only wrong words.
+        function startWrongWordsQuiz() {
+            const wrongWords = getQuickWrongWords();
+            const wrongWordObjects = vocabulary.filter(item => wrongWords.includes(item.word));
+
+            if (wrongWordObjects.length === 0) {
+                alert("You do not have any wrong words to practice right now.");
+                return;
+            }
+
+            if (vocabulary.length < 4) {
+                alert("You need at least 4 vocabulary words to start this quiz.");
+                return;
+            }
+
+            quickMode = "wrong";
+            quickWords = shuffleArray(wrongWordObjects);
+            quickTitleEl.textContent = "Wrong Words Quiz";
+            beginQuickQuiz();
+        }
+
+        // This function prepares the quick quiz screen.
+        function beginQuickQuiz() {
+            quickQuestionNumber = 0;
+            quickScore = 0;
+            quickWrongCount = 0;
+            quickResultEl.textContent = "";
+            nextQuickButton.style.display = "none";
+            showQuickQuiz();
+            showQuickQuestion();
+        }
+
+        // This function displays one quick quiz question.
+        function showQuickQuestion() {
+            const currentWord = quickWords[quickQuestionNumber];
+
+            quickCorrectAnswer = currentWord.explanation;
+            quickQuestionEl.textContent = `What does "${currentWord.word}" mean?`;
+            quickChoicesEl.innerHTML = "";
+            quickResultEl.textContent = "";
+            nextQuickButton.style.display = "none";
+
+            let wrongAnswers = getWrongDefinitions(currentWord);
+            let allChoices = shuffleArray([
+                quickCorrectAnswer,
+                ...wrongAnswers
+            ]);
+
+            allChoices.forEach(choiceText => {
+                const button = document.createElement("button");
+                button.textContent = choiceText;
+
+                button.onclick = function() {
+                    checkQuickAnswer(choiceText, currentWord);
+                };
+
+                quickChoicesEl.appendChild(button);
+            });
+
+            updateQuickStats();
+        }
+
+        // This function checks a quick quiz answer.
+        function checkQuickAnswer(userAnswer, currentWord) {
+            const allButtons = quickChoicesEl.querySelectorAll("button");
+
+            allButtons.forEach(button => {
+                button.disabled = true;
+
+                if (button.textContent === quickCorrectAnswer) {
+                    button.style.backgroundColor = "green";
+                }
+
+                if (button.textContent === userAnswer && userAnswer !== quickCorrectAnswer) {
+                    button.style.backgroundColor = "red";
+                }
+            });
+
+            if (userAnswer === quickCorrectAnswer) {
+                quickScore++;
+                removeQuickWrongWord(currentWord.word);
+                quickResultEl.innerHTML =
+                    "Correct!<br><strong>Example:</strong><br>" +
+                    (currentWord.example || "");
+            } else {
+                quickWrongCount++;
+                addQuickWrongWord(currentWord.word);
+                quickResultEl.innerHTML =
+                    "Incorrect.<br><strong>Meaning:</strong><br>" +
+                    (currentWord.explanation || "") +
+                    "<br><br><strong>Example:</strong><br>" +
+                    (currentWord.example || "");
+            }
+
+            nextQuickButton.style.display = "inline-block";
+            updateQuickStats();
+        }
+
+        // This function updates the quick quiz score and progress.
+        function updateQuickStats() {
+            const questionNumber = Math.min(quickQuestionNumber + 1, quickWords.length);
+            const wrongWordsRemaining = getQuickWrongWords().length;
+
+            quickProgressEl.textContent = "Question " + questionNumber + " / " + quickWords.length;
+            quickStatsEl.textContent =
+                "Right: " + quickScore +
+                " | Wrong: " + quickWrongCount +
+                " | Saved wrong words: " + wrongWordsRemaining;
+        }
+
+        // This function moves to the next quick quiz question.
+        function goToNextQuickQuestion() {
+            quickQuestionNumber++;
+
+            if (quickQuestionNumber < quickWords.length) {
+                showQuickQuestion();
+            } else {
+                finishQuickQuiz();
+            }
+        }
+
+        // This function finishes the quick quiz.
+        function finishQuickQuiz() {
+            quickQuestionEl.textContent = "Quick Quiz Finished!";
+            quickChoicesEl.innerHTML = "";
+            quickResultEl.textContent = "Final score: " + quickScore + " / " + quickWords.length;
+            nextQuickButton.style.display = "none";
+
+            if (quickMode === "wrong" && getQuickWrongWords().length === 0) {
+                quickStatsEl.textContent = "You got every saved wrong word correct.";
+            } else {
+                updateQuickStats();
+            }
         }
 
         // This function creates an empty 10 by 10 game board.
@@ -1059,6 +1436,16 @@
             showQuestion();
         };
 
+        // When user clicks Quick Quiz...
+        quickQuizButton.onclick = function() {
+            startQuickQuiz();
+        };
+
+        // When user clicks Practice Wrong Words...
+        wrongWordsButton.onclick = function() {
+            startWrongWordsQuiz();
+        };
+
         // When user clicks Play Quiz Game...
         gameButton.onclick = function() {
             startGame();
@@ -1081,6 +1468,16 @@
 
         // When user clicks Back to Home in game mode...
         backFromGameButton.onclick = function() {
+            showHome();
+        };
+
+        // When user clicks Next Question in quick quiz...
+        nextQuickButton.onclick = function() {
+            goToNextQuickQuestion();
+        };
+
+        // When user clicks Back to Home in quick quiz...
+        backFromQuickButton.onclick = function() {
             showHome();
         };
 
