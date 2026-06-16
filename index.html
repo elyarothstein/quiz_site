@@ -1597,23 +1597,101 @@
             }
         }
 
-        // This function chooses 3 wrong word choices for the test.
-        function getWrongTestChoices(correctWord) {
-            return shuffleArray(vocabulary)
+        // This function chooses one blank sentence for a word.
+        function getRandomBlankExample(wordItem, answerType) {
+            const examples = Array.isArray(wordItem.blankExamples)
+                ? wordItem.blankExamples.filter(example => example.sentence && example.answer)
+                : [];
+            const matchingExamples = answerType
+                ? examples.filter(example => getAnswerType(example.answer) === answerType)
+                : examples;
+
+            if (matchingExamples.length > 0) {
+                return matchingExamples[Math.floor(Math.random() * matchingExamples.length)];
+            }
+
+            return {
+                sentence: wordItem.blankExample,
+                answer: wordItem.blankAnswer || wordItem.word,
+                fullSentence: wordItem.example || ""
+            };
+        }
+
+        // This function groups answers by grammar shape so choices do not give away the answer.
+        function getAnswerType(answer) {
+            const lowerAnswer = answer.toLowerCase();
+
+            if (lowerAnswer.endsWith("ing")) {
+                return "ing";
+            }
+
+            if (
+                lowerAnswer.endsWith("ed") ||
+                lowerAnswer.endsWith("ied") ||
+                lowerAnswer === "bent" ||
+                lowerAnswer === "fled" ||
+                lowerAnswer === "undertook"
+            ) {
+                return "past";
+            }
+
+            if (answer.includes(" ")) {
+                return "phrase";
+            }
+
+            return "base";
+        }
+
+        // This function prepares one word for the test with a chosen sentence.
+        function prepareTestWord(wordItem, answerType) {
+            const blankExample = getRandomBlankExample(wordItem, answerType);
+
+            return {
+                ...wordItem,
+                testBlankExample: blankExample.sentence,
+                testBlankAnswer: blankExample.answer,
+                testFullSentence: blankExample.fullSentence || blankExample.sentence.replace("_____", blankExample.answer)
+            };
+        }
+
+        // This function chooses wrong choices with the same grammar shape as the correct answer.
+        function getMatchingWrongTestChoices(correctWord, answerType) {
+            const matchingChoices = shuffleArray(vocabulary)
                 .filter(item => item.word !== correctWord.word)
-                .slice(0, 3);
+                .map(item => prepareTestWord(item, answerType))
+                .filter(item => getAnswerType(item.testBlankAnswer || item.blankAnswer || item.word) === answerType);
+            const fallbackChoices = shuffleArray(vocabulary)
+                .filter(item => item.word !== correctWord.word)
+                .map(item => prepareTestWord(item));
+            const combinedChoices = [...matchingChoices, ...fallbackChoices];
+            const uniqueChoices = [];
+
+            combinedChoices.forEach(item => {
+                const label = item.testBlankAnswer || item.blankAnswer || item.word;
+
+                if (!uniqueChoices.some(choice => (choice.testBlankAnswer || choice.blankAnswer || choice.word) === label)) {
+                    uniqueChoices.push(item);
+                }
+            });
+
+            return uniqueChoices.slice(0, 3);
         }
 
         // This function starts the 90 minute test.
         function startTest() {
-            const testReadyWords = vocabulary.filter(item => item.blankExample && item.blankAnswer);
+            const testReadyWords = vocabulary.filter(item =>
+                (Array.isArray(item.blankExamples) && item.blankExamples.length > 0) ||
+                (item.blankExample && item.blankAnswer)
+            );
 
             if (testReadyWords.length < 4) {
                 alert("You need at least 4 words with blank examples to start the test.");
                 return;
             }
 
-            testWords = shuffleArray(testReadyWords).slice(0, Math.min(100, testReadyWords.length));
+            testWords = shuffleArray(testReadyWords)
+                .slice(0, Math.min(100, testReadyWords.length))
+                .map(prepareTestWord);
             testQuestionNumber = 0;
             testScore = 0;
             testTimeLeft = 90 * 60;
@@ -1651,13 +1729,14 @@
         // This function displays one test question.
         function showTestQuestion() {
             currentTestWord = testWords[testQuestionNumber];
-            testCorrectAnswer = currentTestWord.blankAnswer || currentTestWord.word;
-            testQuestionEl.textContent = currentTestWord.blankExample;
+            testCorrectAnswer = currentTestWord.testBlankAnswer || currentTestWord.blankAnswer || currentTestWord.word;
+            testQuestionEl.textContent = currentTestWord.testBlankExample || currentTestWord.blankExample;
             testChoicesEl.innerHTML = "";
             testResultEl.textContent = "";
             nextTestButton.style.display = "none";
 
-            const wrongChoices = getWrongTestChoices(currentTestWord);
+            const answerType = getAnswerType(testCorrectAnswer);
+            const wrongChoices = getMatchingWrongTestChoices(currentTestWord, answerType);
             const allChoices = shuffleArray([
                 {
                     label: testCorrectAnswer,
@@ -1665,7 +1744,7 @@
                     correct: true
                 },
                 ...wrongChoices.map(item => ({
-                    label: item.blankAnswer || item.word,
+                    label: item.testBlankAnswer || item.blankAnswer || item.word,
                     item: item,
                     correct: false
                 }))
@@ -1705,17 +1784,25 @@
                 testScore++;
                 testResultEl.innerHTML =
                     "Correct!<br><strong>Full sentence:</strong><br>" +
-                    currentTestWord.example;
+                    (currentTestWord.testFullSentence || currentTestWord.example || "") +
+                    "<br><br><strong>Definition of " +
+                    choice.label +
+                    ":</strong><br>" +
+                    (choice.item.explanation || "");
             } else {
                 testResultEl.innerHTML =
                     "Incorrect.<br><strong>Correct answer:</strong> " +
                     testCorrectAnswer +
+                    "<br><strong>Definition of correct word:</strong><br>" +
+                    (currentTestWord.explanation || "") +
                     "<br><strong>Correct sentence:</strong><br>" +
-                    currentTestWord.example +
+                    (currentTestWord.testFullSentence || currentTestWord.example || "") +
                     "<br><br><strong>The word you chose:</strong> " +
                     choice.label +
+                    "<br><strong>Definition of the word you chose:</strong><br>" +
+                    (choice.item.explanation || "") +
                     "<br><strong>Sentence for that word:</strong><br>" +
-                    (choice.item.example || "");
+                    (choice.item.testFullSentence || choice.item.example || "");
             }
 
             nextTestButton.style.display = "inline-block";
@@ -1754,12 +1841,17 @@
 
         // This function starts a new puzzle game.
         function startPuzzleGame() {
-            if (vocabulary.length < 4) {
-                alert("You need at least 4 vocabulary words to start the puzzle game.");
+            const puzzleReadyWords = vocabulary.filter(item =>
+                (Array.isArray(item.blankExamples) && item.blankExamples.length > 0) ||
+                (item.blankExample && item.blankAnswer)
+            );
+
+            if (puzzleReadyWords.length < 4) {
+                alert("You need at least 4 words with blank examples to start the puzzle game.");
                 return;
             }
 
-            puzzleWords = shuffleArray(vocabulary);
+            puzzleWords = shuffleArray(puzzleReadyWords).map(prepareTestWord);
             puzzleQuestionNumber = 0;
             puzzleScore = 0;
             currentPuzzleImage = puzzleImages[Math.floor(Math.random() * puzzleImages.length)];
@@ -1780,24 +1872,33 @@
         function showPuzzleQuestion() {
             const currentWord = puzzleWords[puzzleQuestionNumber];
 
-            puzzleCorrectAnswer = currentWord.explanation;
-            puzzleQuestionEl.textContent = `What does "${currentWord.word}" mean?`;
+            puzzleCorrectAnswer = currentWord.testBlankAnswer || currentWord.blankAnswer || currentWord.word;
+            puzzleQuestionEl.textContent = currentWord.testBlankExample || currentWord.blankExample;
             puzzleChoicesEl.innerHTML = "";
             puzzleResultEl.textContent = "";
             nextPuzzleQuestionButton.style.display = "none";
 
-            let wrongAnswers = getWrongDefinitions(currentWord);
+            const answerType = getAnswerType(puzzleCorrectAnswer);
+            const wrongChoices = getMatchingWrongTestChoices(currentWord, answerType);
             let allChoices = shuffleArray([
-                puzzleCorrectAnswer,
-                ...wrongAnswers
+                {
+                    label: puzzleCorrectAnswer,
+                    item: currentWord,
+                    correct: true
+                },
+                ...wrongChoices.map(item => ({
+                    label: item.testBlankAnswer || item.blankAnswer || item.word,
+                    item: item,
+                    correct: false
+                }))
             ]);
 
-            allChoices.forEach(choiceText => {
+            allChoices.forEach(choice => {
                 const button = document.createElement("button");
-                button.textContent = choiceText;
+                button.textContent = choice.label;
 
                 button.onclick = function() {
-                    checkPuzzleAnswer(choiceText, currentWord);
+                    checkPuzzleAnswer(choice);
                 };
 
                 puzzleChoicesEl.appendChild(button);
@@ -1807,7 +1908,7 @@
         }
 
         // This function checks the answer in puzzle mode.
-        function checkPuzzleAnswer(userAnswer, currentWord) {
+        function checkPuzzleAnswer(choice) {
             const allButtons = puzzleChoicesEl.querySelectorAll("button");
 
             allButtons.forEach(button => {
@@ -1817,23 +1918,35 @@
                     button.style.border = "3px solid green";
                 }
 
-                if (button.textContent === userAnswer && userAnswer !== puzzleCorrectAnswer) {
+                if (button.textContent === choice.label && !choice.correct) {
                     button.style.border = "3px solid red";
                 }
             });
 
-            if (userAnswer === puzzleCorrectAnswer) {
+            if (choice.correct) {
                 puzzleScore++;
                 unlockPuzzlePiece();
                 puzzleResultEl.innerHTML =
-                    "Correct! You earned a puzzle piece.<br><strong>Example:</strong><br>" +
-                    (currentWord.example || "");
+                    "Correct! You earned a puzzle piece.<br><strong>Full sentence:</strong><br>" +
+                    (choice.item.testFullSentence || choice.item.example || "") +
+                    "<br><br><strong>Definition of " +
+                    choice.label +
+                    ":</strong><br>" +
+                    (choice.item.explanation || "");
             } else {
                 puzzleResultEl.innerHTML =
-                    "Incorrect.<br><strong>Meaning:</strong><br>" +
-                    (currentWord.explanation || "") +
-                    "<br><br><strong>Example:</strong><br>" +
-                    (currentWord.example || "");
+                    "Incorrect.<br><strong>Correct answer:</strong> " +
+                    puzzleCorrectAnswer +
+                    "<br><strong>Definition of correct word:</strong><br>" +
+                    (puzzleWords[puzzleQuestionNumber].explanation || "") +
+                    "<br><strong>Correct sentence:</strong><br>" +
+                    (puzzleWords[puzzleQuestionNumber].testFullSentence || puzzleWords[puzzleQuestionNumber].example || "") +
+                    "<br><br><strong>The word you chose:</strong> " +
+                    choice.label +
+                    "<br><strong>Definition of the word you chose:</strong><br>" +
+                    (choice.item.explanation || "") +
+                    "<br><strong>Sentence for that word:</strong><br>" +
+                    (choice.item.testFullSentence || choice.item.example || "");
             }
 
             nextPuzzleQuestionButton.style.display = "inline-block";
