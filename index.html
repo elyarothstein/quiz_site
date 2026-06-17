@@ -59,7 +59,7 @@
 
         #quizScreen {
             background-color: #ff69b4;
-            background-image: url("quiz.jpg");
+            background-image: url("website_images/quiz.jpg");
             background-size: cover;
             background-position: center;
             min-height: 100vh;
@@ -70,7 +70,7 @@
             min-height: 100vh;
             padding: 20px;
             background-color: #ff69b4;
-            background-image: url("image3.jpg");
+            background-image: url("website_images/image3.jpg");
             background-size: min(700px, 90vw) auto;
             background-position: center 120px;
             background-repeat: no-repeat;
@@ -113,7 +113,7 @@
             min-height: 100vh;
             padding: 20px;
             background-color: #ff69b4;
-            background-image: url("image4.jpg");
+            background-image: url("website_images/image4.jpg");
             background-size: min(700px, 90vw) auto;
             background-position: center 120px;
             background-repeat: no-repeat;
@@ -164,7 +164,7 @@
             min-height: 100vh;
             padding: 20px;
             background-color: #ff69b4;
-            background-image: url("image5.jpg");
+            background-image: url("website_images/image5.jpg");
             background-size: min(700px, 90vw) auto;
             background-position: center 120px;
             background-repeat: no-repeat;
@@ -219,7 +219,7 @@
             min-height: 100vh;
             padding: 20px;
             background-color: #ff69b4;
-            background-image: url("image7.jpg");
+            background-image: url("website_images/image7.jpg");
             background-size: min(700px, 90vw) auto;
             background-position: center 120px;
             background-repeat: no-repeat;
@@ -308,6 +308,92 @@
             background-repeat: no-repeat;
             box-shadow: 0 4px 10px rgba(0,0,0,0.18);
             touch-action: none;
+        }
+
+        #calendarScreen {
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #ff69b4;
+        }
+
+        #calendarBox {
+            width: min(900px, 96vw);
+            margin: 10px auto;
+        }
+
+        #calendarMessage {
+            max-width: 650px;
+            line-height: 1.4;
+        }
+
+        #calendarGrid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(88px, 1fr));
+            gap: 10px;
+            margin: 18px auto;
+        }
+
+        .calendarDay {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            min-height: 92px;
+            padding: 8px;
+            overflow: hidden;
+            cursor: not-allowed;
+            background: rgba(135,206,235,0.78);
+            color: #3b0055;
+            border: 2px solid #3b0055;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .calendarDay.today {
+            cursor: pointer;
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.65);
+        }
+
+        .calendarDay.locked {
+            opacity: 0.72;
+        }
+
+        .calendarDay.revealed {
+            cursor: default;
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+        }
+
+        .calendarDay.revealed::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255,105,180,0.28);
+        }
+
+        .calendarDate,
+        .calendarWord,
+        .calendarLock {
+            position: relative;
+            z-index: 1;
+        }
+
+        .calendarDate {
+            display: block;
+            font-size: 14px;
+        }
+
+        .calendarWord {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            font-size: clamp(15px, 2vw, 22px);
+            text-shadow: 0 1px 4px rgba(255,255,255,0.9);
+        }
+
+        .calendarLock {
+            display: block;
+            margin-top: 18px;
+            font-size: 13px;
         }
 
         .puzzlePiece.dragging {
@@ -411,6 +497,7 @@
         #nextTestButton,
         #gameButton,
         #puzzleGameButton,
+        #calendarButton,
         #nextPuzzleQuestionButton,
         #puzzlePlayAgainButton,
         #puzzleHomeButton,
@@ -441,7 +528,8 @@
         #gameScore,
         #puzzleResult,
         #puzzleMessage,
-        #puzzleScore {
+        #puzzleScore,
+        #calendarMessage {
             background: rgba(255,105,180,0.88);
             color: #3b0055;
             padding: 10px;
@@ -479,6 +567,7 @@
             #quickScreen,
             #testScreen,
             #puzzleScreen,
+            #calendarScreen,
             #gameScreen {
                 width: 100%;
                 max-width: 100%;
@@ -527,6 +616,7 @@
             #quickScreen,
             #testScreen,
             #puzzleScreen,
+            #calendarScreen,
             #gameScreen {
                 background-size: min(520px, 90vw) auto;
                 background-position: center 100px;
@@ -537,6 +627,16 @@
 
             #gameArea {
                 gap: 14px;
+            }
+
+            #calendarGrid {
+                grid-template-columns: repeat(3, minmax(82px, 1fr));
+                gap: 8px;
+            }
+
+            .calendarDay {
+                min-height: 82px;
+                padding: 6px;
             }
 
             #gameBoard {
@@ -597,9 +697,12 @@
 
             <button id="puzzleGameButton">Puzzle Game</button>
             <!-- Opens the puzzle game screen -->
+
+            <button id="calendarButton">Countdown Calendar</button>
+            <!-- Opens the countdown calendar screen -->
         </div>
 
-        <img src="image2.jpg" alt="Homepage image">
+        <img src="website_images/image2.jpg" alt="Homepage image">
         <!-- Homepage image -->
     </div>
 
@@ -782,6 +885,20 @@
         </div>
     </div>
 
+    <div id="calendarScreen" class="screen">
+        <!-- Countdown calendar screen -->
+
+        <div id="calendarBox">
+            <h2>Countdown to America</h2>
+
+            <p id="calendarMessage"></p>
+            <!-- Calendar instructions and messages appear here -->
+
+            <div id="calendarGrid"></div>
+            <!-- Calendar date buttons appear here -->
+        </div>
+    </div>
+
     <script>
         // JavaScript starts here
 
@@ -890,17 +1007,39 @@
 
         // These are the puzzle photos the game can choose from.
         const puzzleImages = [
-            "puzzle1.jpg",
-            "puzzle2.jpg",
-            "puzzle3.jpg",
-            "puzzle4.jpg",
-            "puzzle5.jpg",
-            "puzzle6.jpg",
-            "puzzle7.jpg",
-            "puzzle8.jpg",
-            "puzzle9.jpg",
-            "puzzle10.jpg"
+            "puzzle_photos/puzzle1.jpg",
+            "puzzle_photos/puzzle2.jpg",
+            "puzzle_photos/puzzle3.jpg",
+            "puzzle_photos/puzzle4.jpg",
+            "puzzle_photos/puzzle5.jpg",
+            "puzzle_photos/puzzle6.jpg",
+            "puzzle_photos/puzzle7.jpg",
+            "puzzle_photos/puzzle8.jpg",
+            "puzzle_photos/puzzle9.jpg",
+            "puzzle_photos/puzzle10.jpg",
+            "puzzle_photos/puzzle11.jpg",
+            "puzzle_photos/puzzle12.jpg",
+            "puzzle_photos/puzzle13.jpg",
+            "puzzle_photos/puzzle14.jpg",
+            "puzzle_photos/puzzle15.jpg",
+            "puzzle_photos/puzzle16.jpg",
+            "puzzle_photos/puzzle17.jpg",
+            "puzzle_photos/puzzle18.jpg",
+            "puzzle_photos/puzzle19.jpg",
+            "puzzle_photos/puzzle20.jpg"
         ];
+
+        // These are the countdown calendar photos, one for each day.
+        const calendarPhotos = Array.from(
+            { length: 48 },
+            (_, index) => "calendar_photos/c" + (index + 1) + ".jpg"
+        );
+
+        // These dates control the countdown calendar.
+        const calendarStartDate = "2026-06-18";
+        const calendarEndDate = "2026-08-03";
+        const revealedCalendarDaysKey = "revealedCountdownDays";
+        const testRevealedCalendarDaysKey = "testRevealedCountdownDays";
 
         // These are the block shapes the game can give the user.
         const blockShapes = [
@@ -941,6 +1080,9 @@
         // Get the puzzle screen from the HTML.
         const puzzleScreen = document.getElementById("puzzleScreen");
 
+        // Get the calendar screen from the HTML.
+        const calendarScreen = document.getElementById("calendarScreen");
+
         // Get the title.
         const title = document.getElementById("title");
 
@@ -967,6 +1109,9 @@
 
         // Get the Puzzle Game button.
         const puzzleGameButton = document.getElementById("puzzleGameButton");
+
+        // Get the Countdown Calendar button.
+        const calendarButton = document.getElementById("calendarButton");
 
         // Get the Next Question button.
         const nextButton = document.getElementById("nextButton");
@@ -1091,6 +1236,12 @@
         // Get the puzzle home button.
         const puzzleHomeButton = document.getElementById("puzzleHomeButton");
 
+        // Get the calendar message element.
+        const calendarMessageEl = document.getElementById("calendarMessage");
+
+        // Get the calendar grid element.
+        const calendarGridEl = document.getElementById("calendarGrid");
+
 
         async function loadVocabularyFromFile(){
             try {
@@ -1140,6 +1291,9 @@
             // Hide puzzle screen.
             puzzleScreen.style.display = "none";
 
+            // Hide calendar screen.
+            calendarScreen.style.display = "none";
+
             // Clear result text.
             resultEl.textContent = "";
 
@@ -1168,6 +1322,9 @@
 
             // Hide puzzle screen.
             puzzleScreen.style.display = "none";
+
+            // Hide calendar screen.
+            calendarScreen.style.display = "none";
         }
 
         // This function shows the quick quiz screen.
@@ -1191,6 +1348,9 @@
 
             // Hide puzzle screen.
             puzzleScreen.style.display = "none";
+
+            // Hide calendar screen.
+            calendarScreen.style.display = "none";
         }
 
         // This function shows the test screen.
@@ -1212,6 +1372,9 @@
 
             // Hide puzzle screen.
             puzzleScreen.style.display = "none";
+
+            // Hide calendar screen.
+            calendarScreen.style.display = "none";
         }
 
         // This function shows the game screen.
@@ -1235,6 +1398,9 @@
 
             // Hide puzzle screen.
             puzzleScreen.style.display = "none";
+
+            // Hide calendar screen.
+            calendarScreen.style.display = "none";
         }
 
         // This function shows the puzzle game screen.
@@ -1258,6 +1424,170 @@
 
             // Show puzzle screen.
             puzzleScreen.style.display = "block";
+
+            // Hide calendar screen.
+            calendarScreen.style.display = "none";
+        }
+
+        // This function shows the countdown calendar screen.
+        function showCalendar() {
+            stopTestTimer();
+
+            // Hide home screen.
+            homeScreen.style.display = "none";
+
+            // Hide quiz screen.
+            quizScreen.style.display = "none";
+
+            // Hide quick quiz screen.
+            quickScreen.style.display = "none";
+
+            // Hide test screen.
+            testScreen.style.display = "none";
+
+            // Hide game screen.
+            gameScreen.style.display = "none";
+
+            // Hide puzzle screen.
+            puzzleScreen.style.display = "none";
+
+            // Show calendar screen.
+            calendarScreen.style.display = "block";
+
+            buildCalendar();
+        }
+
+        // This function turns a date into YYYY-MM-DD using the browser's local date.
+        function formatCalendarDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+
+            return year + "-" + month + "-" + day;
+        }
+
+        // This function creates a local date from YYYY-MM-DD text.
+        function createCalendarDate(dateText) {
+            const parts = dateText.split("-").map(Number);
+
+            return new Date(parts[0], parts[1] - 1, parts[2]);
+        }
+
+        // This function adds days to a calendar date.
+        function addCalendarDays(date, days) {
+            const newDate = new Date(date);
+            newDate.setDate(newDate.getDate() + days);
+
+            return newDate;
+        }
+
+        // This function checks whether the calendar is being tested with a fake date.
+        function getCalendarTestDate() {
+            const params = new URLSearchParams(window.location.search);
+            const testDate = params.get("testCalendar");
+
+            if (testDate && /^\d{4}-\d{2}-\d{2}$/.test(testDate)) {
+                return testDate;
+            }
+
+            return "";
+        }
+
+        // This function chooses the real save key or the separate test save key.
+        function getCalendarStorageKey() {
+            return getCalendarTestDate() ? testRevealedCalendarDaysKey : revealedCalendarDaysKey;
+        }
+
+        // This function gets the saved revealed calendar days.
+        function getRevealedCalendarDays() {
+            return JSON.parse(localStorage.getItem(getCalendarStorageKey()) || "[]");
+        }
+
+        // This function saves the revealed calendar days.
+        function saveRevealedCalendarDays(days) {
+            localStorage.setItem(getCalendarStorageKey(), JSON.stringify(days));
+        }
+
+        // This function counts how many days are left until America day.
+        function getDaysUntilAmerica(date) {
+            const endDate = createCalendarDate(calendarEndDate);
+            const millisecondsPerDay = 24 * 60 * 60 * 1000;
+
+            return Math.round((endDate - date) / millisecondsPerDay);
+        }
+
+        // This function gets the photo and countdown text for one calendar day.
+        function getCalendarDayGift(dayIndex, date) {
+            const daysLeft = getDaysUntilAmerica(date);
+            const dayText = daysLeft === 1 ? "day left" : "days left";
+
+            return {
+                photo: calendarPhotos[dayIndex % calendarPhotos.length],
+                word: daysLeft + " " + dayText
+            };
+        }
+
+        // This function reveals one calendar day.
+        function revealCalendarDay(dateText) {
+            const revealedDays = getRevealedCalendarDays();
+
+            if (!revealedDays.includes(dateText)) {
+                revealedDays.push(dateText);
+                saveRevealedCalendarDays(revealedDays);
+            }
+
+            buildCalendar();
+        }
+
+        // This function builds the countdown calendar.
+        function buildCalendar() {
+            const testDate = getCalendarTestDate();
+            const todayText = testDate || formatCalendarDate(new Date());
+            const startDate = createCalendarDate(calendarStartDate);
+            const endDate = createCalendarDate(calendarEndDate);
+            const revealedDays = getRevealedCalendarDays();
+
+            calendarGridEl.innerHTML = "";
+            calendarMessageEl.textContent = testDate
+                ? "Testing calendar date: " + testDate + ". Remove ?testCalendar=" + testDate + " from the URL to go back to normal."
+                : "Open one square each day until August 3, the day you fly to America and we will be together again.";
+
+            let dayIndex = 0;
+
+            for (let date = new Date(startDate); date <= endDate; date = addCalendarDays(date, 1)) {
+                const dateText = formatCalendarDate(date);
+                const isToday = dateText === todayText;
+                const isRevealed = revealedDays.includes(dateText);
+                const gift = getCalendarDayGift(dayIndex, date);
+                const button = document.createElement("button");
+                const dateLabel = date.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric"
+                });
+
+                button.className = "calendarDay";
+                button.innerHTML = '<span class="calendarDate">' + dateLabel + "</span>";
+
+                if (isRevealed) {
+                    button.classList.add("revealed");
+                    button.style.backgroundImage = 'url("' + gift.photo + '")';
+                    button.innerHTML += '<span class="calendarWord">' + gift.word + "</span>";
+                } else if (isToday) {
+                    button.classList.add("today");
+                    button.innerHTML += '<span class="calendarLock">Open today</span>';
+
+                    button.onclick = function() {
+                        revealCalendarDay(dateText);
+                    };
+                } else {
+                    button.classList.add("locked");
+                    button.disabled = true;
+                    button.innerHTML += '<span class="calendarLock">Locked</span>';
+                }
+
+                calendarGridEl.appendChild(button);
+                dayIndex++;
+            }
         }
 
 
@@ -1457,7 +1787,7 @@
             quickMode = "quick";
             quickWords = getQuickQuizWords();
             quickTitleEl.textContent = "Quick Quiz";
-            quickScreen.style.backgroundImage = 'url("image3.jpg")';
+            quickScreen.style.backgroundImage = 'url("website_images/image3.jpg")';
             beginQuickQuiz();
         }
 
@@ -1479,7 +1809,7 @@
             quickMode = "wrong";
             quickWords = shuffleArray(wrongWordObjects);
             quickTitleEl.textContent = "Wrong Words Quiz";
-            quickScreen.style.backgroundImage = 'url("image6.jpg")';
+            quickScreen.style.backgroundImage = 'url("website_images/image6.jpg")';
             beginQuickQuiz();
         }
 
@@ -2487,6 +2817,11 @@
         // When user clicks Puzzle Game...
         puzzleGameButton.onclick = function() {
             startPuzzleGame();
+        };
+
+        // When user clicks Countdown Calendar...
+        calendarButton.onclick = function() {
+            showCalendar();
         };
 
         // When user clicks Rotate Shape...
