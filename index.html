@@ -314,6 +314,10 @@
             min-height: 100vh;
             padding: 20px;
             background-color: #ff69b4;
+            background-image: url("website_images/image8.jpg");
+            background-size: min(700px, 90vw) auto;
+            background-position: center 120px;
+            background-repeat: no-repeat;
         }
 
         #calendarBox {
@@ -340,7 +344,7 @@
             padding: 8px;
             overflow: hidden;
             cursor: not-allowed;
-            background: rgba(135,206,235,0.78);
+            background: rgba(135,206,235,0.58);
             color: #3b0055;
             border: 2px solid #3b0055;
             border-radius: 8px;
@@ -349,11 +353,12 @@
 
         .calendarDay.today {
             cursor: pointer;
+            background: rgba(135,206,235,0.72);
             box-shadow: 0 0 0 4px rgba(255,255,255,0.65);
         }
 
         .calendarDay.locked {
-            opacity: 0.72;
+            opacity: 0.82;
         }
 
         .calendarDay.revealed {
