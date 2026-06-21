@@ -960,11 +960,15 @@
                 closeWorldQuestionButton.style.display = "inline-block";
             } else {
                 worldResultEl.innerHTML =
-                    "Incorrect.<br><strong>Correct definition:</strong><br>" +
+                    "Incorrect.<br><strong>Correct word:</strong> " +
+                    currentWorldQuestion.word +
+                    "<br><strong>Correct definition:</strong><br>" +
                     currentWorldCorrectAnswer +
+                    "<br><strong>Example for the correct word:</strong><br>" +
+                    (currentWorldQuestion.example || "") +
                     "<br><br><strong>The definition you chose belongs to:</strong> " +
                     choice.item.word +
-                    "<br><strong>Example for that word:</strong><br>" +
+                    "<br><strong>Example for the word you chose:</strong><br>" +
                     (choice.item.example || "");
                 closeWorldQuestionButton.textContent = "Try Again Later";
                 closeWorldQuestionButton.style.display = "inline-block";
