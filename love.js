@@ -744,6 +744,7 @@
             for (let date = new Date(startDate); date <= endDate; date = addCalendarDays(date, 1)) {
                 const dateText = formatCalendarDate(date);
                 const isToday = dateText === todayText;
+                const canOpen = dateText <= todayText;
                 const isRevealed = revealedDays.includes(dateText);
                 const gift = getCalendarDayGift(dayIndex, date);
                 const button = document.createElement("button");
@@ -759,9 +760,11 @@
                     button.classList.add("revealed");
                     button.style.backgroundImage = 'url("' + gift.photo + '")';
                     button.innerHTML += '<span class="calendarWord">' + gift.word + "</span>";
-                } else if (isToday) {
+                } else if (canOpen) {
                     button.classList.add("today");
-                    button.innerHTML += '<span class="calendarLock">Open today</span>';
+                    button.innerHTML += '<span class="calendarLock">' +
+                        (isToday ? "Open today" : "Open now") +
+                        "</span>";
 
                     button.onclick = function() {
                         revealCalendarDay(dateText);
