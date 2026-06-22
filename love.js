@@ -150,12 +150,41 @@
         const photoWorlds = [
             {
                 name: "Jerusalem",
+                key: "jerusalem",
                 startLevel: 1,
                 levels: 21,
+                regionTop: 1,
+                regionHeight: 29,
                 positions: [
                     [50, 5], [35, 10], [55, 15], [72, 20], [50, 25], [30, 30], [44, 35],
                     [64, 40], [76, 45], [58, 50], [38, 55], [24, 60], [42, 65], [62, 70],
                     [78, 75], [64, 80], [48, 84], [32, 88], [20, 91], [32, 94], [50, 97]
+                ]
+            },
+            {
+                name: "Tel Aviv",
+                key: "telAviv",
+                startLevel: 22,
+                levels: 24,
+                regionTop: 36,
+                regionHeight: 29,
+                positions: [
+                    [46, 4], [60, 8], [72, 12], [64, 16], [49, 20], [40, 24], [53, 28],
+                    [68, 32], [77, 36], [66, 40], [50, 44], [42, 48], [55, 52], [72, 56],
+                    [65, 60], [49, 64], [38, 68], [45, 72], [60, 76], [72, 80], [65, 84],
+                    [51, 88], [40, 92], [48, 96]
+                ]
+            },
+            {
+                name: "Akko",
+                key: "akko",
+                startLevel: 46,
+                levels: 9,
+                regionTop: 72,
+                regionHeight: 26,
+                positions: [
+                    [56, 7], [70, 16], [60, 27], [44, 38], [53, 49],
+                    [69, 60], [61, 71], [44, 82], [55, 94]
                 ]
             }
         ];
@@ -208,6 +237,12 @@
 
         // Get the world map screen from the HTML.
         const worldMapScreen = document.getElementById("worldMapScreen");
+
+        // Get the shared Jerusalem and Tel Aviv world title.
+        const worldTitleEl = document.getElementById("worldTitle");
+
+        // Get the Jerusalem station's direct Akko train button.
+        const akkoExpressButton = document.getElementById("akkoExpressButton");
 
         // Get the title.
         const title = document.getElementById("title");
@@ -790,9 +825,20 @@
             localStorage.setItem(photoWorldProgressKey, JSON.stringify(progress));
         }
 
-        // This function gets the Jerusalem world data.
-        function getJerusalemWorld() {
-            return photoWorlds[0];
+        // This function gets the world that owns one level number.
+        function getWorldForLevel(levelNumber) {
+            return photoWorlds.find(world =>
+                levelNumber >= world.startLevel &&
+                levelNumber < world.startLevel + world.levels
+            );
+        }
+
+        // This converts a world's local positions into positions on the full map.
+        function getWorldPositions(world) {
+            return world.positions.map(position => [
+                position[0],
+                world.regionTop + (position[1] / 100) * world.regionHeight
+            ]);
         }
 
         // This function gets the photo file for a level.
@@ -800,68 +846,125 @@
             return "game_photos/g" + levelNumber + ".jpg";
         }
 
-        // This function draws the colored path between levels.
-        function drawWorldPath(world, progress) {
+        // This function adds one road segment to the world map.
+        function addWorldRoad(start, end, stroke, width, dashArray, className = "") {
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "line");
+
+            path.setAttribute("x1", start[0]);
+            path.setAttribute("y1", start[1]);
+            path.setAttribute("x2", end[0]);
+            path.setAttribute("y2", end[1]);
+            path.setAttribute("stroke", stroke);
+            path.setAttribute("stroke-width", width);
+            path.setAttribute("stroke-linecap", "round");
+
+            if (dashArray) {
+                path.setAttribute("stroke-dasharray", dashArray);
+            }
+
+            if (className) {
+                path.setAttribute("class", className);
+            }
+
+            worldPathSvgEl.appendChild(path);
+        }
+
+        // This function draws the roads inside both cities.
+        // The cities themselves are connected by the railway drawn in the HTML and CSS.
+        function drawWorldPath(progress) {
             const colors = ["#6fc2e7", "#ffe25c", "#ff7ab6", "#80d28d", "#b89cff"];
 
             worldPathSvgEl.innerHTML = "";
 
-            for (let index = 0; index < world.positions.length - 1; index++) {
-                const start = world.positions[index];
-                const end = world.positions[index + 1];
-                const levelNumber = world.startLevel + index;
-                const path = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            photoWorlds.forEach(world => {
+                const positions = getWorldPositions(world);
 
-                path.setAttribute("x1", start[0]);
-                path.setAttribute("y1", start[1]);
-                path.setAttribute("x2", end[0]);
-                path.setAttribute("y2", end[1]);
-                path.setAttribute("stroke", levelNumber < progress.highestUnlocked ? colors[index % colors.length] : "rgba(255,255,255,0.7)");
-                path.setAttribute("stroke-width", "2.2");
-                path.setAttribute("stroke-linecap", "round");
-                path.setAttribute("stroke-dasharray", "2 2");
+                for (let index = 0; index < positions.length - 1; index++) {
+                    const levelNumber = world.startLevel + index;
+                    const color = levelNumber < progress.highestUnlocked
+                        ? colors[(levelNumber - 1) % colors.length]
+                        : "rgba(255,255,255,0.72)";
 
-                worldPathSvgEl.appendChild(path);
-            }
+                    addWorldRoad(positions[index], positions[index + 1], "rgba(27,31,47,0.86)", "2.4", "");
+                    addWorldRoad(positions[index], positions[index + 1], color, "0.58", "1.2 1.8");
+                }
+            });
+
         }
 
-        // This function builds the Jerusalem world map.
-        // ---------- Jerusalem photo world ----------
-        // Draws the path, level circles, progress colors, and unlocked photos.
+        // This function builds Jerusalem, Tel Aviv, Akko, and their train routes.
+        // ---------- Jerusalem, Tel Aviv, and Akko photo worlds ----------
         function buildWorldMap() {
-            const world = getJerusalemWorld();
             const progress = getPhotoWorldProgress();
 
             worldMapEl.querySelectorAll(".worldLevel").forEach(level => level.remove());
-            drawWorldPath(world, progress);
+            worldMapEl.classList.toggle("telAvivUnlocked", progress.highestUnlocked >= 22);
+            worldMapEl.classList.toggle("akkoUnlocked", progress.highestUnlocked >= 46);
+            drawWorldPath(progress);
 
-            world.positions.forEach((position, index) => {
-                const levelNumber = world.startLevel + index;
-                const button = document.createElement("button");
+            photoWorlds.forEach(world => {
+                const positions = getWorldPositions(world);
 
-                button.className = "worldLevel";
-                button.textContent = levelNumber;
-                button.style.left = position[0] + "%";
-                button.style.top = position[1] + "%";
+                positions.forEach((position, index) => {
+                    const levelNumber = world.startLevel + index;
+                    const button = document.createElement("button");
 
-                if (levelNumber < progress.highestUnlocked) {
-                    button.classList.add("completed");
-                } else if (levelNumber === progress.highestUnlocked) {
-                    button.classList.add("unlocked", "current");
-                }
+                    button.className = "worldLevel " + world.key + "Level";
+                    button.textContent = levelNumber;
+                    button.setAttribute("aria-label", world.name + " level " + levelNumber);
+                    button.style.left = position[0] + "%";
+                    button.style.top = position[1] + "%";
 
-                button.onclick = function() {
-                    openWorldLevel(levelNumber);
-                };
+                    if (levelNumber < progress.highestUnlocked) {
+                        button.classList.add("completed");
+                    } else if (levelNumber === progress.highestUnlocked) {
+                        button.classList.add("unlocked", "current");
+                    }
 
-                worldMapEl.appendChild(button);
+                    button.onclick = function() {
+                        openWorldLevel(levelNumber);
+                    };
+
+                    worldMapEl.appendChild(button);
+                });
             });
 
+            const jerusalem = photoWorlds[0];
+            const telAviv = photoWorlds[1];
+            const akko = photoWorlds[2];
+            const jerusalemComplete = Math.min(progress.highestUnlocked - 1, jerusalem.levels);
+            const telAvivComplete = Math.max(
+                0,
+                Math.min(progress.highestUnlocked - telAviv.startLevel, telAviv.levels)
+            );
+            const akkoComplete = Math.max(
+                0,
+                Math.min(progress.highestUnlocked - akko.startLevel, akko.levels)
+            );
+
+            worldTitleEl.textContent = "Jerusalem → Tel Aviv → Akko";
+
+            if (progress.highestUnlocked < telAviv.startLevel) {
+                worldMessageEl.textContent =
+                    "Jerusalem: " + jerusalemComplete + " / " + jerusalem.levels +
+                    ". Finish level 21 to take the train to Tel Aviv.";
+            } else if (progress.highestUnlocked < akko.startLevel) {
+                worldMessageEl.textContent =
+                    "Jerusalem complete • Tel Aviv: " + telAvivComplete + " / " + telAviv.levels +
+                    ". Finish level 45 to continue north to Akko.";
+            } else {
+                worldMessageEl.textContent =
+                    "Jerusalem and Tel Aviv complete • Akko: " + akkoComplete + " / " + akko.levels;
+            }
+        }
+
+        // This takes the player straight to the Akko part of the map without unlocking levels.
+        function travelDirectlyToAkko() {
+            const akkoWorld = document.querySelector(".akkoWorld");
+
+            akkoWorld.scrollIntoView({ behavior: "smooth", block: "start" });
             worldMessageEl.textContent =
-                "Jerusalem levels unlocked: " +
-                Math.min(progress.highestUnlocked - 1, world.levels) +
-                " / " +
-                world.levels;
+                "Express train arrived in Akko. Locked levels still require the earlier levels to be completed.";
         }
 
         // This function opens one level on the world map.
@@ -892,7 +995,9 @@
             currentWorldQuestion = shuffleArray(vocabulary)[0];
             currentWorldCorrectAnswer = currentWorldQuestion.explanation;
 
-            worldQuestionTitleEl.textContent = "Jerusalem Level " + levelNumber;
+            const world = getWorldForLevel(levelNumber);
+
+            worldQuestionTitleEl.textContent = world.name + " Level " + levelNumber;
             worldQuestionEl.textContent = `What does "${currentWorldQuestion.word}" mean?`;
             worldChoicesEl.innerHTML = "";
             worldResultEl.textContent = "";
@@ -977,7 +1082,9 @@
 
         // This function shows an unlocked world photo.
         function showWorldPhoto(levelNumber) {
-            worldPhotoTitleEl.textContent = "Jerusalem Level " + levelNumber;
+            const world = getWorldForLevel(levelNumber);
+
+            worldPhotoTitleEl.textContent = world.name + " Level " + levelNumber;
             worldPhotoImageEl.src = getWorldPhoto(levelNumber);
             worldPhotoPanel.style.display = "flex";
         }
@@ -2247,6 +2354,11 @@
         // When user clicks Jerusalem World...
         worldMapButton.onclick = function() {
             showWorldMap();
+        };
+
+        // When the Jerusalem station express button is clicked...
+        akkoExpressButton.onclick = function() {
+            travelDirectlyToAkko();
         };
 
         // When user closes the Jerusalem question...

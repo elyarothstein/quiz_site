@@ -305,9 +305,10 @@
             min-height: 100vh;
             padding: 20px;
             background:
-                linear-gradient(rgba(255,105,180,0.42), rgba(255,105,180,0.42)),
+                linear-gradient(180deg, rgba(255,105,180,0.42) 0 29%, rgba(31,38,69,0.62) 36% 66%, rgba(14,66,81,0.72) 73%, rgba(5,31,49,0.86) 100%),
                 radial-gradient(circle at 20% 18%, rgba(255,234,190,0.75), transparent 26%),
-                radial-gradient(circle at 78% 28%, rgba(198,230,255,0.7), transparent 24%),
+                radial-gradient(circle at 78% 50%, rgba(59,190,255,0.54), transparent 20%),
+                radial-gradient(circle at 24% 84%, rgba(76,210,196,0.46), transparent 19%),
                 linear-gradient(135deg, #e8c98b, #cfa36b 45%, #b8875e);
         }
 
@@ -319,30 +320,988 @@
         #worldMap {
             position: relative;
             width: min(760px, 94vw);
-            height: 1700px;
+            height: 5000px;
             margin: 16px auto;
             overflow: hidden;
             border: 4px solid #3b0055;
-            border-radius: 8px;
+            border-radius: 24px;
             background:
-                linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px),
-                radial-gradient(circle at 24% 18%, rgba(255,245,205,0.8), transparent 22%),
-                radial-gradient(circle at 76% 78%, rgba(155,205,160,0.55), transparent 24%),
-                linear-gradient(160deg, rgba(230,195,127,0.94), rgba(184,132,85,0.94));
-            background-size: 34px 34px, 34px 34px, auto, auto, auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+                radial-gradient(circle at 15% 32%, rgba(255,226,92,0.2), transparent 7%),
+                radial-gradient(circle at 82% 67%, rgba(111,194,231,0.18), transparent 9%),
+                linear-gradient(180deg, #452f55 0%, #1d2438 31%, #080f28 34%, #061638 66%, #073449 71%, #041e2e 100%);
+            box-shadow: 0 14px 42px rgba(0,0,0,0.38);
         }
 
-        #worldMap::before {
-            content: "Jerusalem";
+        .worldRegion {
             position: absolute;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .worldRegionTitle {
+            position: absolute;
+            z-index: 2;
             top: 18px;
-            left: 20px;
-            z-index: 1;
-            color: rgba(59,0,85,0.22);
-            font-size: clamp(42px, 10vw, 98px);
+            left: 24px;
+            color: rgba(59,0,85,0.24);
+            font-size: clamp(40px, 9vw, 88px);
             font-weight: bold;
+            letter-spacing: 0.04em;
+        }
+
+        .jerusalemWorld {
+            top: 1%;
+            left: 4%;
+            width: 92%;
+            height: 29%;
+            overflow: hidden;
+            border: 3px solid rgba(255,226,146,0.68);
+            border-radius: 42% 28% 36% 22% / 10% 9% 12% 8%;
+            background:
+                linear-gradient(rgba(255,255,255,0.13) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.13) 1px, transparent 1px),
+                radial-gradient(circle at 24% 18%, rgba(255,245,205,0.9), transparent 22%),
+                radial-gradient(circle at 76% 78%, rgba(155,205,160,0.52), transparent 24%),
+                linear-gradient(160deg, #e6c37c, #b98053);
+            background-size: 34px 34px, 34px 34px, auto, auto, auto;
+            box-shadow: inset 0 0 70px rgba(78,44,21,0.28);
+        }
+
+        .jerusalemSun {
+            position: absolute;
+            top: 7%;
+            right: 8%;
+            width: 90px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: rgba(255,239,166,0.72);
+            box-shadow: 0 0 45px rgba(255,236,146,0.8);
+        }
+
+        .jerusalemLandmark {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            filter: drop-shadow(0 7px 7px rgba(71,42,24,0.3));
+        }
+
+        .landmarkLabel {
+            position: absolute;
+            z-index: 4;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 9px;
+            border: 1px solid rgba(255,246,213,0.86);
+            border-radius: 999px;
+            background: rgba(76,45,31,0.78);
+            color: #fff4cf;
+            font-size: clamp(10px, 1.7vw, 14px);
+            font-weight: bold;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .oldCityLandmark {
+            top: 7%;
+            right: 3%;
+            width: 35%;
+            height: 15%;
+        }
+
+        .oldCitySkyline {
+            position: absolute;
+            inset: 18% 0 0;
+            overflow: hidden;
+            border: 2px solid rgba(96,57,33,0.48);
+            border-radius: 42% 42% 8px 8px;
+            background:
+                linear-gradient(rgba(255,255,255,0.13) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.13) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(233,196,125,0.9), rgba(145,92,55,0.94));
+            background-size: 20px 16px, 20px 16px, auto;
+            clip-path: polygon(0 34%, 8% 34%, 8% 14%, 18% 14%, 18% 34%, 29% 34%, 29% 23%, 40% 23%, 40% 34%, 54% 34%, 54% 8%, 64% 8%, 64% 34%, 76% 34%, 76% 19%, 87% 19%, 87% 34%, 100% 34%, 100% 100%, 0 100%);
+        }
+
+        .goldenDome {
+            position: absolute;
+            z-index: 2;
+            left: 44%;
+            bottom: 35%;
+            width: clamp(42px, 7vw, 66px);
+            height: clamp(25px, 4.3vw, 40px);
+            border: 3px solid rgba(107,71,23,0.56);
+            border-bottom: 0;
+            border-radius: 60px 60px 4px 4px;
+            background: radial-gradient(circle at 36% 26%, #fff2a1, #e0ac2f 58%, #9b6516);
+            box-shadow: 0 0 16px rgba(255,223,96,0.55);
+        }
+
+        .goldenDome::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -16px;
+            width: 3px;
+            height: 16px;
+            transform: translateX(-50%);
+            background: #79501c;
+        }
+
+        .goldenDome::after {
+            content: "";
+            position: absolute;
+            left: 11%;
+            right: 11%;
+            bottom: -20px;
+            height: 20px;
+            background: #5f7790;
+            border: 2px solid rgba(58,54,62,0.45);
+        }
+
+        .oldCityTower {
+            position: absolute;
+            z-index: 2;
+            right: 14%;
+            bottom: 31%;
+            width: 17px;
+            height: 66px;
+            border-radius: 8px 8px 0 0;
+            background: linear-gradient(90deg, #9c7145, #dec18a, #88603f);
+        }
+
+        .oldCityTower::before {
+            content: "";
+            position: absolute;
+            top: -12px;
+            left: 5px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 12px solid #77502d;
+        }
+
+        .westernWallLandmark {
+            top: 39%;
+            left: 2%;
+            width: 28%;
+            height: 15%;
+        }
+
+        .westernWallStones {
+            position: absolute;
+            inset: 18% 0 0;
+            border: 3px solid rgba(91,57,34,0.48);
+            border-radius: 7px 7px 16px 5px;
+            background:
+                radial-gradient(ellipse at 18% 38%, rgba(66,118,57,0.62) 0 5px, transparent 7px),
+                radial-gradient(ellipse at 78% 61%, rgba(66,118,57,0.56) 0 5px, transparent 7px),
+                linear-gradient(rgba(107,69,39,0.45) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(107,69,39,0.42) 2px, transparent 2px),
+                linear-gradient(160deg, #e0c38e, #ad7b4e);
+            background-size: auto, auto, 100% 24px, 38px 100%, auto;
+            box-shadow: inset 0 0 28px rgba(99,60,31,0.24);
+        }
+
+        .westernWallStones::before {
+            content: "";
+            position: absolute;
+            top: -14px;
+            left: -3px;
+            right: -3px;
+            height: 17px;
+            background: repeating-linear-gradient(90deg, #b98c58 0 22px, transparent 22px 31px);
+        }
+
+        .westernWallStones::after {
+            content: "";
+            position: absolute;
+            left: 9%;
+            right: 9%;
+            bottom: -8px;
+            height: 13px;
+            border-radius: 50%;
+            background: rgba(82,51,33,0.28);
+            filter: blur(5px);
+        }
+
+        .jaffaStreetLandmark {
+            top: 56%;
+            right: 3%;
+            width: 32%;
+            height: 18%;
+            overflow: hidden;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(233,195,125,0.34), rgba(95,65,49,0.3));
+        }
+
+        .jaffaShopfronts {
+            position: absolute;
+            top: 21%;
+            left: 4%;
+            right: 4%;
+            height: 40%;
+            background:
+                repeating-linear-gradient(90deg, transparent 0 7px, rgba(71,43,36,0.82) 7px 31px, transparent 31px 37px),
+                repeating-linear-gradient(0deg, rgba(255,222,119,0.72) 0 5px, transparent 5px 18px),
+                linear-gradient(180deg, #c39868, #705044);
+            clip-path: polygon(0 28%, 9% 28%, 9% 8%, 19% 8%, 19% 28%, 32% 28%, 32% 0, 45% 0, 45% 28%, 58% 28%, 58% 12%, 72% 12%, 72% 28%, 84% 28%, 84% 5%, 96% 5%, 96% 28%, 100% 28%, 100% 100%, 0 100%);
+        }
+
+        .jaffaStreetTracks {
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            bottom: 7%;
+            height: 38%;
+            transform: perspective(90px) rotateX(56deg);
+            background:
+                linear-gradient(90deg, transparent 20%, #d9d4c5 20% 24%, transparent 24% 76%, #d9d4c5 76% 80%, transparent 80%),
+                repeating-linear-gradient(0deg, transparent 0 9px, rgba(69,53,49,0.75) 9px 13px);
+        }
+
+        .jaffaStreetTram {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            bottom: 17%;
+            width: clamp(25px, 4.5vw, 38px);
+            height: clamp(58px, 9vw, 86px);
+            transform: translateX(-50%);
+            border: 2px solid rgba(247,250,248,0.9);
+            border-radius: 14px 14px 6px 6px;
+            background: linear-gradient(180deg, #f4f1e7, #8da8b2 54%, #526675);
+            box-shadow: 0 4px 9px rgba(0,0,0,0.3);
+        }
+
+        .jaffaStreetTram span {
+            display: block;
+            width: 60%;
+            height: 13%;
+            margin: 12% auto;
+            border-radius: 2px;
+            background: #304759;
+        }
+
+        .jerusalemWalls {
+            position: absolute;
+            right: -3%;
+            bottom: 3%;
+            width: 72%;
+            height: 14%;
+            opacity: 0.34;
+            background:
+                repeating-linear-gradient(90deg, #6a3e29 0 34px, transparent 34px 43px),
+                repeating-linear-gradient(0deg, #6a3e29 0 22px, #986b44 22px 26px);
+            clip-path: polygon(0 25%, 8% 25%, 8% 0, 15% 0, 15% 25%, 28% 25%, 28% 7%, 36% 7%, 36% 25%, 52% 25%, 52% 0, 60% 0, 60% 25%, 76% 25%, 76% 9%, 84% 9%, 84% 25%, 100% 25%, 100% 100%, 0 100%);
+        }
+
+        .intercitySign {
+            position: absolute;
+            z-index: 5;
+            top: 32.1%;
+            left: 5%;
+            width: min(235px, 36vw);
+            padding: 9px 12px;
+            transform: rotate(-5deg);
+            border: 3px solid #f6f2d7;
+            border-radius: 7px;
+            background: #245f84;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.36), inset 0 0 0 2px rgba(123,225,255,0.24);
+        }
+
+        .intercitySign span,
+        .intercitySign small {
+            display: block;
+        }
+
+        .intercitySign span {
+            font-weight: bold;
+            font-size: clamp(14px, 2.6vw, 20px);
+        }
+
+        .intercitySign small {
+            margin-top: 3px;
+            opacity: 0.84;
+        }
+
+        .intercityRailway {
+            position: absolute;
+            z-index: 3;
+            top: 29.1%;
+            left: 49.8%;
+            width: 38px;
+            height: 8.4%;
+            transform: rotate(6deg);
+            transform-origin: top center;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg,
+                    transparent 0 6px,
+                    #c8d0d7 6px 10px,
+                    transparent 10px 28px,
+                    #c8d0d7 28px 32px,
+                    transparent 32px),
+                repeating-linear-gradient(180deg,
+                    #604b42 0 6px,
+                    #2d2830 6px 9px,
+                    transparent 9px 18px);
+            filter: drop-shadow(0 5px 4px rgba(0,0,0,0.48));
+        }
+
+        .intercityRailway::before,
+        .intercityRailway::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255,255,255,0.48);
+        }
+
+        .intercityRailway::before { left: 7px; }
+        .intercityRailway::after { right: 7px; }
+
+        .intercityTrain {
+            position: absolute;
+            z-index: 2;
+            top: 7%;
+            left: 50%;
+            width: 30px;
+            height: 86px;
+            padding-top: 12px;
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            border: 3px solid #d9f7ff;
+            border-radius: 15px 15px 8px 8px;
+            background:
+                linear-gradient(90deg, transparent 46%, rgba(255,255,255,0.45) 46% 53%, transparent 53%),
+                linear-gradient(180deg, #5ce9ff, #2079a9 60%, #17365e);
+            box-shadow: 0 0 0 2px #10223e, 0 0 18px rgba(92,233,255,0.68);
+            animation: trainToTelAviv 5.5s ease-in-out infinite alternate;
+        }
+
+        .intercityTrain::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            width: 7px;
+            height: 7px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: #fff2a0;
+            box-shadow: 0 -6px 14px rgba(255,242,160,0.92);
+        }
+
+        .intercityTrain::after {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            left: 3px;
+            right: 3px;
+            height: 7px;
+            border-radius: 0 0 8px 8px;
+            background: #131d33;
+        }
+
+        .trainWindow {
+            display: block;
+            width: 16px;
+            height: 12px;
+            margin: 5px auto;
+            border: 1px solid rgba(217,247,255,0.76);
+            border-radius: 3px;
+            background: linear-gradient(135deg, #10213c, #39678d);
+        }
+
+        .telAvivUnlocked .intercityTrain {
+            border-color: #ffe25c;
+            box-shadow: 0 0 0 2px #10223e, 0 0 22px rgba(255,226,92,0.82);
+        }
+
+        @keyframes trainToTelAviv {
+            from { transform: translate(-50%, 0); }
+            to { transform: translate(-50%, 145%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .intercityTrain,
+            .northboundTrain,
+            .akkoExpressTrain {
+                animation: none;
+                top: 38%;
+            }
+        }
+
+        .telAvivWorld {
+            top: 36%;
+            left: 4%;
+            width: 92%;
+            height: 29%;
+            overflow: hidden;
+            clip-path: polygon(0 0, 72% 0, 82% 10%, 78% 20%, 89% 31%, 83% 43%, 92% 55%, 84% 67%, 87% 78%, 72% 87%, 67% 100%, 0 100%);
+            background: linear-gradient(90deg, #0769a9 0 26%, #e8c982 26% 35%, #263a55 35% 100%);
+            filter: drop-shadow(0 0 24px rgba(50,205,255,0.26));
+        }
+
+        .telAvivTitle {
+            top: 1.5%;
+            left: 38%;
+            color: rgba(123,225,255,0.23);
+            font-size: clamp(38px, 8vw, 80px);
+            text-shadow: 0 0 16px rgba(62,211,255,0.24);
+        }
+
+        .telAvivSea {
+            position: absolute;
+            inset: 0 74% 0 0;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 40% 18%, rgba(89,223,255,0.46), transparent 22%),
+                linear-gradient(180deg, #0b86c5, #06457e 62%, #031d52);
+        }
+
+        .wave {
+            position: absolute;
+            left: -20%;
+            width: 150%;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(210,247,255,0.66);
+            box-shadow: 0 0 9px rgba(139,233,255,0.72);
+        }
+
+        .waveOne { top: 24%; transform: rotate(2deg); }
+        .waveTwo { top: 52%; transform: rotate(-2deg); }
+        .waveThree { top: 78%; transform: rotate(1deg); }
+
+        .telAvivBeach {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 25%;
+            width: 11%;
+            background: linear-gradient(90deg, #efd99b, #caa765);
+            box-shadow: -7px 0 12px rgba(216,246,255,0.38);
+        }
+
+        .telAvivPromenade {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 35%;
+            width: 3.5%;
+            background: repeating-linear-gradient(0deg, #dfe5e7 0 20px, #657786 20px 25px);
+            box-shadow: 3px 0 10px rgba(0,0,0,0.34);
+        }
+
+        .telAvivDistrict {
+            position: absolute;
+            left: 39%;
+            right: 4%;
+            height: 23%;
+            opacity: 0.88;
+            background:
+                repeating-linear-gradient(90deg, transparent 0 9px, rgba(10,16,38,0.92) 9px 34px, transparent 34px 40px),
+                repeating-linear-gradient(0deg, rgba(255,220,100,0.82) 0 3px, transparent 3px 17px),
+                linear-gradient(180deg, rgba(52,88,125,0.88), rgba(11,19,42,0.96));
+            border-bottom: 5px solid rgba(3,9,26,0.78);
+            box-shadow: inset 0 0 35px rgba(0,0,0,0.4);
+        }
+
+        .districtNorth { top: 9%; clip-path: polygon(0 40%, 7% 40%, 7% 14%, 15% 14%, 15% 48%, 24% 48%, 24% 0, 34% 0, 34% 38%, 43% 38%, 43% 18%, 52% 18%, 52% 54%, 63% 54%, 63% 9%, 74% 9%, 74% 43%, 84% 43%, 84% 25%, 94% 25%, 94% 46%, 100% 46%, 100% 100%, 0 100%); }
+        .districtCenter { top: 39%; clip-path: polygon(0 49%, 9% 49%, 9% 18%, 18% 18%, 18% 0, 29% 0, 29% 44%, 39% 44%, 39% 23%, 50% 23%, 50% 51%, 60% 51%, 60% 8%, 71% 8%, 71% 38%, 82% 38%, 82% 17%, 92% 17%, 92% 48%, 100% 48%, 100% 100%, 0 100%); }
+        .districtSouth { top: 69%; clip-path: polygon(0 45%, 8% 45%, 8% 9%, 19% 9%, 19% 38%, 29% 38%, 29% 20%, 40% 20%, 40% 52%, 50% 52%, 50% 3%, 62% 3%, 62% 44%, 74% 44%, 74% 16%, 84% 16%, 84% 47%, 94% 47%, 94% 28%, 100% 28%, 100% 100%, 0 100%); }
+
+        .telAvivLights {
+            position: absolute;
+            inset: 0;
+            opacity: 0.8;
+            background:
+                radial-gradient(circle at 46% 12%, #ffe86b 0 3px, transparent 5px),
+                radial-gradient(circle at 76% 18%, #ff76cb 0 3px, transparent 6px),
+                radial-gradient(circle at 54% 33%, #5ce9ff 0 4px, transparent 7px),
+                radial-gradient(circle at 83% 46%, #ffe86b 0 4px, transparent 7px),
+                radial-gradient(circle at 43% 58%, #ff76cb 0 3px, transparent 6px),
+                radial-gradient(circle at 68% 68%, #5ce9ff 0 4px, transparent 7px),
+                radial-gradient(circle at 78% 82%, #ffe86b 0 4px, transparent 7px),
+                radial-gradient(circle at 48% 91%, #ff76cb 0 3px, transparent 6px);
+            filter: drop-shadow(0 0 7px currentColor);
+        }
+
+        .beachIcon {
+            position: absolute;
+            z-index: 2;
+            font-size: clamp(22px, 4vw, 38px);
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+        }
+
+        .umbrellaOne { left: 27%; top: 22%; }
+        .umbrellaTwo { left: 26%; top: 66%; }
+        .palmOne { left: 33%; top: 13%; }
+        .palmTwo { left: 34%; top: 48%; }
+        .palmThree { left: 33%; top: 81%; }
+
+        .akkoBypassTrack,
+        .telAvivAkkoRailway {
+            position: absolute;
+            z-index: 3;
+            width: 38px;
+            transform-origin: top center;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg,
+                    transparent 0 6px,
+                    #c8d0d7 6px 10px,
+                    transparent 10px 28px,
+                    #c8d0d7 28px 32px,
+                    transparent 32px),
+                repeating-linear-gradient(180deg,
+                    #604b42 0 6px,
+                    #2d2830 6px 9px,
+                    transparent 9px 18px);
+            filter: drop-shadow(0 5px 4px rgba(0,0,0,0.48));
+        }
+
+        .akkoBypassTrack::before,
+        .akkoBypassTrack::after,
+        .telAvivAkkoRailway::before,
+        .telAvivAkkoRailway::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255,255,255,0.48);
+        }
+
+        .akkoBypassTrack::before,
+        .telAvivAkkoRailway::before { left: 7px; }
+
+        .akkoBypassTrack::after,
+        .telAvivAkkoRailway::after { right: 7px; }
+
+        .bypassStartTrack {
+            top: 29.2%;
+            left: 50%;
+            height: 7.7%;
+            transform: rotate(-59deg);
+        }
+
+        .bypassMainTrack {
+            top: 33.2%;
+            left: 91.5%;
+            height: 39.2%;
+        }
+
+        .bypassArrivalTrack {
+            top: 71.4%;
+            left: 91.5%;
+            height: 6.2%;
+            transform: rotate(70deg);
+        }
+
+        #akkoExpressButton {
+            position: absolute;
+            z-index: 7;
+            top: 30.6%;
+            right: 3%;
+            width: min(285px, 39vw);
+            max-width: none;
+            min-height: 74px;
+            margin: 0;
+            padding: 9px 12px;
+            transform: rotate(3deg);
+            border: 3px solid #f8e6a2;
+            border-radius: 9px;
+            background: linear-gradient(145deg, #704c24, #a67631);
+            color: white;
+            text-align: center;
+            box-shadow: 0 6px 17px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(255,226,92,0.24);
+        }
+
+        #akkoExpressButton strong,
+        #akkoExpressButton small {
+            display: block;
+        }
+
+        #akkoExpressButton strong {
+            font-size: clamp(14px, 2.5vw, 20px);
+        }
+
+        #akkoExpressButton small {
+            margin-top: 4px;
+            font-size: clamp(9px, 1.6vw, 13px);
+            line-height: 1.25;
+        }
+
+        #akkoExpressButton:hover {
+            background: linear-gradient(145deg, #8c612d, #c18f3e);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.46), 0 0 18px rgba(255,226,92,0.34);
+        }
+
+        .telAvivAkkoRailway {
+            top: 63.7%;
+            left: 47.8%;
+            height: 10.5%;
+            transform: rotate(-6deg);
+        }
+
+        .telAvivAkkoSign {
+            position: absolute;
+            z-index: 5;
+            top: 67.1%;
+            left: 5%;
+            width: min(275px, 42vw);
+            padding: 9px 12px;
+            transform: rotate(3deg);
+            border: 3px solid #d8f9f1;
+            border-radius: 8px;
+            background: #176d70;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.38), inset 0 0 0 2px rgba(96,240,217,0.22);
+        }
+
+        .telAvivAkkoSign span,
+        .telAvivAkkoSign small {
+            display: block;
+        }
+
+        .telAvivAkkoSign span {
+            font-size: clamp(14px, 2.5vw, 19px);
+            font-weight: bold;
+        }
+
+        .telAvivAkkoSign small {
+            margin-top: 4px;
+            font-size: clamp(9px, 1.6vw, 13px);
+            line-height: 1.25;
+        }
+
+        .northboundTrain,
+        .akkoExpressTrain {
+            position: absolute;
+            z-index: 4;
+            left: 50%;
+            width: 30px;
+            height: 86px;
+            padding-top: 12px;
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            border: 3px solid #d8fff6;
+            border-radius: 15px 15px 8px 8px;
+            background:
+                linear-gradient(90deg, transparent 46%, rgba(255,255,255,0.4) 46% 53%, transparent 53%),
+                linear-gradient(180deg, #6de5d0, #268a87 60%, #17434f);
+            box-shadow: 0 0 0 2px #102f38, 0 0 18px rgba(109,229,208,0.66);
+        }
+
+        .northboundTrain {
+            top: 8%;
+            animation: trainNorthbound 6s ease-in-out infinite alternate;
+        }
+
+        .akkoExpressTrain {
+            top: 4%;
+            border-color: #ffe59a;
+            background:
+                linear-gradient(90deg, transparent 46%, rgba(255,255,255,0.4) 46% 53%, transparent 53%),
+                linear-gradient(180deg, #f0c85d, #a9742e 60%, #56361f);
+            box-shadow: 0 0 0 2px #382618, 0 0 18px rgba(255,216,105,0.66);
+            animation: expressToAkko 8s ease-in-out infinite alternate;
+        }
+
+        .northboundTrain::before,
+        .akkoExpressTrain::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            width: 7px;
+            height: 7px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: #fff2a0;
+            box-shadow: 0 -6px 14px rgba(255,242,160,0.92);
+        }
+
+        .northboundTrain::after,
+        .akkoExpressTrain::after {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            left: 3px;
+            right: 3px;
+            height: 7px;
+            border-radius: 0 0 8px 8px;
+            background: #132a31;
+        }
+
+        .akkoExpressTrain span {
+            display: block;
+            width: 16px;
+            height: 12px;
+            margin: 5px auto;
+            border: 1px solid rgba(255,244,202,0.76);
+            border-radius: 3px;
+            background: linear-gradient(135deg, #2f2116, #76522d);
+        }
+
+        .akkoUnlocked .northboundTrain,
+        .akkoUnlocked .akkoExpressTrain {
+            border-color: #ffe25c;
+            box-shadow: 0 0 0 2px #18322f, 0 0 23px rgba(255,226,92,0.82);
+        }
+
+        @keyframes trainNorthbound {
+            from { transform: translate(-50%, 0); }
+            to { transform: translate(-50%, 170%); }
+        }
+
+        @keyframes expressToAkko {
+            from { top: 4%; }
+            to { top: 86%; }
+        }
+
+        .akkoWorld {
+            top: 72%;
+            left: 4%;
+            width: 92%;
+            height: 26%;
+            overflow: hidden;
+            clip-path: polygon(0 0, 74% 0, 87% 11%, 82% 23%, 93% 36%, 88% 51%, 96% 66%, 86% 80%, 72% 89%, 66% 100%, 0 100%);
+            background: linear-gradient(90deg, #087f9b 0 43%, #c4a66f 43% 48%, #b58c57 48% 100%);
+            filter: drop-shadow(0 0 25px rgba(92,225,211,0.28));
+        }
+
+        .akkoTitle {
+            top: 1.5%;
+            left: 43%;
+            color: rgba(255,239,190,0.35);
+            font-size: clamp(38px, 8vw, 78px);
+            text-shadow: 0 0 14px rgba(255,227,150,0.2);
+        }
+
+        .akkoTitle small {
+            display: block;
+            font-size: 0.52em;
+            letter-spacing: 0;
+        }
+
+        .akkoSea {
+            position: absolute;
+            inset: 0 57% 0 0;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 35% 20%, rgba(133,244,234,0.42), transparent 20%),
+                linear-gradient(180deg, #129fb1, #086079 58%, #06394f);
+        }
+
+        .akkoWave {
+            position: absolute;
+            left: -15%;
+            width: 140%;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(211,255,248,0.68);
+            box-shadow: 0 0 8px rgba(146,248,237,0.7);
+        }
+
+        .akkoWaveOne { top: 24%; transform: rotate(-2deg); }
+        .akkoWaveTwo { top: 53%; transform: rotate(2deg); }
+        .akkoWaveThree { top: 79%; transform: rotate(-1deg); }
+
+        .akkoHarbor {
+            position: absolute;
+            z-index: 1;
+            left: 29%;
+            top: 9%;
+            width: 25%;
+            height: 82%;
+            border: 15px solid rgba(216,192,143,0.9);
+            border-left: 0;
+            border-radius: 0 60% 60% 0;
+            box-shadow: 7px 0 15px rgba(64,42,25,0.26);
+        }
+
+        .akkoBoat {
+            position: absolute;
+            z-index: 2;
+            width: 46px;
+            height: 15px;
+            border-radius: 4px 4px 20px 20px;
+            background: #f2e5c5;
+            box-shadow: 0 4px 7px rgba(0,0,0,0.32);
+        }
+
+        .akkoBoat span {
+            position: absolute;
+            left: 50%;
+            bottom: 8px;
+            width: 2px;
+            height: 34px;
+            background: #5f4530;
+        }
+
+        .akkoBoat span::after {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            border-top: 13px solid transparent;
+            border-bottom: 13px solid transparent;
+            border-left: 21px solid rgba(255,226,118,0.85);
+        }
+
+        .boatOne { left: 13%; top: 31%; transform: rotate(-5deg); }
+        .boatTwo { left: 22%; top: 67%; transform: rotate(5deg) scale(0.82); }
+
+        .akkoLandmark {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            filter: drop-shadow(0 7px 8px rgba(54,35,23,0.34));
+        }
+
+        .akkoLandmarkLabel {
+            position: absolute;
+            z-index: 4;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 9px;
+            border: 1px solid rgba(255,245,213,0.86);
+            border-radius: 999px;
+            background: rgba(62,52,39,0.82);
+            color: #fff4cf;
+            font-size: clamp(10px, 1.7vw, 14px);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .akkoOldCity {
+            top: 9%;
+            right: 4%;
+            width: 45%;
+            height: 30%;
+        }
+
+        .akkoStoneCity {
+            position: absolute;
+            inset: 18% 0 0;
+            border: 3px solid rgba(83,57,36,0.45);
+            border-radius: 30% 25% 8px 8px;
+            background:
+                linear-gradient(rgba(107,78,48,0.34) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(107,78,48,0.34) 2px, transparent 2px),
+                linear-gradient(160deg, #dfc393, #9e734d);
+            background-size: 100% 24px, 37px 100%, auto;
+            clip-path: polygon(0 33%, 9% 33%, 9% 12%, 18% 12%, 18% 33%, 30% 33%, 30% 19%, 42% 19%, 42% 33%, 55% 33%, 55% 4%, 66% 4%, 66% 33%, 78% 33%, 78% 16%, 89% 16%, 89% 33%, 100% 33%, 100% 100%, 0 100%);
+        }
+
+        .akkoLighthouse {
+            top: 22%;
+            left: 34%;
+            width: 18%;
+            height: 30%;
+        }
+
+        .lighthouseTower {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 42px;
+            height: 135px;
+            transform: translateX(-50%);
+            border: 3px solid #3d2d27;
+            border-radius: 12px 12px 3px 3px;
+            background: repeating-linear-gradient(180deg, #f4e8ce 0 21px, #bc3f35 21px 42px);
+            box-shadow: 0 0 18px rgba(255,239,173,0.28);
+        }
+
+        .lighthouseTower::before {
+            content: "";
+            position: absolute;
+            top: -23px;
+            left: 3px;
+            right: 3px;
+            height: 22px;
+            border-radius: 10px 10px 3px 3px;
+            background: #3c3532;
+            box-shadow: 0 -4px 18px rgba(255,240,170,0.8);
+        }
+
+        .lighthouseTower::after {
+            content: "";
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            width: 12px;
+            height: 9px;
+            transform: translateX(-50%);
+            background: #fff2a6;
+        }
+
+        .akkoPrison {
+            right: 5%;
+            bottom: 10%;
+            width: 43%;
+            height: 30%;
+        }
+
+        .akkoPrison .akkoLandmarkLabel {
+            left: 79%;
+        }
+
+        .prisonFortress {
+            position: absolute;
+            inset: 18% 0 0;
+            border: 5px solid #4e3a2a;
+            border-radius: 8px;
+            background:
+                linear-gradient(rgba(92,65,42,0.34) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(92,65,42,0.34) 2px, transparent 2px),
+                linear-gradient(155deg, #c9a875, #7f5d42);
+            background-size: 100% 26px, 42px 100%, auto;
+        }
+
+        .prisonFortress::before {
+            content: "";
+            position: absolute;
+            top: -22px;
+            left: -5px;
+            right: -5px;
+            height: 24px;
+            background: repeating-linear-gradient(90deg, #6e4c34 0 26px, transparent 26px 38px);
+        }
+
+        .prisonFortress span {
+            display: inline-block;
+            width: 22px;
+            height: 34px;
+            margin: 28% 5% 0;
+            border: 4px solid #2d2826;
+            background: repeating-linear-gradient(90deg, #292625 0 3px, #101112 3px 6px);
+            box-shadow: inset 0 0 7px rgba(0,0,0,0.7);
+        }
+
+        .akkoSeaWall {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            bottom: 2%;
+            width: 65%;
+            height: 9%;
+            background:
+                linear-gradient(rgba(99,70,44,0.34) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(99,70,44,0.34) 2px, transparent 2px),
+                linear-gradient(180deg, #c4a16f, #76543d);
+            background-size: 100% 20px, 34px 100%, auto;
+            clip-path: polygon(0 26%, 8% 26%, 8% 0, 15% 0, 15% 26%, 28% 26%, 28% 7%, 36% 7%, 36% 26%, 50% 26%, 50% 0, 59% 0, 59% 26%, 72% 26%, 72% 9%, 81% 9%, 81% 26%, 100% 26%, 100% 100%, 0 100%);
         }
 
         #worldPathSvg {
@@ -350,13 +1309,13 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
         }
 
         .worldLevel {
             position: absolute;
-            z-index: 2;
+            z-index: 4;
             width: clamp(46px, 8vw, 66px);
             aspect-ratio: 1 / 1;
             transform: translate(-50%, -50%);
@@ -378,6 +1337,36 @@
         .worldLevel.completed {
             cursor: pointer;
             background: rgba(255,226,92,0.95);
+        }
+
+        .worldLevel.telAvivLevel {
+            border-color: #7be1ff;
+            color: #071833;
+            background: rgba(163,178,190,0.9);
+            box-shadow: 0 0 0 2px rgba(7,24,51,0.7), 0 0 18px rgba(123,225,255,0.42);
+        }
+
+        .worldLevel.telAvivLevel.unlocked {
+            background: rgba(91,233,255,0.96);
+        }
+
+        .worldLevel.telAvivLevel.completed {
+            background: rgba(255,118,203,0.96);
+        }
+
+        .worldLevel.akkoLevel {
+            border-color: #c9ad71;
+            color: #17363c;
+            background: rgba(174,190,181,0.94);
+            box-shadow: 0 0 0 2px rgba(5,45,53,0.72), 0 0 18px rgba(98,232,211,0.4);
+        }
+
+        .worldLevel.akkoLevel.unlocked {
+            background: rgba(102,232,210,0.98);
+        }
+
+        .worldLevel.akkoLevel.completed {
+            background: rgba(255,211,113,0.98);
         }
 
         .worldLevel.current {
@@ -767,7 +1756,58 @@
             }
 
             #worldMap {
-                height: 1450px;
+                height: 4300px;
+            }
+
+            .intercitySign {
+                left: 3%;
+                width: 39vw;
+                padding: 6px 8px;
+            }
+
+            .intercityRailway {
+                left: 49.5%;
+                width: 34px;
+            }
+
+            #akkoExpressButton {
+                right: 2%;
+                width: 43vw;
+                min-height: 68px;
+                padding: 6px 7px;
+            }
+
+            .akkoBypassTrack,
+            .telAvivAkkoRailway {
+                width: 34px;
+            }
+
+            .bypassMainTrack {
+                left: 90.5%;
+            }
+
+            .bypassArrivalTrack {
+                left: 90.5%;
+            }
+
+            .telAvivAkkoSign {
+                left: 2%;
+                width: 43vw;
+                padding: 6px 7px;
+            }
+
+            .akkoLandmarkLabel {
+                padding: 3px 6px;
+            }
+
+            .lighthouseTower {
+                width: 30px;
+                height: 105px;
+            }
+
+            .worldLevel {
+                width: 48px;
+                border-width: 3px;
             }
 
             #gameBoard {

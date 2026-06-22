@@ -261,11 +261,130 @@
         <!-- World map photo unlock game screen -->
 
         <div id="worldMapBox">
-            <h2 id="worldTitle">Jerusalem</h2>
+            <h2 id="worldTitle">Jerusalem → Tel Aviv → Akko</h2>
 
-            <p id="worldMessage">Answer questions to unlock each Jerusalem photo.</p>
+            <p id="worldMessage">Travel by train through Jerusalem, Tel Aviv, and Akko.</p>
 
             <div id="worldMap">
+                <div class="worldRegion jerusalemWorld" aria-hidden="true">
+                    <span class="worldRegionTitle">Jerusalem</span>
+                    <div class="jerusalemSun"></div>
+
+                    <div class="jerusalemLandmark oldCityLandmark">
+                        <span class="landmarkLabel">Old City</span>
+                        <div class="oldCitySkyline">
+                            <span class="goldenDome"></span>
+                            <span class="oldCityTower"></span>
+                        </div>
+                    </div>
+
+                    <div class="jerusalemLandmark westernWallLandmark">
+                        <span class="landmarkLabel">Western Wall</span>
+                        <div class="westernWallStones"></div>
+                    </div>
+
+                    <div class="jerusalemLandmark jaffaStreetLandmark">
+                        <span class="landmarkLabel">Jaffa Street</span>
+                        <div class="jaffaShopfronts"></div>
+                        <div class="jaffaStreetTracks"></div>
+                        <div class="jaffaStreetTram">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="jerusalemWalls"></div>
+                </div>
+
+                <div class="intercityRailway" aria-hidden="true">
+                    <div class="intercityTrain">
+                        <span class="trainWindow"></span>
+                        <span class="trainWindow"></span>
+                        <span class="trainWindow"></span>
+                    </div>
+                </div>
+
+                <div class="intercitySign" aria-hidden="true">
+                    <span>Train to Tel Aviv</span>
+                    <small dir="rtl">ירושלים יצחק נבון ← תל אביב השלום</small>
+                </div>
+
+                <div class="akkoBypassTrack bypassStartTrack" aria-hidden="true"></div>
+                <div class="akkoBypassTrack bypassMainTrack" aria-hidden="true">
+                    <div class="akkoExpressTrain">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="akkoBypassTrack bypassArrivalTrack" aria-hidden="true"></div>
+
+                <button id="akkoExpressButton" type="button">
+                    <strong>Express to Akko</strong>
+                    <small dir="rtl">ירושלים יצחק נבון ← חיפה מרכז השמונה ← עכו</small>
+                </button>
+
+                <div class="worldRegion telAvivWorld" aria-hidden="true">
+                    <span class="worldRegionTitle telAvivTitle">TEL AVIV</span>
+                    <div class="telAvivSea">
+                        <span class="wave waveOne"></span>
+                        <span class="wave waveTwo"></span>
+                        <span class="wave waveThree"></span>
+                    </div>
+                    <div class="telAvivBeach"></div>
+                    <div class="telAvivPromenade"></div>
+                    <div class="telAvivDistrict districtNorth"></div>
+                    <div class="telAvivDistrict districtCenter"></div>
+                    <div class="telAvivDistrict districtSouth"></div>
+                    <div class="telAvivLights"></div>
+                    <span class="beachIcon umbrellaOne">⛱</span>
+                    <span class="beachIcon umbrellaTwo">⛱</span>
+                    <span class="beachIcon palmOne">🌴</span>
+                    <span class="beachIcon palmTwo">🌴</span>
+                    <span class="beachIcon palmThree">🌴</span>
+                </div>
+
+                <div class="telAvivAkkoRailway" aria-hidden="true">
+                    <div class="northboundTrain">
+                        <span class="trainWindow"></span>
+                        <span class="trainWindow"></span>
+                        <span class="trainWindow"></span>
+                    </div>
+                </div>
+
+                <div class="telAvivAkkoSign" aria-hidden="true">
+                    <span>Northbound to Akko</span>
+                    <small dir="rtl">תל אביב סבידור מרכז ← חיפה מרכז השמונה ← עכו</small>
+                </div>
+
+                <div class="worldRegion akkoWorld" aria-hidden="true">
+                    <span class="worldRegionTitle akkoTitle">AKKO <small>עכו</small></span>
+                    <div class="akkoSea">
+                        <span class="akkoWave akkoWaveOne"></span>
+                        <span class="akkoWave akkoWaveTwo"></span>
+                        <span class="akkoWave akkoWaveThree"></span>
+                    </div>
+                    <div class="akkoHarbor"></div>
+                    <div class="akkoBoat boatOne"><span></span></div>
+                    <div class="akkoBoat boatTwo"><span></span></div>
+
+                    <div class="akkoLandmark akkoOldCity">
+                        <span class="akkoLandmarkLabel">Old City</span>
+                        <div class="akkoStoneCity"></div>
+                    </div>
+
+                    <div class="akkoLandmark akkoLighthouse">
+                        <span class="akkoLandmarkLabel">Lighthouse</span>
+                        <div class="lighthouseTower"></div>
+                    </div>
+
+                    <div class="akkoLandmark akkoPrison">
+                        <span class="akkoLandmarkLabel">Old Prison</span>
+                        <div class="prisonFortress">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="akkoSeaWall"></div>
+                </div>
+
                 <svg id="worldPathSvg" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
             </div>
         </div>
