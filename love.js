@@ -244,6 +244,9 @@
         // Get the Jerusalem station's direct Akko train button.
         const akkoExpressButton = document.getElementById("akkoExpressButton");
 
+        // Get the Akko station's direct Jerusalem train button.
+        const jerusalemExpressButton = document.getElementById("jerusalemExpressButton");
+
         // Get the title.
         const title = document.getElementById("title");
 
@@ -965,6 +968,15 @@
             akkoWorld.scrollIntoView({ behavior: "smooth", block: "start" });
             worldMessageEl.textContent =
                 "Express train arrived in Akko. Locked levels still require the earlier levels to be completed.";
+        }
+
+        // This takes the player straight back to Jerusalem without changing progress.
+        function travelDirectlyToJerusalem() {
+            const jerusalemWorld = document.querySelector(".jerusalemWorld");
+
+            jerusalemWorld.scrollIntoView({ behavior: "smooth", block: "start" });
+            worldMessageEl.textContent =
+                "Express train arrived in Jerusalem. Your level progress has not changed.";
         }
 
         // This function opens one level on the world map.
@@ -2359,6 +2371,11 @@
         // When the Jerusalem station express button is clicked...
         akkoExpressButton.onclick = function() {
             travelDirectlyToAkko();
+        };
+
+        // When the Akko station return button is clicked...
+        jerusalemExpressButton.onclick = function() {
+            travelDirectlyToJerusalem();
         };
 
         // When user closes the Jerusalem question...

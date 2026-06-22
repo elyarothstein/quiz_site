@@ -943,6 +943,45 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.46), 0 0 18px rgba(255,226,92,0.34);
         }
 
+        #jerusalemExpressButton {
+            position: absolute;
+            z-index: 7;
+            top: 68.4%;
+            right: 3%;
+            width: min(285px, 39vw);
+            max-width: none;
+            min-height: 74px;
+            margin: 0;
+            padding: 9px 12px;
+            transform: rotate(-3deg);
+            border: 3px solid #f8e6a2;
+            border-radius: 9px;
+            background: linear-gradient(145deg, #8d6738, #c2985f);
+            color: white;
+            text-align: center;
+            box-shadow: 0 6px 17px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(255,239,187,0.27);
+        }
+
+        #jerusalemExpressButton strong,
+        #jerusalemExpressButton small {
+            display: block;
+        }
+
+        #jerusalemExpressButton strong {
+            font-size: clamp(14px, 2.5vw, 20px);
+        }
+
+        #jerusalemExpressButton small {
+            margin-top: 4px;
+            font-size: clamp(9px, 1.6vw, 13px);
+            line-height: 1.25;
+        }
+
+        #jerusalemExpressButton:hover {
+            background: linear-gradient(145deg, #a17a48, #d4ad72);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.46), 0 0 18px rgba(255,226,146,0.36);
+        }
+
         .telAvivAkkoRailway {
             top: 63.7%;
             left: 47.8%;
@@ -1254,7 +1293,8 @@
         }
 
         .akkoPrison .akkoLandmarkLabel {
-            left: 79%;
+            top: 72%;
+            left: 40%;
         }
 
         .prisonFortress {
@@ -1771,6 +1811,13 @@
             }
 
             #akkoExpressButton {
+                right: 2%;
+                width: 43vw;
+                min-height: 68px;
+                padding: 6px 7px;
+            }
+
+            #jerusalemExpressButton {
                 right: 2%;
                 width: 43vw;
                 min-height: 68px;
