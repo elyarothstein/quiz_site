@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Spain Adventure</title>
+    <link rel="stylesheet" href="spain.css?v=20260623-barcelona-wide">
+</head>
+<body>
+    <main id="spainGame">
+        <a id="barcelonaAirport" class="airportPortal" href="index.html" aria-label="Fly from Barcelona Airport back to the Israel game">
+            <span class="airportCode">BCN</span>
+            <span class="airportPlane">✈</span>
+            <span><strong>Barcelona–El Prat Airport</strong><small>Fly back to Ben Gurion • Volver a Israel</small></span>
+        </a>
+
+        <header class="spainHeader">
+            <p class="eyebrow">OUR SPAIN ADVENTURE</p>
+            <h1>Barcelona → Madrid</h1>
+            <p id="spainMessage">Loading Barcelona progress…</p>
+        </header>
+
+        <section id="barcelonaMap" aria-label="Barcelona photo game world">
+            <div class="barcelonaWorld" aria-hidden="true">
+                <div class="barcelonaSky"></div>
+                <div class="barcelonaSea"><i></i><i></i><i></i></div>
+                <div class="barcelonaBeach"></div>
+                <div class="barcelonaStreetGrid"></div>
+                <div class="barcelonaBuildings"></div>
+                <div class="barcelonaNightLights"></div>
+                <div class="christmasCanopy canopyOne"></div>
+                <div class="christmasCanopy canopyTwo"></div>
+                <div class="christmasCanopy canopyThree"></div>
+
+                <div class="barcelonaTitle">BARCELONA <small>BARCELONA</small></div>
+
+                <div class="barcelonaLandmark sagradaFamilia">
+                    <b>La Sagrada Família</b>
+                    <div class="sagradaBody"><i></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="barcelonaLandmark parkGuell">
+                    <b>Park Güell</b>
+                    <div class="gaudiMosaic"></div>
+                </div>
+
+                <div class="barcelonaLandmark arcTriomf">
+                    <b>Arc de Triomf</b>
+                    <div class="brickArch"></div>
+                </div>
+
+                <div class="barcelonaLandmark palauNacional">
+                    <b>Palau Nacional</b>
+                    <div class="palauBuilding"><i></i></div>
+                </div>
+
+                <div class="barcelonaLandmark aquariumLandmark">
+                    <b>Barcelona Aquarium</b>
+                    <div class="aquariumTunnel">🐠 <span>🦈</span> 🐟</div>
+                </div>
+
+                <div class="cableLine"></div>
+                <div class="barcelonaCableCar">🚠</div>
+            </div>
+
+            <svg id="barcelonaPath" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+        </section>
+
+        <section class="madridFuture" aria-label="Madrid future world">
+            <p>SPAIN WORLD TWO</p>
+            <h2>Madrid</h2>
+            <div class="madridSilhouette"><span></span><span></span><span></span></div>
+            <strong>Our next Spanish adventure will continue here.</strong>
+        </section>
+    </main>
+
+    <div id="questionPanel" class="modal" role="dialog" aria-modal="true">
+        <div class="modalBox">
+            <h2 id="questionTitle"></h2>
+            <h3 id="questionText"></h3>
+            <div id="questionChoices"></div>
+            <p id="questionResult"></p>
+            <button id="closeQuestion" type="button" hidden>Close</button>
+        </div>
+    </div>
+
+    <div id="photoPanel" class="modal" role="dialog" aria-modal="true">
+        <div class="modalBox photoBox">
+            <h2 id="photoTitle"></h2>
+            <img id="photoImage" alt="Unlocked Barcelona memory">
+            <button id="closePhoto" type="button">Close</button>
+        </div>
+    </div>
+
+    <script src="spain.js?v=20260623-barcelona-wide"></script>
+</body>
+</html>

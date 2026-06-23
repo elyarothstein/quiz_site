@@ -2719,4 +2719,51 @@
             }
         }
 
+        .airportPortal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            width: min(680px, 92vw);
+            min-height: 92px;
+            margin: 8px auto 18px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 4px solid #d9f5ff;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #0b4778, #1599c3 62%, #f4c35c);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 9px 24px rgba(0,0,0,0.34), inset 0 0 0 2px rgba(255,255,255,0.18);
+        }
+
+        .airportPortal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), 0 0 22px rgba(84,218,255,0.36);
+        }
+
+        .airportPortal strong,
+        .airportPortal small { display: block; }
+        .airportPortal strong { font-size: clamp(18px, 3vw, 27px); }
+        .airportPortal small { margin-top: 3px; font-size: clamp(10px, 1.7vw, 14px); }
+
+        .airportCode {
+            padding: 8px 10px;
+            border: 2px solid white;
+            border-radius: 9px;
+            font-size: clamp(17px, 3vw, 25px);
+            font-weight: 900;
+            letter-spacing: 0.08em;
+        }
+
+        .airportPlane {
+            font-size: clamp(30px, 6vw, 48px);
+            animation: airportPlaneFloat 2.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes airportPlaneFloat {
+            from { transform: translate(-4px, 3px) rotate(-8deg); }
+            to { transform: translate(5px, -4px) rotate(3deg); }
+        }
+
         /* CSS ends here */

@@ -1,0 +1,184 @@
+:root {
+    --ink: #301942;
+    --gold: #ffd36d;
+    --sea: #087fb5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: #fff;
+    font-family: ui-rounded, "Avenir Next", Avenir, system-ui, sans-serif;
+    background:
+        radial-gradient(circle at 14% 8%, rgba(255,211,109,0.23), transparent 24%),
+        linear-gradient(155deg, #6d174e, #25163d 38%, #081a36);
+}
+
+#spainGame {
+    width: min(980px, 100%);
+    margin: 0 auto;
+    padding: 18px 12px 70px;
+}
+
+.airportPortal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: min(720px, 94vw);
+    min-height: 94px;
+    margin: 0 auto 20px;
+    padding: 12px 20px;
+    border: 4px solid #fff0b7;
+    border-radius: 22px;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(135deg, #8f1d3d, #e1493f 55%, #f3b852);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(255,255,255,0.17);
+}
+
+.airportPortal:hover { transform: translateY(-2px); box-shadow: 0 13px 30px rgba(0,0,0,0.46); }
+.airportPortal strong, .airportPortal small { display: block; }
+.airportPortal strong { font-size: clamp(18px, 3vw, 27px); }
+.airportPortal small { margin-top: 3px; font-size: clamp(10px, 1.7vw, 14px); }
+.airportCode { padding: 8px 10px; border: 2px solid white; border-radius: 9px; font-size: 23px; font-weight: 900; }
+.airportPlane { font-size: 43px; animation: planeFloat 2.4s ease-in-out infinite alternate; }
+@keyframes planeFloat { from { transform: translate(-5px,3px) rotate(-9deg); } to { transform: translate(5px,-5px) rotate(4deg); } }
+
+.spainHeader { text-align: center; margin: 12px 0 18px; }
+.eyebrow { margin: 0; color: #ffd77d; font-weight: 900; letter-spacing: .22em; }
+.spainHeader h1 { margin: 4px 0; font-size: clamp(31px, 7vw, 64px); text-shadow: 0 5px 15px rgba(0,0,0,.38); }
+#spainMessage { margin: 7px auto; max-width: 700px; color: #f9eacb; font-weight: 700; }
+
+#barcelonaMap {
+    position: relative;
+    width: min(1160px, 96vw);
+    height: 5400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 5px solid #ffcf63;
+    border-radius: 30px;
+    background: #1a3760;
+    box-shadow: 0 18px 48px rgba(0,0,0,.48);
+}
+
+.barcelonaWorld { position: absolute; inset: 0; overflow: hidden; }
+.barcelonaSky {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(circle at 18% 3%, rgba(255,244,176,.95), transparent 8%),
+        linear-gradient(180deg, #54bde8 0%, #94d5ed 23%, #f0aa72 47%, #17294b 68%, #070d22 100%);
+    animation: skyPulse 24s ease-in-out infinite alternate;
+}
+@keyframes skyPulse { from { filter: brightness(1.14) saturate(.95); } to { filter: brightness(.58) saturate(1.35) hue-rotate(8deg); } }
+
+.barcelonaSea {
+    position: absolute; z-index: 1; top: 0; right: 0; width: 18%; height: 100%;
+    background: linear-gradient(180deg, #18a9d4, #096ca2 48%, #051f52);
+    box-shadow: inset 20px 0 30px rgba(255,255,255,.12);
+}
+.barcelonaSea i { position: absolute; right: -10%; width: 130%; height: 4px; border-radius: 50%; background: rgba(220,252,255,.7); box-shadow: 0 0 9px #9bf2ff; }
+.barcelonaSea i:nth-child(1) { top: 16%; } .barcelonaSea i:nth-child(2) { top: 53%; } .barcelonaSea i:nth-child(3) { top: 82%; }
+.barcelonaBeach { position: absolute; z-index: 2; right: 16%; width: 5%; height: 100%; background: linear-gradient(90deg,#c99450,#ffe0a0,#ddad63); }
+
+.barcelonaStreetGrid {
+    position: absolute; z-index: 1; inset: 0 18% 0 0;
+    opacity: .5;
+    background:
+        repeating-linear-gradient(20deg, transparent 0 74px, rgba(245,232,197,.65) 75px 83px),
+        repeating-linear-gradient(110deg, transparent 0 88px, rgba(245,232,197,.55) 89px 97px),
+        linear-gradient(180deg, #c48561, #9d5c52 50%, #2a2948);
+}
+
+.barcelonaBuildings {
+    position: absolute; z-index: 1; inset: 0 19% 0 0;
+    opacity: .72;
+    background:
+        repeating-linear-gradient(180deg, transparent 0 82px, rgba(49,23,40,.7) 83px 146px, transparent 147px 178px),
+        repeating-linear-gradient(90deg, rgba(244,179,102,.38) 0 25px, rgba(94,43,63,.7) 26px 69px, transparent 70px 78px);
+}
+
+.barcelonaNightLights {
+    position: absolute; z-index: 2; inset: 0 21% 0 0;
+    opacity: .1;
+    background:
+        radial-gradient(circle at 16% 8%, #ffe889 0 3px, transparent 6px),
+        radial-gradient(circle at 52% 17%, #ff7bb5 0 3px, transparent 7px),
+        radial-gradient(circle at 28% 33%, #79f0ff 0 4px, transparent 8px),
+        radial-gradient(circle at 61% 46%, #ffe889 0 3px, transparent 7px),
+        radial-gradient(circle at 17% 62%, #ff7bb5 0 4px, transparent 8px),
+        radial-gradient(circle at 57% 78%, #79f0ff 0 4px, transparent 8px),
+        radial-gradient(circle at 30% 92%, #ffe889 0 4px, transparent 8px);
+    background-size: 145px 170px, 180px 210px, 160px 190px, 210px 180px, 170px 220px, 190px 200px, 150px 175px;
+    animation: cityLights 24s ease-in-out infinite alternate;
+}
+@keyframes cityLights { from { opacity: .08; filter: brightness(.8); } to { opacity: .95; filter: brightness(1.6) drop-shadow(0 0 6px #ffe98a); } }
+
+.christmasCanopy { position: absolute; z-index: 3; left: 4%; width: 73%; height: 6%; opacity: .15; background: repeating-linear-gradient(8deg, transparent 0 20px, rgba(255,242,172,.95) 21px 24px, transparent 25px 42px); animation: christmasGlow 24s ease-in-out infinite alternate; }
+.canopyOne { top: 43%; } .canopyTwo { top: 66%; transform: scaleX(-1); } .canopyThree { top: 87%; }
+@keyframes christmasGlow { from { opacity: .05; } to { opacity: .92; filter: drop-shadow(0 0 7px #fff1a1); } }
+
+.barcelonaTitle { position: absolute; z-index: 3; top: .5%; left: 5%; color: rgba(255,244,206,.44); font-size: clamp(45px, 10vw, 92px); font-weight: 1000; letter-spacing: .06em; }
+.barcelonaTitle small { display: block; font-size: .3em; letter-spacing: .35em; }
+
+.barcelonaLandmark { position: absolute; z-index: 3; pointer-events: none; filter: drop-shadow(0 8px 8px rgba(0,0,0,.42)); }
+.barcelonaLandmark b { position: absolute; z-index: 5; left: 50%; top: -30px; transform: translateX(-50%); padding: 5px 10px; border: 2px solid #ffe5a0; border-radius: 999px; color: #fff1c6; background: rgba(70,27,50,.88); white-space: nowrap; font-size: clamp(10px,1.7vw,14px); }
+
+.sagradaFamilia { top: 8%; left: 10%; width: 270px; height: 310px; }
+.sagradaBody { position: absolute; inset: 24% 10% 0; border: 5px solid #6c493c; border-radius: 45% 45% 9px 9px; background: repeating-linear-gradient(90deg,#a97a58 0 25px,#d1a872 26px 45px); }
+.sagradaBody i { position: absolute; bottom: 55%; width: 43px; border: 4px solid #684536; border-radius: 50% 50% 8px 8px; background: repeating-linear-gradient(0deg,#c79a69 0 15px,#755346 16px 20px); }
+.sagradaBody i:nth-child(1){left:-8%;height:210px}.sagradaBody i:nth-child(2){left:23%;height:250px}.sagradaBody i:nth-child(3){right:23%;height:230px}.sagradaBody i:nth-child(4){right:-8%;height:195px}
+
+.parkGuell { top: 27%; left: 9%; width: 300px; height: 180px; }
+.gaudiMosaic { position:absolute; inset:0; border:7px solid #e6ddc9; border-radius: 48% 52% 31% 40%; background: conic-gradient(from 15deg,#46a8c6,#ffd44f,#e05b5e,#f3f0d4,#56a96d,#7d65b4,#46a8c6); clip-path: polygon(0 30%,100% 0,91% 70%,52% 54%,16% 100%); }
+
+.arcTriomf { top: 46%; left: 36%; width: 185px; height: 205px; }
+.brickArch { position:absolute; inset:0; border:24px solid #9d4b3a; border-bottom-width:35px; background:transparent; clip-path: polygon(0 0,100% 0,100% 100%,70% 100%,70% 42%,30% 42%,30% 100%,0 100%); box-shadow: inset 0 0 0 5px #643027; }
+
+.palauNacional { top: 61%; left: 6%; width: 330px; height: 210px; }
+.palauBuilding { position:absolute; inset:28% 0 0; border:5px solid #91623c; background:linear-gradient(180deg,#e8bd70,#b87942); clip-path:polygon(0 32%,20% 32%,20% 15%,37% 15%,37% 30%,63% 30%,63% 15%,80% 15%,80% 32%,100% 32%,100% 100%,0 100%); }
+.palauBuilding i { position:absolute; left:50%; top:-72px; width:95px; height:95px; transform:translateX(-50%); border:5px solid #8b5a35; border-radius:50% 50% 10px 10px; background:#dca95d; }
+
+.aquariumLandmark { top: 78%; right: 3%; width: 240px; height: 180px; }
+.aquariumTunnel { position:absolute; inset:0; display:flex; align-items:center; justify-content:space-around; border:12px solid #d8f2f5; border-bottom-width:30px; border-radius:50% 50% 15px 15px; background:linear-gradient(180deg,#20b6ca,#075888); font-size:36px; }
+
+.cableLine { position:absolute; z-index:3; left:2%; top:71%; width:65%; height:5px; transform:rotate(-9deg); background:#222; box-shadow:0 2px 0 rgba(255,255,255,.5); }
+.barcelonaCableCar { position:absolute; z-index:4; left:6%; top:69%; font-size:58px; animation:cableRide 12s ease-in-out infinite alternate; filter:drop-shadow(0 7px 6px rgba(0,0,0,.45)); }
+@keyframes cableRide { from{transform:translate(0,30px)} to{transform:translate(430px,-45px)} }
+
+#barcelonaPath { position:absolute; z-index:3; inset:0; width:100%; height:100%; pointer-events:none; }
+.levelButton { position:absolute; z-index:5; width:clamp(44px,7vw,62px); aspect-ratio:1; transform:translate(-50%,-50%); border:4px solid #5b265f; border-radius:50%; color:#332040; background:#e8e4df; font-weight:1000; font-size:17px; box-shadow:0 5px 10px rgba(0,0,0,.38); }
+.levelButton.completed { border-color:#f4c85d; background:#fff1ad; }
+.levelButton.current { border-color:#4ed7ee; background:white; box-shadow:0 0 0 5px rgba(78,215,238,.25),0 5px 12px rgba(0,0,0,.4); }
+
+.madridFuture { width:min(1160px,96vw); margin:34px auto 0; padding:42px 20px; border:4px solid #dcb260; border-radius:28px; text-align:center; background:linear-gradient(150deg,#7f282d,#351f42); box-shadow:0 14px 32px rgba(0,0,0,.35); }
+.madridFuture p { color:#ffd778; letter-spacing:.2em; font-weight:900; }.madridFuture h2{margin:2px;font-size:55px}.madridFuture strong{color:#f2dfcc}
+.madridSilhouette { display:flex; justify-content:center; align-items:flex-end; gap:8px; height:100px; margin:16px; }
+.madridSilhouette span { width:70px; height:55px; background:#c49159; clip-path:polygon(0 30%,18% 30%,18% 0,30% 0,30% 30%,70% 30%,70% 0,82% 0,82% 30%,100% 30%,100% 100%,0 100%); }.madridSilhouette span:nth-child(2){height:92px;width:95px}
+
+.modal { position:fixed; z-index:50; inset:0; display:none; align-items:center; justify-content:center; padding:15px; background:rgba(8,7,19,.82); }
+.modalBox { width:min(620px,94vw); max-height:90vh; overflow:auto; padding:22px; border:4px solid #f3c45f; border-radius:24px; color:#301942; text-align:center; background:#fff9ea; box-shadow:0 18px 45px rgba(0,0,0,.55); }
+.modalBox button { margin:7px; padding:11px 16px; border:3px solid #762d68; border-radius:12px; color:#321840; background:#fff; font-weight:800; }
+#questionChoices { display:grid; grid-template-columns:1fr 1fr; gap:9px; }.photoBox img{display:block;max-width:100%;max-height:70vh;margin:10px auto;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,.28)}
+
+@media (max-width:600px) {
+    #spainGame { padding-inline:5px; }
+    #barcelonaMap { height:6600px; width:96vw; }
+    .levelButton { width:36px; border-width:3px; font-size:12px; }
+    .airportPortal { gap:8px; padding:10px 9px; }
+    .airportPlane { font-size:32px; }
+    .sagradaFamilia { left:2%; transform:scale(.76); transform-origin:left top; }
+    .parkGuell { left:2%; transform:scale(.74); transform-origin:left top; }
+    .palauNacional { left:1%; transform:scale(.72); transform-origin:left top; }
+    .aquariumLandmark { right:-4%; transform:scale(.72); transform-origin:right top; }
+    .barcelonaCableCar { animation-name:cableRideMobile; }
+    @keyframes cableRideMobile { from{transform:translate(0,20px)} to{transform:translate(190px,-25px)} }
+    #questionChoices { grid-template-columns:1fr; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .barcelonaSky,.barcelonaNightLights,.christmasCanopy,.barcelonaCableCar,.airportPlane { animation:none; }
+    .barcelonaNightLights,.christmasCanopy { opacity:.8; }
+}
