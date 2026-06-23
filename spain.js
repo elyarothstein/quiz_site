@@ -5,20 +5,24 @@ const BARCELONA_LEVELS = 103;
 const BARCELONA_END = BARCELONA_START + BARCELONA_LEVELS - 1;
 const PROGRESS_KEY = "photoWorldProgress";
 
-// Fold the route across Barcelona in wide boulevards instead of one long descent.
-// Eight levels fill each row, then the road drops and reverses direction. The
-// final memory sits lower than the rest so Madrid can connect beneath it later.
-const LEVELS_PER_ROW = 8;
-const ROUTE_ROWS = Math.ceil(BARCELONA_LEVELS / LEVELS_PER_ROW);
-const positions = Array.from({ length: BARCELONA_LEVELS }, (_, index) => {
-    const row = Math.floor(index / LEVELS_PER_ROW);
-    const column = index % LEVELS_PER_ROW;
-    const directionColumn = row % 2 === 0 ? column : LEVELS_PER_ROW - 1 - column;
-    const position = [8 + directionColumn * 9, 4 + row * (91 / (ROUTE_ROWS - 1))];
+// Barcelona uses vertical street lanes: down, a rounded turn, up, then down
+// again. Nine close lanes keep all 103 levels evenly spaced on a compact map.
+const COLUMN_COUNTS = [12, 12, 12, 12, 11, 11, 11, 11, 11];
+const positions = [];
 
-    if (index === BARCELONA_LEVELS - 1) position[1] = 98;
-    return position;
+COLUMN_COUNTS.forEach((count, column) => {
+    const x = 8 + column * (66 / (COLUMN_COUNTS.length - 1));
+
+    for (let row = 0; row < count; row++) {
+        const progress = row / (count - 1);
+        const y = column % 2 === 0
+            ? 4 + progress * 92
+            : 96 - progress * 92;
+        positions.push([x, y]);
+    }
 });
+
+positions[positions.length - 1][1] = 98;
 
 let vocabulary = [];
 let currentLevel = null;
@@ -51,27 +55,37 @@ function shuffle(items) {
     return [...items].sort(() => Math.random() - 0.5);
 }
 
-function addRoad(start, end, color, width, dash = "") {
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", start[0]);
-    line.setAttribute("y1", start[1]);
-    line.setAttribute("x2", end[0]);
-    line.setAttribute("y2", end[1]);
-    line.setAttribute("stroke", color);
-    line.setAttribute("stroke-width", width);
-    line.setAttribute("stroke-linecap", "round");
-    if (dash) line.setAttribute("stroke-dasharray", dash);
-    pathSvg.appendChild(line);
+function createRoad(color, width, dash = "") {
+    const road = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    let pathData = "M " + positions[0][0] + " " + positions[0][1];
+
+    for (let index = 1; index < positions.length; index++) {
+        const previous = positions[index - 1];
+        const current = positions[index];
+        const isTurn = Math.abs(previous[1] - current[1]) < 0.1;
+
+        if (isTurn) {
+            const outsideY = previous[1] > 50 ? previous[1] + 3.8 : previous[1] - 3.8;
+            pathData += " C " + previous[0] + " " + outsideY + ", " + current[0] + " " + outsideY + ", " + current[0] + " " + current[1];
+        } else {
+            pathData += " L " + current[0] + " " + current[1];
+        }
+    }
+
+    road.setAttribute("d", pathData);
+    road.setAttribute("fill", "none");
+    road.setAttribute("stroke", color);
+    road.setAttribute("stroke-width", width);
+    road.setAttribute("stroke-linecap", "round");
+    road.setAttribute("stroke-linejoin", "round");
+    if (dash) road.setAttribute("stroke-dasharray", dash);
+    pathSvg.appendChild(road);
 }
 
 function drawPath(progress) {
     pathSvg.innerHTML = "";
-    for (let index = 0; index < positions.length - 1; index++) {
-        const level = BARCELONA_START + index;
-        const color = level < progress.highestUnlocked ? "#ffd65f" : "rgba(255,255,255,.78)";
-        addRoad(positions[index], positions[index + 1], "rgba(45,20,58,.88)", "1.55");
-        addRoad(positions[index], positions[index + 1], color, ".38", "1 1.6");
-    }
+    createRoad("rgba(27,31,47,.94)", "2.35");
+    createRoad("rgba(255,255,255,.82)", ".34", "1 1.55");
 }
 
 function buildBarcelona() {

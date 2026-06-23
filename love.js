@@ -460,7 +460,16 @@
         }
         // This function shows the home screen.
         loadVocabularyFromFile().then(function() {
-            showHome();
+            const destination = new URLSearchParams(window.location.search).get("destination");
+
+            if (destination === "tlv-airport") {
+                showWorldMap();
+                window.requestAnimationFrame(function() {
+                    document.getElementById("benGurionAirport").scrollIntoView({ block: "start" });
+                });
+            } else {
+                showHome();
+            }
         });
 
         // This function stops the test timer.
