@@ -154,7 +154,7 @@
                 startLevel: 1,
                 levels: 21,
                 regionTop: 1,
-                regionHeight: 29,
+                regionHeight: 20,
                 positions: [
                     [50, 5], [35, 10], [55, 15], [72, 20], [50, 25], [30, 30], [44, 35],
                     [64, 40], [76, 45], [58, 50], [38, 55], [24, 60], [42, 65], [62, 70],
@@ -166,8 +166,8 @@
                 key: "telAviv",
                 startLevel: 22,
                 levels: 24,
-                regionTop: 36,
-                regionHeight: 29,
+                regionTop: 26,
+                regionHeight: 22,
                 positions: [
                     [46, 4], [60, 8], [72, 12], [64, 16], [49, 20], [40, 24], [53, 28],
                     [68, 32], [77, 36], [66, 40], [50, 44], [42, 48], [55, 52], [72, 56],
@@ -180,12 +180,24 @@
                 key: "akko",
                 startLevel: 46,
                 levels: 9,
-                regionTop: 72,
-                regionHeight: 26,
+                regionTop: 54,
+                regionHeight: 11,
                 positions: [
                     [56, 7], [70, 16], [60, 27], [44, 38], [53, 49],
                     [69, 60], [61, 71], [44, 82], [55, 94]
                 ]
+            },
+            {
+                name: "Eilat",
+                key: "eilat",
+                startLevel: 55,
+                levels: 37,
+                regionTop: 70,
+                regionHeight: 29,
+                positions: Array.from({ length: 37 }, (_, index) => {
+                    const xPattern = [48, 33, 22, 36, 52, 61, 49, 34, 20, 31, 47, 59];
+                    return [xPattern[index % xPattern.length], 3 + index * (94 / 36)];
+                })
             }
         ];
         const photoWorldProgressKey = "photoWorldProgress";
@@ -246,6 +258,14 @@
 
         // Get the Akko station's direct Jerusalem train button.
         const jerusalemExpressButton = document.getElementById("jerusalemExpressButton");
+
+        // Get all of the direct Eilat bus-stop buttons.
+        const jerusalemEilatBusButton = document.getElementById("jerusalemEilatBusButton");
+        const telAvivEilatBusButton = document.getElementById("telAvivEilatBusButton");
+        const akkoEilatBusButton = document.getElementById("akkoEilatBusButton");
+        const eilatJerusalemBusButton = document.getElementById("eilatJerusalemBusButton");
+        const eilatTelAvivBusButton = document.getElementById("eilatTelAvivBusButton");
+        const eilatAkkoBusButton = document.getElementById("eilatAkkoBusButton");
 
         // Get the title.
         const title = document.getElementById("title");
@@ -888,21 +908,22 @@
                         ? colors[(levelNumber - 1) % colors.length]
                         : "rgba(255,255,255,0.72)";
 
-                    addWorldRoad(positions[index], positions[index + 1], "rgba(27,31,47,0.86)", "2.4", "");
-                    addWorldRoad(positions[index], positions[index + 1], color, "0.58", "1.2 1.8");
+                    addWorldRoad(positions[index], positions[index + 1], "rgba(27,31,47,0.86)", "1.65", "");
+                    addWorldRoad(positions[index], positions[index + 1], color, "0.42", "1 1.7");
                 }
             });
 
         }
 
-        // This function builds Jerusalem, Tel Aviv, Akko, and their train routes.
-        // ---------- Jerusalem, Tel Aviv, and Akko photo worlds ----------
+        // This function builds all four photo worlds and their travel routes.
+        // ---------- Jerusalem, Tel Aviv, Akko, and Eilat photo worlds ----------
         function buildWorldMap() {
             const progress = getPhotoWorldProgress();
 
             worldMapEl.querySelectorAll(".worldLevel").forEach(level => level.remove());
             worldMapEl.classList.toggle("telAvivUnlocked", progress.highestUnlocked >= 22);
             worldMapEl.classList.toggle("akkoUnlocked", progress.highestUnlocked >= 46);
+            worldMapEl.classList.toggle("eilatUnlocked", progress.highestUnlocked >= 55);
             drawWorldPath(progress);
 
             photoWorlds.forEach(world => {
@@ -935,6 +956,7 @@
             const jerusalem = photoWorlds[0];
             const telAviv = photoWorlds[1];
             const akko = photoWorlds[2];
+            const eilat = photoWorlds[3];
             const jerusalemComplete = Math.min(progress.highestUnlocked - 1, jerusalem.levels);
             const telAvivComplete = Math.max(
                 0,
@@ -944,8 +966,12 @@
                 0,
                 Math.min(progress.highestUnlocked - akko.startLevel, akko.levels)
             );
+            const eilatComplete = Math.max(
+                0,
+                Math.min(progress.highestUnlocked - eilat.startLevel, eilat.levels)
+            );
 
-            worldTitleEl.textContent = "Jerusalem → Tel Aviv → Akko";
+            worldTitleEl.textContent = "Jerusalem → Tel Aviv → Akko → Eilat";
 
             if (progress.highestUnlocked < telAviv.startLevel) {
                 worldMessageEl.textContent =
@@ -955,9 +981,13 @@
                 worldMessageEl.textContent =
                     "Jerusalem complete • Tel Aviv: " + telAvivComplete + " / " + telAviv.levels +
                     ". Finish level 45 to continue north to Akko.";
+            } else if (progress.highestUnlocked < eilat.startLevel) {
+                worldMessageEl.textContent =
+                    "Jerusalem and Tel Aviv complete • Akko: " + akkoComplete + " / " + akko.levels +
+                    ". Finish level 54 to take the bus south to Eilat.";
             } else {
                 worldMessageEl.textContent =
-                    "Jerusalem and Tel Aviv complete • Akko: " + akkoComplete + " / " + akko.levels;
+                    "Jerusalem, Tel Aviv, and Akko complete • Eilat: " + eilatComplete + " / " + eilat.levels;
             }
         }
 
@@ -977,6 +1007,54 @@
             jerusalemWorld.scrollIntoView({ behavior: "smooth", block: "start" });
             worldMessageEl.textContent =
                 "Express train arrived in Jerusalem. Your level progress has not changed.";
+        }
+
+        // This travels by bus without changing which photo levels are unlocked.
+        function travelByBusToWorld(worldSelector, cityName) {
+            const destinationWorld = document.querySelector(worldSelector);
+
+            destinationWorld.scrollIntoView({ behavior: "smooth", block: "start" });
+            worldMessageEl.textContent =
+                "Bus arrived in " + cityName + ". Your level progress has not changed.";
+        }
+
+        // Move the Jerusalem–Akko express train along the complete curved SVG railway.
+        function startExpressTrainAnimation() {
+            const route = document.getElementById("expressRoutePath");
+            const train = document.querySelector(".expressRouteTrain");
+
+            if (!route || !train) {
+                return;
+            }
+
+            const routeLength = route.getTotalLength();
+            const tripDuration = 18000;
+
+            function moveExpressTrain(time) {
+                const tripNumber = Math.floor(time / tripDuration);
+                let progress = (time % tripDuration) / tripDuration;
+
+                if (tripNumber % 2 === 1) {
+                    progress = 1 - progress;
+                }
+
+                const distance = progress * routeLength;
+                const point = route.getPointAtLength(distance);
+                const nearbyPoint = route.getPointAtLength(Math.min(routeLength, distance + 0.25));
+                const mapBounds = worldMapEl.getBoundingClientRect();
+                const horizontalChange = (nearbyPoint.x - point.x) * mapBounds.width;
+                const verticalChange = (nearbyPoint.y - point.y) * mapBounds.height;
+                const direction = Math.atan2(verticalChange, horizontalChange) * 180 / Math.PI - 90;
+
+                train.style.left = point.x + "%";
+                train.style.top = point.y + "%";
+                train.style.transform =
+                    "translate(-50%, -50%) rotate(" + direction + "deg)";
+
+                requestAnimationFrame(moveExpressTrain);
+            }
+
+            requestAnimationFrame(moveExpressTrain);
         }
 
         // This function opens one level on the world map.
@@ -2378,6 +2456,32 @@
             travelDirectlyToJerusalem();
         };
 
+        // Every existing city has a direct bus to Eilat.
+        jerusalemEilatBusButton.onclick = function() {
+            travelByBusToWorld(".eilatWorld", "Eilat");
+        };
+
+        telAvivEilatBusButton.onclick = function() {
+            travelByBusToWorld(".eilatWorld", "Eilat");
+        };
+
+        akkoEilatBusButton.onclick = function() {
+            travelByBusToWorld(".eilatWorld", "Eilat");
+        };
+
+        // Eilat Central Bus Station returns directly to any earlier city.
+        eilatJerusalemBusButton.onclick = function() {
+            travelByBusToWorld(".jerusalemWorld", "Jerusalem");
+        };
+
+        eilatTelAvivBusButton.onclick = function() {
+            travelByBusToWorld(".telAvivWorld", "Tel Aviv");
+        };
+
+        eilatAkkoBusButton.onclick = function() {
+            travelByBusToWorld(".akkoWorld", "Akko");
+        };
+
         // When user closes the Jerusalem question...
         closeWorldQuestionButton.onclick = function() {
             closeWorldQuestion();
@@ -2460,5 +2564,7 @@
                 nextButton.style.display = "none";
             }
         };
+
+        startExpressTrainAnimation();
 
         // JavaScript ends here

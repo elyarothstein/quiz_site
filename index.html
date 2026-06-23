@@ -17,7 +17,7 @@
     <!-- The title shown in the browser tab -->
 
 
-    <link rel="stylesheet" href="love.css?v=20260622">
+    <link rel="stylesheet" href="love.css?v=20260623-railway-final">
 </head>
 
 <body>
@@ -261,9 +261,9 @@
         <!-- World map photo unlock game screen -->
 
         <div id="worldMapBox">
-            <h2 id="worldTitle">Jerusalem → Tel Aviv → Akko</h2>
+            <h2 id="worldTitle">Jerusalem → Tel Aviv → Akko → Eilat</h2>
 
-            <p id="worldMessage">Travel by train through Jerusalem, Tel Aviv, and Akko.</p>
+            <p id="worldMessage">Travel by train through the north, then take the bus south to Eilat.</p>
 
             <div id="worldMap">
                 <div class="worldRegion jerusalemWorld" aria-hidden="true">
@@ -295,6 +295,17 @@
                     <div class="jerusalemWalls"></div>
                 </div>
 
+                <button id="jerusalemEilatBusButton" class="eilatBusStop jerusalemBusStop" type="button">
+                    <span class="busStopIcon">🚌</span>
+                    <strong>Bus to Eilat</strong>
+                    <small dir="rtl">מרכזית ירושלים ← מרכזית אילת</small>
+                </button>
+
+                <div class="railStation jerusalemTrainStation" aria-hidden="true">
+                    <span class="stationName" dir="rtl">ירושלים יצחק נבון</span>
+                    <i></i><i></i>
+                </div>
+
                 <div class="intercityRailway" aria-hidden="true">
                     <div class="intercityTrain">
                         <span class="trainWindow"></span>
@@ -308,12 +319,24 @@
                     <small dir="rtl">ירושלים יצחק נבון ← תל אביב השלום</small>
                 </div>
 
-                <div class="akkoBypassTrack bypassStartTrack" aria-hidden="true"></div>
-                <div class="akkoBypassTrack bypassMainTrack" aria-hidden="true">
-                    <div class="akkoExpressTrain">
-                        <span></span><span></span><span></span>
-                    </div>
+                <div class="railStation telAvivArrivalStation" aria-hidden="true">
+                    <span class="stationName" dir="rtl">תל אביב השלום</span>
+                    <i></i>
                 </div>
+
+                <svg id="expressRailwaySvg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path id="expressRoutePath" class="expressSleepers" pathLength="100" d="M 59 19.35 L 59 21 C 59 22.2 91.5 21.5 91.5 24.5 L 91.5 48.5 C 91.5 51.5 59 51.8 59 53 L 59 54.5"></path>
+                    <path class="expressBallast" d="M 59 19.35 L 59 21 C 59 22.2 91.5 21.5 91.5 24.5 L 91.5 48.5 C 91.5 51.5 59 51.8 59 53 L 59 54.5"></path>
+                    <path class="expressRails" d="M 59 19.35 L 59 21 C 59 22.2 91.5 21.5 91.5 24.5 L 91.5 48.5 C 91.5 51.5 59 51.8 59 53 L 59 54.5"></path>
+                    <path class="expressRailGap" d="M 59 19.35 L 59 21 C 59 22.2 91.5 21.5 91.5 24.5 L 91.5 48.5 C 91.5 51.5 59 51.8 59 53 L 59 54.5"></path>
+                </svg>
+
+                <div class="akkoExpressTrain expressRouteTrain" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <div class="akkoBypassTrack bypassStartTrack" aria-hidden="true"></div>
+                <div class="akkoBypassTrack bypassMainTrack" aria-hidden="true"></div>
                 <div class="akkoBypassTrack bypassArrivalTrack" aria-hidden="true"></div>
 
                 <button id="akkoExpressButton" type="button">
@@ -341,6 +364,17 @@
                     <span class="beachIcon palmThree">🌴</span>
                 </div>
 
+                <button id="telAvivEilatBusButton" class="eilatBusStop telAvivBusStop" type="button">
+                    <span class="busStopIcon">🚌</span>
+                    <strong>Bus to Eilat</strong>
+                    <small dir="rtl">מרכזית תל אביב ← מרכזית אילת</small>
+                </button>
+
+                <div class="railStation telAvivNorthStation" aria-hidden="true">
+                    <span class="stationName" dir="rtl">תל אביב סבידור מרכז</span>
+                    <i></i>
+                </div>
+
                 <div class="telAvivAkkoRailway" aria-hidden="true">
                     <div class="northboundTrain">
                         <span class="trainWindow"></span>
@@ -352,6 +386,11 @@
                 <div class="telAvivAkkoSign" aria-hidden="true">
                     <span>Northbound to Akko</span>
                     <small dir="rtl">תל אביב סבידור מרכז ← חיפה מרכז השמונה ← עכו</small>
+                </div>
+
+                <div class="railStation akkoTrainStation" aria-hidden="true">
+                    <span class="stationName" dir="rtl">תחנת רכבת עכו</span>
+                    <i></i><i></i>
                 </div>
 
                 <button id="jerusalemExpressButton" type="button">
@@ -390,6 +429,59 @@
                     <div class="akkoSeaWall"></div>
                 </div>
 
+                <button id="akkoEilatBusButton" class="eilatBusStop akkoBusStop" type="button">
+                    <span class="busStopIcon">🚌</span>
+                    <strong>Bus to Eilat</strong>
+                    <small dir="rtl">מרכזית עכו ← מרכזית אילת</small>
+                </button>
+
+                <div class="eilatBusTerminal">
+                    <strong class="terminalTitle">Eilat Central Bus Station <span dir="rtl">• תחנה מרכזית אילת</span></strong>
+                    <button id="eilatJerusalemBusButton" type="button">🚌 Jerusalem <small dir="rtl">מרכזית אילת ← מרכזית ירושלים</small></button>
+                    <button id="eilatTelAvivBusButton" type="button">🚌 Tel Aviv <small dir="rtl">מרכזית אילת ← מרכזית תל אביב</small></button>
+                    <button id="eilatAkkoBusButton" type="button">🚌 Akko <small dir="rtl">מרכזית אילת ← מרכזית עכו</small></button>
+                </div>
+
+                <div class="worldRegion eilatWorld" aria-hidden="true">
+                    <span class="worldRegionTitle eilatTitle">EILAT <small>אילת</small></span>
+                    <div class="eilatMountains"></div>
+                    <div class="eilatCityLights"></div>
+                    <div class="eilatBeach"></div>
+                    <div class="eilatSea">
+                        <span class="eilatWave waveA"></span>
+                        <span class="eilatWave waveB"></span>
+                        <span class="eilatWave waveC"></span>
+                        <span class="coral coralA">✦</span>
+                        <span class="coral coralB">✦</span>
+                    </div>
+
+                    <div class="eilatTourBoat"><span></span><b>Our Tour Boat</b></div>
+
+                    <div class="eilatLandmark eilatAquarium">
+                        <span class="eilatLandmarkLabel">Underwater Observatory</span>
+                        <div class="aquariumTower"><span></span></div>
+                    </div>
+
+                    <div class="eilatLandmark eilatIceMall">
+                        <span class="eilatLandmarkLabel">Ice Mall</span>
+                        <div class="iceMallBuilding"><span class="iceRink">⛸</span></div>
+                    </div>
+
+                    <div class="eilatLandmark eilatMallDistrict">
+                        <span class="eilatLandmarkLabel">Mall District</span>
+                        <div class="mallBuildings"><span></span><span></span><span></span></div>
+                    </div>
+
+                    <div class="eilatLandmark eilatLegoStore">
+                        <span class="eilatLandmarkLabel">LEGO Store</span>
+                        <div class="legoBlocks"><span></span><span></span><span></span><span></span></div>
+                    </div>
+
+                    <span class="eilatPalm palmA">🌴</span>
+                    <span class="eilatPalm palmB">🌴</span>
+                    <span class="eilatPalm palmC">🌴</span>
+                </div>
+
                 <svg id="worldPathSvg" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
             </div>
         </div>
@@ -415,6 +507,6 @@
     </div>
 
 
-    <script src="love.js?v=20260622"></script>
+    <script src="love.js?v=20260623-railway-final"></script>
 </body>
 </html>
