@@ -190,10 +190,3 @@ body {
     @keyframes cableRideMobile { from{transform:translate(0,20px)} to{transform:translate(190px,-25px)} }
     #questionChoices { grid-template-columns:1fr; }
 }
-
-@media (prefers-reduced-motion:reduce) {
-    .barcelonaSky,.barcelonaSea,.barcelonaBeach,.barcelonaNightShade,.barcelonaNightLights,.christmasCanopy,.barcelonaCableCar,.airportPlane { animation:none; }
-    .barcelonaSea,.barcelonaBeach { filter:brightness(.16) saturate(.5); }
-    .barcelonaNightShade { opacity:.88; }
-    .barcelonaNightLights,.christmasCanopy { opacity:.92; }
-}

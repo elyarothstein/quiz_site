@@ -7,22 +7,33 @@ const PROGRESS_KEY = "photoWorldProgress";
 
 // Barcelona uses vertical street lanes: down, a rounded turn, up, then down
 // again. Nine close lanes keep all 103 levels evenly spaced on a compact map.
-const COLUMN_COUNTS = [12, 12, 12, 12, 11, 11, 11, 11, 11];
-const positions = [];
+const DESKTOP_COLUMN_COUNTS = [12, 12, 12, 12, 11, 11, 11, 11, 11];
+const PHONE_COLUMN_COUNTS = [21, 21, 21, 20, 20];
+function isPhoneLayout() {
+    return window.innerWidth <= 600;
+}
 
-COLUMN_COUNTS.forEach((count, column) => {
-    const x = 8 + column * (66 / (COLUMN_COUNTS.length - 1));
+function createRoutePositions(columnCounts) {
+    const routePositions = [];
 
-    for (let row = 0; row < count; row++) {
-        const progress = row / (count - 1);
-        const y = column % 2 === 0
-            ? 4 + progress * 92
-            : 96 - progress * 92;
-        positions.push([x, y]);
-    }
-});
+    columnCounts.forEach((count, column) => {
+        const x = 9 + column * (64 / (columnCounts.length - 1));
 
-positions[positions.length - 1][1] = 98;
+        for (let row = 0; row < count; row++) {
+            const progress = row / (count - 1);
+            const y = column % 2 === 0
+                ? 4 + progress * 92
+                : 96 - progress * 92;
+            routePositions.push([x, y]);
+        }
+    });
+
+    routePositions[routePositions.length - 1][1] = 98;
+    return routePositions;
+}
+
+let usesPhoneLayout = isPhoneLayout();
+let positions = createRoutePositions(usesPhoneLayout ? PHONE_COLUMN_COUNTS : DESKTOP_COLUMN_COUNTS);
 
 let vocabulary = [];
 let currentLevel = null;
@@ -140,7 +151,9 @@ function startQuestion(level) {
     }
 
     currentLevel = level;
-    currentQuestion = shuffle(vocabulary)[0];
+    // A level always receives its own word. Only after every vocabulary word
+    // has appeared once does the sequence begin again from the first word.
+    currentQuestion = vocabulary[(level - 1) % vocabulary.length];
     correctAnswer = currentQuestion.explanation;
     questionTitle.textContent = "Barcelona Level " + level;
     questionText.textContent = 'What does "' + currentQuestion.word + '" mean?';
@@ -201,6 +214,14 @@ closeQuestionButton.addEventListener("click", () => {
 
 closePhotoButton.addEventListener("click", () => {
     photoPanel.style.display = "none";
+    buildBarcelona();
+});
+
+window.addEventListener("resize", () => {
+    if (isPhoneLayout() === usesPhoneLayout) return;
+
+    usesPhoneLayout = isPhoneLayout();
+    positions = createRoutePositions(usesPhoneLayout ? PHONE_COLUMN_COUNTS : DESKTOP_COLUMN_COUNTS);
     buildBarcelona();
 });
 

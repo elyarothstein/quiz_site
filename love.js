@@ -1091,7 +1091,9 @@
             }
 
             currentWorldLevel = levelNumber;
-            currentWorldQuestion = shuffleArray(vocabulary)[0];
+            // Give every photo level a different vocabulary word. The sequence
+            // starts over only after the full vocabulary list has been used.
+            currentWorldQuestion = vocabulary[(levelNumber - 1) % vocabulary.length];
             currentWorldCorrectAnswer = currentWorldQuestion.explanation;
 
             const world = getWorldForLevel(levelNumber);
