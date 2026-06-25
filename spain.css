@@ -166,10 +166,238 @@ body {
 .levelButton.completed { border-color:#f4c85d; color:#332040; background:#fff1ad; text-shadow:none; }
 .levelButton.current { border-color:#4ed7ee; color:#332040; background:white; text-shadow:none; box-shadow:0 0 0 5px rgba(78,215,238,.25),0 5px 12px rgba(0,0,0,.4); }
 
-.madridFuture { width:min(980px,96vw); margin:34px auto 0; padding:42px 20px; border:4px solid #dcb260; border-radius:28px; text-align:center; background:linear-gradient(150deg,#7f282d,#351f42); box-shadow:0 14px 32px rgba(0,0,0,.35); }
-.madridFuture p { color:#ffd778; letter-spacing:.2em; font-weight:900; }.madridFuture h2{margin:2px;font-size:55px}.madridFuture strong{color:#f2dfcc}
-.madridSilhouette { display:flex; justify-content:center; align-items:flex-end; gap:8px; height:100px; margin:16px; }
-.madridSilhouette span { width:70px; height:55px; background:#c49159; clip-path:polygon(0 30%,18% 30%,18% 0,30% 0,30% 30%,70% 30%,70% 0,82% 0,82% 30%,100% 30%,100% 100%,0 100%); }.madridSilhouette span:nth-child(2){height:92px;width:95px}
+.spainTrainConnector {
+    --train-ride-distance: 300px;
+    position: relative;
+    width: min(980px, 96vw);
+    margin: 42px auto 54px;
+    min-height: 690px;
+    border: 5px solid #f1d487;
+    border-radius: 28px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(255,240,180,.2), transparent 28%),
+        linear-gradient(180deg,#16294c,#081126);
+    box-shadow: 0 16px 38px rgba(0,0,0,.43);
+}
+.spainTrainConnector p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    width: min(430px, 78%);
+    margin: 0;
+    padding: 10px 16px;
+    border: 2px solid rgba(255,240,194,.55);
+    border-radius: 999px;
+    color: #fff0c2;
+    text-align: center;
+    font-weight: 900;
+    background: rgba(8,17,38,.68);
+}
+.trainStation {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    width: 220px;
+    padding: 13px 14px;
+    border: 3px solid #dff6ff;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(180deg,#2367a8,#17406f);
+    box-shadow: 0 9px 18px rgba(0,0,0,.34);
+    transform: translateX(-50%);
+}
+button.trainStation { cursor: pointer; font: inherit; }
+button.trainStation:hover { filter: brightness(1.12); }
+button.trainStation:focus-visible { outline: 4px solid #f9de7d; outline-offset: 4px; }
+.trainStation strong, .trainStation small { display: block; }
+.trainStation strong { font-size: 21px; }
+.trainStation small { color: #f7d88b; font-weight: 800; }
+.barcelonaStation { top: 28px; }
+.madridStation { bottom: 28px; }
+.trainStation::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 36px;
+    margin: 10px auto -2px;
+    border: 5px solid #283b49;
+    border-top: 0;
+    background: repeating-linear-gradient(90deg,#f2d887 0 9px,#486073 10px 16px);
+}
+.trainTrack {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 142px;
+    bottom: 132px;
+    width: 74px;
+    border-left: 8px solid #d6dde2;
+    border-right: 8px solid #d6dde2;
+    background:
+        repeating-linear-gradient(180deg, transparent 0 22px, #8d6550 23px 31px, transparent 32px 48px),
+        linear-gradient(90deg, transparent 0 27px, #565d64 28px 46px, transparent 47px);
+    transform: translateX(-50%);
+}
+.fastTrain {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    display: grid;
+    grid-template-rows: 28px repeat(4, 1fr);
+    gap: 6px;
+    width: 54px;
+    height: 166px;
+    padding: 8px 8px 10px;
+    border: 4px solid #1b4b8d;
+    border-radius: 30px 30px 16px 16px;
+    background:
+        linear-gradient(180deg,#ecf9ff 0 12%,#1f6fbb 13% 18%,#f8fbff 19% 100%);
+    box-shadow: 0 0 0 3px rgba(255,255,255,.42), 0 10px 15px rgba(0,0,0,.45);
+    transform: translate(-50%, 0);
+    transition: transform .2s ease;
+}
+.fastTrain::before {
+    content: "";
+    justify-self: center;
+    width: 34px;
+    height: 22px;
+    border-radius: 18px 18px 6px 6px;
+    background: #17365d;
+    box-shadow: inset 0 -5px 0 rgba(255,255,255,.18);
+}
+.fastTrain i {
+    display: block;
+    border-radius: 6px;
+    background: linear-gradient(90deg,#cfe8f6 0 28%,#e33d31 29% 61%,#cfe8f6 62%);
+}
+.fastTrain i:nth-child(even) { background: linear-gradient(90deg,#cfe8f6 0 42%,#255fa6 43% 100%); }
+.spainTrainConnector.is-riding .fastTrain { animation: spainTrainRide 1.2s ease-in-out forwards; }
+@keyframes spainTrainRide {
+    from { transform: translate(-50%, 0); }
+    to { transform: translate(-50%, var(--train-ride-distance)); }
+}
+
+#madridMap {
+    position: relative;
+    width: min(980px, 96vw);
+    height: 1500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 5px solid #ffcf63;
+    border-radius: 30px;
+    background: #243145;
+    box-shadow: 0 18px 48px rgba(0,0,0,.48);
+}
+
+.madridWorld { position: absolute; inset: 0; overflow: hidden; }
+.madridSky {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(circle at 18% 4%, rgba(255,241,170,.9), transparent 8%),
+        linear-gradient(180deg, #8fb9d8 0%, #ced8df 25%, #d0a079 48%, #24314e 70%, #070914 100%);
+    animation: madridSkyPulse 24s ease-in-out infinite alternate;
+}
+@keyframes madridSkyPulse { from { filter: brightness(1.08) saturate(.9); } to { filter: brightness(.38) saturate(1.2); } }
+
+.madridStreetGrid {
+    position: absolute; z-index: 1; inset: 0;
+    opacity: .56;
+    background:
+        repeating-linear-gradient(23deg, transparent 0 92px, rgba(235,221,198,.52) 93px 102px),
+        repeating-linear-gradient(102deg, transparent 0 116px, rgba(205,190,170,.42) 117px 126px),
+        linear-gradient(180deg, #b68d6d, #83605c 48%, #272947);
+}
+.madridBuildings {
+    position: absolute; z-index: 1; inset: 0;
+    opacity: .8;
+    background:
+        repeating-linear-gradient(90deg, rgba(210,184,139,.38) 0 42px, rgba(82,54,67,.58) 43px 88px, transparent 89px 104px),
+        repeating-linear-gradient(180deg, transparent 0 95px, rgba(35,28,45,.55) 96px 154px, transparent 155px 186px);
+}
+.madridParks {
+    position: absolute; z-index: 2;
+    left: 2%; bottom: 7%;
+    width: 88%; height: 22%;
+    border-radius: 48% 52% 12% 18%;
+    background:
+        radial-gradient(circle at 18% 48%, rgba(255,255,230,.35), transparent 8%),
+        radial-gradient(circle at 60% 40%, rgba(255,255,230,.25), transparent 12%),
+        repeating-linear-gradient(14deg, rgba(44,92,51,.75) 0 31px, rgba(24,63,39,.82) 32px 62px);
+    opacity: .78;
+    clip-path: polygon(0 20%, 100% 0, 92% 100%, 5% 90%);
+}
+.madridNightShade {
+    position:absolute; z-index:4; inset:0;
+    pointer-events:none;
+    opacity:0;
+    background:rgba(1,4,14,.93);
+    animation:deepNight 24s ease-in-out infinite alternate;
+}
+.madridNightLights {
+    position: absolute; z-index: 4; inset: 0;
+    opacity: .1;
+    background:
+        radial-gradient(circle at 12% 7%, #fff0a2 0 3px, transparent 7px),
+        radial-gradient(circle at 42% 16%, #ff315e 0 3px, transparent 8px),
+        radial-gradient(circle at 70% 23%, #61dcff 0 4px, transparent 8px),
+        radial-gradient(circle at 26% 42%, #fff0a2 0 4px, transparent 9px),
+        radial-gradient(circle at 63% 55%, #ff315e 0 3px, transparent 8px),
+        radial-gradient(circle at 19% 75%, #61dcff 0 4px, transparent 9px),
+        radial-gradient(circle at 76% 86%, #fff0a2 0 4px, transparent 8px);
+    background-size: 138px 154px, 190px 210px, 165px 185px, 210px 170px, 180px 205px, 160px 190px, 150px 180px;
+    animation: cityLights 24s ease-in-out infinite alternate;
+}
+.madridChristmas {
+    position: absolute; z-index: 4;
+    left: 5%; width: 78%; height: 7%;
+    opacity: .12;
+    background:
+        repeating-linear-gradient(10deg, transparent 0 24px, rgba(255,236,156,.95) 25px 28px, transparent 29px 50px),
+        repeating-linear-gradient(-10deg, transparent 0 34px, rgba(112,213,255,.55) 35px 38px, transparent 39px 68px);
+    animation: christmasGlow 24s ease-in-out infinite alternate;
+}
+.canopyMadridOne { top: 15%; }
+.canopyMadridTwo { top: 48%; transform: scaleX(-1); }
+.canopyMadridThree { top: 73%; }
+
+.madridTitle { position: absolute; z-index: 3; top: 1%; left: 5%; color: rgba(255,244,206,.42); font-size: clamp(45px, 10vw, 92px); font-weight: 1000; letter-spacing: .08em; }
+.madridTitle small { display: block; font-size: .3em; letter-spacing: .38em; }
+.madridLandmark { position: absolute; z-index: 3; pointer-events: none; filter: drop-shadow(0 8px 8px rgba(0,0,0,.42)); }
+.madridLandmark b { position: absolute; z-index: 5; left: 50%; top: -30px; transform: translateX(-50%); padding: 5px 10px; border: 2px solid #ffe5a0; border-radius: 999px; color: #fff1c6; background: rgba(70,27,50,.88); white-space: nowrap; font-size: clamp(10px,1.7vw,14px); }
+
+.schweppesTower { top: 7%; left: 8%; width: 190px; height: 300px; }
+.capitolTower { position: absolute; inset: 0 24%; border-radius: 50% 50% 12px 12px; background: repeating-linear-gradient(0deg,#d8d0c6 0 24px,#514653 25px 30px); border: 5px solid #4c3e45; }
+.capitolTower::before { content:"CAPITOL"; position:absolute; top:-27px; left:50%; transform:translateX(-50%); color:#ff3650; font-weight:1000; text-shadow:0 0 8px #ff3650; }
+.capitolTower i { position:absolute; left:-18px; right:-18px; top:42px; padding:8px 2px; color:white; font-style:normal; font-weight:1000; text-align:center; background:repeating-linear-gradient(90deg,#ed2f37 0 12px,#ffd735 13px 25px,#20a85a 26px 38px,#27a7e6 39px 50px); box-shadow:0 0 12px rgba(255,220,80,.8); transform:rotate(-3deg); }
+
+.royalPalace { top: 22%; right: 7%; width: 305px; height: 210px; }
+.palaceBody { position:absolute; inset:25% 0 0; border:5px solid #a08873; background:repeating-linear-gradient(90deg,#d9d0c7 0 33px,#f2eee5 34px 48px); }
+.palaceBody::before { content:""; position:absolute; left:50%; top:-66px; width:85px; height:85px; transform:translateX(-50%); border:5px solid #86715f; border-radius:50% 50% 8px 8px; background:#ddd5cb; }
+.palaceBody i { position:absolute; bottom:0; width:34px; height:105px; background:#7c6a61; }
+.palaceBody i:nth-child(1){left:8%}.palaceBody i:nth-child(2){left:45%}.palaceBody i:nth-child(3){right:8%}
+
+.puertaSol { top: 39%; left: 9%; width: 185px; height: 185px; }
+.solClock { position:absolute; inset:8%; display:flex; align-items:center; justify-content:center; border:9px solid #c7b28c; border-radius:50%; color:#ffe7a0; font-size:38px; font-weight:1000; background:radial-gradient(circle,#4d3947,#1e1830); box-shadow:0 0 18px rgba(255,229,145,.45); }
+
+.pradoMuseum { top: 46%; right: 9%; width: 310px; height: 185px; }
+.museumFacade { position:absolute; inset:18% 0 0; border:5px solid #797070; background:#cfc8c0; clip-path:polygon(0 28%,50% 0,100% 28%,100% 100%,0 100%); }
+.museumFacade i { position:absolute; bottom:0; width:24px; height:98px; background:#eee8df; border:3px solid #777; }
+.museumFacade i:nth-child(1){left:18%}.museumFacade i:nth-child(2){left:38%}.museumFacade i:nth-child(3){right:38%}.museumFacade i:nth-child(4){right:18%}
+
+.zooMadrid { top: 64%; left: 8%; width: 250px; height: 150px; }
+.zooPark { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:15px; border:8px solid #d9cda5; border-radius:35% 45% 18% 20%; background:linear-gradient(135deg,#356d43,#89a75b); font-size:36px; }
+
+.jurassicMadrid { top: 72%; right: 7%; width: 250px; height: 155px; }
+.dinoGate { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border:10px solid #49343a; border-radius:16px 16px 45% 45%; color:#73e3ff; background:linear-gradient(180deg,#222436,#0e0f17); font-size:58px; box-shadow:inset 0 0 18px rgba(76,206,255,.35); }
+
+.carMuseum { top: 83%; left: 12%; width: 170px; height: 120px; }
+.classicCar, .gameArcade { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border:6px solid #e5c170; border-radius:18px; background:linear-gradient(180deg,#3e2f38,#161720); font-size:58px; }
+.gameMuseum { top: 87%; right: 12%; width: 170px; height: 120px; }
+
+#madridPath { position:absolute; z-index:3; inset:0; width:100%; height:100%; pointer-events:none; }
 
 .modal { position:fixed; z-index:50; inset:0; display:none; align-items:center; justify-content:center; padding:15px; background:rgba(8,7,19,.82); }
 .modalBox { width:min(620px,94vw); max-height:90vh; overflow:auto; padding:22px; border:4px solid #f3c45f; border-radius:24px; color:#301942; text-align:center; background:#fff9ea; box-shadow:0 18px 45px rgba(0,0,0,.55); }
@@ -179,13 +407,32 @@ body {
 @media (max-width:600px) {
     #spainGame { padding-inline:5px; }
     #barcelonaMap { height:2500px; width:96vw; }
+    #madridMap { height:1800px; width:96vw; }
     .levelButton { width:28px; border-width:2px; font-size:9px; }
     .airportPortal { gap:8px; padding:10px 9px; }
     .airportPlane { font-size:32px; }
+    .spainTrainConnector { --train-ride-distance: 250px; min-height:600px; margin-block:28px 38px; }
+    .spainTrainConnector p { top:48%; width:78%; font-size:11px; }
+    .trainStation { width:175px; padding:9px 8px; }
+    .trainStation strong { font-size:15px; }
+    .trainStation small { font-size:10px; }
+    .barcelonaStation { top:22px; }
+    .madridStation { bottom:22px; }
+    .trainStation::after { width:58px; height:28px; border-width:4px; border-top:0; }
+    .trainTrack { top:128px; bottom:120px; width:58px; border-left-width:6px; border-right-width:6px; }
+    .fastTrain { width:44px; height:138px; border-width:3px; gap:4px; }
     .sagradaFamilia { left:2%; transform:scale(.76); transform-origin:left top; }
     .parkGuell { left:2%; transform:scale(.74); transform-origin:left top; }
     .palauNacional { left:1%; transform:scale(.72); transform-origin:left top; }
     .aquariumLandmark { right:-4%; transform:scale(.72); transform-origin:right top; }
+    .schweppesTower { left:1%; transform:scale(.72); transform-origin:left top; }
+    .royalPalace { right:-7%; transform:scale(.68); transform-origin:right top; }
+    .puertaSol { left:2%; transform:scale(.72); transform-origin:left top; }
+    .pradoMuseum { right:-7%; transform:scale(.68); transform-origin:right top; }
+    .zooMadrid { left:1%; transform:scale(.7); transform-origin:left top; }
+    .jurassicMadrid { right:-6%; transform:scale(.68); transform-origin:right top; }
+    .carMuseum { left:4%; transform:scale(.72); transform-origin:left top; }
+    .gameMuseum { right:3%; transform:scale(.72); transform-origin:right top; }
     .barcelonaCableCar { animation-name:cableRideMobile; }
     @keyframes cableRideMobile { from{transform:translate(0,20px)} to{transform:translate(190px,-25px)} }
     #questionChoices { grid-template-columns:1fr; }

@@ -1,179 +1,145 @@
 #!/usr/bin/env python3
-"""Remove duplicates and blurry photos, then prepare numbered game-ready JPEGs."""
+"""Rename ready photos for the game as g<number>.jpg, g<number+1>.jpg, etc."""
 
 from __future__ import annotations
 
 import argparse
-import csv
-from datetime import datetime
+import re
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageFilter, ImageOps, ImageStat
+from PIL import Image, ImageOps
 
 
-SUPPORTED = {".jpg", ".jpeg", ".png", ".tif", ".tiff"}
-DATE_TAKEN = 36867
-DATE_MODIFIED = 306
+# File extensions this program accepts.
+SUPPORTED_PHOTOS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp"}
 
 
-def capture_time(path: Path) -> datetime:
-    with Image.open(path) as image:
-        exif = image.getexif()
-        value = exif.get(DATE_TAKEN) or exif.get(DATE_MODIFIED)
-    if value:
-        try:
-            return datetime.strptime(str(value), "%Y:%m:%d %H:%M:%S")
-        except ValueError:
-            pass
-    return datetime.fromtimestamp(path.stat().st_mtime)
+# This function makes filenames sort naturally.
+# Example: IMG_2.jpg comes before IMG_10.jpg.
+def natural_sort_key(path: Path) -> list[object]:
+    """Sort IMG_2 before IMG_10, which feels more like normal photo order."""
+
+    # Split the filename into text and number pieces.
+    parts = re.split(r"(\d+)", path.name.lower())
+
+    # Convert number pieces into integers so they sort correctly.
+    return [int(part) if part.isdigit() else part for part in parts]
 
 
-def difference_hash(path: Path, size: int = 16) -> int:
-    with Image.open(path) as image:
-        image = ImageOps.exif_transpose(image).convert("L")
-        image = image.resize((size + 1, size), Image.Resampling.LANCZOS)
-        if hasattr(image, "get_flattened_data"):
-            pixels = list(image.get_flattened_data())
-        else:
-            pixels = list(image.getdata())
-    value = 0
-    for row in range(size):
-        start = row * (size + 1)
-        for column in range(size):
-            value = (value << 1) | (pixels[start + column] > pixels[start + column + 1])
-    return value
+# Keep asking until the user enters a valid folder.
+def ask_for_folder(prompt: str) -> Path:
+    while True:
+        # Ask the user for a folder and convert it into a Path object.
+        folder = Path(input(prompt).strip().strip('"')).expanduser()
+
+        # If the folder exists, return it.
+        if folder.is_dir():
+            return folder
+
+        print(f"That folder does not exist: {folder}")
 
 
-def sharpness(path: Path) -> float:
-    with Image.open(path) as image:
-        image = ImageOps.exif_transpose(image).convert("L")
-        image.thumbnail((1000, 1000), Image.Resampling.LANCZOS)
-        return ImageStat.Stat(image.filter(ImageFilter.FIND_EDGES)).var[0]
+# Keep asking until the user enters a valid number.
+def ask_for_number(prompt: str) -> int:
+    while True:
+        answer = input(prompt).strip()
+
+        # isdigit() checks if the answer contains only numbers.
+        if answer.isdigit():
+            return int(answer)
+
+        print("Please enter a number, like 195.")
 
 
-def blur_score(path: Path) -> float:
-    """Return a contrast-normalized detail score; lower values are blurrier."""
-    with Image.open(path) as image:
-        image = ImageOps.exif_transpose(image).convert("L")
-        image.thumbnail((1000, 1000), Image.Resampling.LANCZOS)
-        contrast = ImageStat.Stat(image).stddev[0]
-        softened = image.filter(ImageFilter.GaussianBlur(2))
-        high_frequency = ImageChops.difference(image, softened)
-        detail = ImageStat.Stat(high_frequency).rms[0]
-    return 100 * detail / max(contrast, 1)
+# Open an image, fix its rotation, convert it to JPG, and save it.
+def save_as_game_photo(source: Path, destination: Path) -> None:
+    """Save every photo as a correctly rotated JPEG for the game."""
 
-
-def find_groups(files: list[Path], hashes: dict[Path, int], times: dict[Path, datetime]) -> list[list[Path]]:
-    parent = {path: path for path in files}
-
-    def root(path: Path) -> Path:
-        while parent[path] != path:
-            parent[path] = parent[parent[path]]
-            path = parent[path]
-        return path
-
-    def join(left: Path, right: Path) -> None:
-        left_root, right_root = root(left), root(right)
-        if left_root != right_root:
-            parent[right_root] = left_root
-
-    for index, left in enumerate(files):
-        for right in files[index + 1 :]:
-            seconds = abs((times[left] - times[right]).total_seconds())
-            hash_distance = (hashes[left] ^ hashes[right]).bit_count()
-            if seconds <= 2 and hash_distance <= 30:
-                join(left, right)
-
-    groups: dict[Path, list[Path]] = {}
-    for path in files:
-        groups.setdefault(root(path), []).append(path)
-    return list(groups.values())
-
-
-def save_for_game(source: Path, destination: Path, max_edge: int) -> None:
     with Image.open(source) as image:
-        image = ImageOps.exif_transpose(image).convert("RGB")
-        image.thumbnail((max_edge, max_edge), Image.Resampling.LANCZOS)
-        image.save(destination, "JPEG", quality=90, optimize=True)
+        # Fix sideways iPhone/camera photos.
+        image = ImageOps.exif_transpose(image)
+
+        # Convert to RGB so it can be saved as a normal JPG.
+        image = image.convert("RGB")
+
+        # Save the image as a JPG file.
+        image.save(destination, "JPEG", quality=92, optimize=True)
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("source", type=Path, help="Folder containing exported album photos")
-    parser.add_argument("destination", type=Path, help="Folder for numbered JPEGs")
-    parser.add_argument("--start", type=int, default=1, help="First number to use")
-    parser.add_argument("--prefix", default="g", help="Filename prefix")
-    parser.add_argument("--max-edge", type=int, default=2048, help="Maximum image edge in pixels")
-    parser.add_argument(
-        "--blur-threshold",
-        type=float,
-        default=6.0,
-        help="Remove photos scoring below this value (default: 6.0; use 0 to disable)",
+# Rename every photo sequentially.
+# Example: g195.jpg, g196.jpg, g197.jpg, etc.
+def renumber_photos(source: Path, destination: Path, start: int, prefix: str) -> list[Path]:
+    # Get all supported photos and sort them in a human-friendly order.
+    photos = sorted(
+        (
+            path
+            for path in source.iterdir()
+            if path.is_file() and path.suffix.lower() in SUPPORTED_PHOTOS
+        ),
+        key=natural_sort_key,
     )
+
+    # Stop the program if no photos were found.
+    if not photos:
+        raise SystemExit(f"No photos found in {source}")
+
+    # Create the destination folder if it does not already exist.
+    destination.mkdir(parents=True, exist_ok=True)
+
+    created: list[Path] = []
+
+    # enumerate() gives both the photo and its position: 0, 1, 2, etc.
+    for offset, photo in enumerate(photos):
+        # Build the new filename.
+        # If start is 195, the first file becomes g195.jpg.
+        new_name = f"{prefix}{start + offset}.jpg"
+        new_path = destination / new_name
+
+        # Stop instead of overwriting an existing file.
+        if new_path.exists():
+            raise SystemExit(f"Stopped because this file already exists: {new_path}")
+
+        # Save the renamed image.
+        save_as_game_photo(photo, new_path)
+
+        # Keep track of the created file.
+        created.append(new_path)
+
+    return created
+
+
+# This is the main function where the program starts.
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Rename a folder of already-checked photos into game photo names."
+    )
+
+    parser.add_argument("source", nargs="?", type=Path, help="Folder containing the ready photos")
+    parser.add_argument("destination", nargs="?", type=Path, help="Folder to put the renamed photos into")
+    parser.add_argument("--start", type=int, help="First number to use, like 195")
+    parser.add_argument("--prefix", default="g", help="Filename prefix; default is g")
+
+    # Read any command-line arguments the user supplied.
     args = parser.parse_args()
 
-    files = sorted(path for path in args.source.iterdir() if path.suffix.lower() in SUPPORTED)
-    if not files:
-        raise SystemExit(f"No supported photos found in {args.source}")
+    # If the user did not type a source folder in the terminal, ask for it.
+    source = args.source or ask_for_folder("Folder with the ready photos: ")
 
-    times = {path: capture_time(path) for path in files}
-    hashes = {path: difference_hash(path) for path in files}
-    groups = find_groups(files, hashes, times)
-    scores = {path: sharpness(path) for path in files}
-    representatives = [max(group, key=lambda path: scores[path]) for group in groups]
-    blur_scores = {path: blur_score(path) for path in representatives}
-    blurry = [path for path in representatives if blur_scores[path] < args.blur_threshold]
-    keepers = [path for path in representatives if path not in blurry]
-    keepers.sort(key=lambda path: (times[path], path.name.lower()))
+    # If the user did not type a destination folder in the terminal, ask for it.
+    destination = args.destination or ask_for_folder("Folder to put the renamed photos in: ")
 
-    args.destination.mkdir(parents=True, exist_ok=True)
-    manifest_rows = []
-    for offset, source in enumerate(keepers):
-        destination = args.destination / f"{args.prefix}{args.start + offset}.jpg"
-        if destination.exists():
-            raise SystemExit(f"Refusing to overwrite {destination}")
-        save_for_game(source, destination, args.max_edge)
-        group = next(group for group in groups if source in group)
-        removed = "; ".join(path.name for path in group if path != source)
-        manifest_rows.append(
-            (
-                "kept",
-                destination.name,
-                source.name,
-                times[source].isoformat(sep=" "),
-                f"{blur_scores[source]:.2f}",
-                removed,
-            )
-        )
+    # If the user did not type --start in the terminal, ask for it.
+    start = args.start if args.start is not None else ask_for_number("Starting number: ")
 
-    for source in sorted(blurry, key=lambda path: (times[path], path.name.lower())):
-        manifest_rows.append(
-            (
-                "removed: blurry",
-                "",
-                source.name,
-                times[source].isoformat(sep=" "),
-                f"{blur_scores[source]:.2f}",
-                "",
-            )
-        )
+    # Rename the photos.
+    created = renumber_photos(source.expanduser(), destination.expanduser(), start, args.prefix)
 
-    manifest = args.destination / "photo_manifest.csv"
-    with manifest.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
-        writer.writerow(
-            ("status", "game_filename", "source_photo", "date_taken", "blur_score", "duplicates_removed")
-        )
-        writer.writerows(manifest_rows)
+    first = created[0].name
+    last = created[-1].name
 
-    duplicate_count = len(files) - len(representatives)
-    print(
-        f"Created {len(keepers)} photos; removed {duplicate_count} near-duplicate burst frames "
-        f"and {len(blurry)} blurry photos."
-    )
-    if keepers:
-        print(f"Names: {args.prefix}{args.start}.jpg through {args.prefix}{args.start + len(keepers) - 1}.jpg")
+    print(f"Done — created {len(created)} photos: {first} through {last}")
 
 
+# Only run main() when this file is executed directly.
 if __name__ == "__main__":
     main()

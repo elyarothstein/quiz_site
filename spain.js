@@ -1,14 +1,70 @@
 "use strict";
 
-const BARCELONA_START = 92;
-const BARCELONA_LEVELS = 103;
-const BARCELONA_END = BARCELONA_START + BARCELONA_LEVELS - 1;
 const PROGRESS_KEY = "photoWorldProgress";
 
-// Barcelona uses vertical street lanes: down, a rounded turn, up, then down
-// again. Nine close lanes keep all 103 levels evenly spaced on a compact map.
-const DESKTOP_COLUMN_COUNTS = [12, 12, 12, 12, 11, 11, 11, 11, 11];
-const PHONE_COLUMN_COUNTS = [21, 21, 21, 20, 20];
+const WORLDS = {
+    barcelona: {
+        name: "Barcelona",
+        start: 92,
+        levels: 103,
+        mapId: "barcelonaMap",
+        pathId: "barcelonaPath",
+        desktopColumns: [12, 12, 12, 12, 11, 11, 11, 11, 11],
+        phoneColumns: [21, 21, 21, 20, 20],
+        completeMessage: "Barcelona complete • Take the train to Madrid level 195.",
+        lockedMessage: "Finish Eilat level 91 to unlock Barcelona level 92.",
+        activeMessage: "Barcelona",
+        previousMessage: "Complete the previous Barcelona level first."
+    },
+    madrid: {
+        name: "Madrid",
+        start: 195,
+        levels: 68,
+        mapId: "madridMap",
+        pathId: "madridPath",
+        desktopColumns: [10, 10, 10, 10, 10, 9, 9],
+        phoneColumns: [14, 14, 14, 13, 13],
+        completeMessage: "Madrid complete • Spain adventure finished for now.",
+        lockedMessage: "Finish Barcelona level 194, then take the train to Madrid.",
+        activeMessage: "Madrid",
+        previousMessage: "Complete the previous Madrid level first."
+    }
+};
+
+WORLDS.barcelona.end = WORLDS.barcelona.start + WORLDS.barcelona.levels - 1;
+WORLDS.madrid.end = WORLDS.madrid.start + WORLDS.madrid.levels - 1;
+
+let vocabulary = [];
+let currentLevel = null;
+let currentQuestion = null;
+let currentWorld = null;
+let correctAnswer = "";
+let usesPhoneLayout = isPhoneLayout();
+
+const worldState = {};
+const message = document.getElementById("spainMessage");
+const questionPanel = document.getElementById("questionPanel");
+const questionTitle = document.getElementById("questionTitle");
+const questionText = document.getElementById("questionText");
+const questionChoices = document.getElementById("questionChoices");
+const questionResult = document.getElementById("questionResult");
+const closeQuestionButton = document.getElementById("closeQuestion");
+const photoPanel = document.getElementById("photoPanel");
+const photoTitle = document.getElementById("photoTitle");
+const photoImage = document.getElementById("photoImage");
+const closePhotoButton = document.getElementById("closePhoto");
+const trainConnector = document.querySelector(".spainTrainConnector");
+const rideToMadridButton = document.getElementById("rideToMadrid");
+const madridMapElement = document.getElementById("madridMap");
+
+Object.entries(WORLDS).forEach(([key, world]) => {
+    worldState[key] = {
+        map: document.getElementById(world.mapId),
+        pathSvg: document.getElementById(world.pathId),
+        positions: createRoutePositions(usesPhoneLayout ? world.phoneColumns : world.desktopColumns)
+    };
+});
+
 function isPhoneLayout() {
     return window.innerWidth <= 600;
 }
@@ -32,28 +88,6 @@ function createRoutePositions(columnCounts) {
     return routePositions;
 }
 
-let usesPhoneLayout = isPhoneLayout();
-let positions = createRoutePositions(usesPhoneLayout ? PHONE_COLUMN_COUNTS : DESKTOP_COLUMN_COUNTS);
-
-let vocabulary = [];
-let currentLevel = null;
-let currentQuestion = null;
-let correctAnswer = "";
-
-const map = document.getElementById("barcelonaMap");
-const pathSvg = document.getElementById("barcelonaPath");
-const message = document.getElementById("spainMessage");
-const questionPanel = document.getElementById("questionPanel");
-const questionTitle = document.getElementById("questionTitle");
-const questionText = document.getElementById("questionText");
-const questionChoices = document.getElementById("questionChoices");
-const questionResult = document.getElementById("questionResult");
-const closeQuestionButton = document.getElementById("closeQuestion");
-const photoPanel = document.getElementById("photoPanel");
-const photoTitle = document.getElementById("photoTitle");
-const photoImage = document.getElementById("photoImage");
-const closePhotoButton = document.getElementById("closePhoto");
-
 function getProgress() {
     return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{"highestUnlocked":1}');
 }
@@ -66,7 +100,7 @@ function shuffle(items) {
     return [...items].sort(() => Math.random() - 0.5);
 }
 
-function createRoad(color, width, dash = "") {
+function createRoad(pathSvg, positions, color, width, dash = "") {
     const road = document.createElementNS("http://www.w3.org/2000/svg", "path");
     let pathData = "M " + positions[0][0] + " " + positions[0][1];
 
@@ -93,69 +127,118 @@ function createRoad(color, width, dash = "") {
     pathSvg.appendChild(road);
 }
 
-function drawPath(progress) {
-    pathSvg.innerHTML = "";
-    createRoad("rgba(27,31,47,.94)", "2.35");
-    createRoad("rgba(255,255,255,.82)", ".34", "1 1.55");
+function drawPath(worldKey) {
+    const state = worldState[worldKey];
+    state.pathSvg.innerHTML = "";
+    createRoad(state.pathSvg, state.positions, "rgba(27,31,47,.94)", "2.35");
+    createRoad(state.pathSvg, state.positions, "rgba(255,255,255,.82)", ".34", "1 1.55");
 }
 
-function buildBarcelona() {
+function buildWorld(worldKey) {
+    const world = WORLDS[worldKey];
+    const state = worldState[worldKey];
     const progress = getProgress();
-    map.querySelectorAll(".levelButton").forEach(button => button.remove());
-    drawPath(progress);
 
-    positions.forEach((position, index) => {
-        const level = BARCELONA_START + index;
+    state.map.querySelectorAll(".levelButton").forEach(button => button.remove());
+    drawPath(worldKey);
+
+    state.positions.forEach((position, index) => {
+        const level = world.start + index;
         const button = document.createElement("button");
         button.type = "button";
         button.className = "levelButton";
         button.textContent = level;
-        button.setAttribute("aria-label", "Barcelona level " + level);
+        button.setAttribute("aria-label", world.name + " level " + level);
         button.style.left = position[0] + "%";
         button.style.top = position[1] + "%";
 
         if (level < progress.highestUnlocked) button.classList.add("completed");
         if (level === progress.highestUnlocked) button.classList.add("current");
 
-        button.addEventListener("click", () => openLevel(level));
-        map.appendChild(button);
+        button.addEventListener("click", () => openLevel(worldKey, level));
+        state.map.appendChild(button);
     });
-
-    const complete = Math.max(0, Math.min(progress.highestUnlocked - BARCELONA_START, BARCELONA_LEVELS));
-    if (progress.highestUnlocked < BARCELONA_START) {
-        message.textContent = "Finish Eilat level 91 to unlock Barcelona level 92.";
-    } else if (progress.highestUnlocked <= BARCELONA_END) {
-        message.textContent = "Barcelona: " + complete + " / " + BARCELONA_LEVELS + " memories unlocked.";
-    } else {
-        message.textContent = "Barcelona complete • Madrid will begin at level 195.";
-    }
 }
 
-function openLevel(level) {
+function buildSpain() {
+    buildWorld("barcelona");
+    buildWorld("madrid");
+    updateMessage();
+}
+
+function updateMessage() {
     const progress = getProgress();
+
+    if (progress.highestUnlocked < WORLDS.barcelona.start) {
+        message.textContent = WORLDS.barcelona.lockedMessage;
+        return;
+    }
+
+    if (progress.highestUnlocked <= WORLDS.barcelona.end) {
+        const complete = Math.max(0, Math.min(progress.highestUnlocked - WORLDS.barcelona.start, WORLDS.barcelona.levels));
+        message.textContent = "Barcelona: " + complete + " / " + WORLDS.barcelona.levels + " memories unlocked.";
+        return;
+    }
+
+    if (progress.highestUnlocked <= WORLDS.madrid.end) {
+        const complete = Math.max(0, Math.min(progress.highestUnlocked - WORLDS.madrid.start, WORLDS.madrid.levels));
+        message.textContent = "Madrid: " + complete + " / " + WORLDS.madrid.levels + " memories unlocked.";
+        return;
+    }
+
+    message.textContent = WORLDS.madrid.completeMessage;
+}
+
+function rideTrainToMadrid() {
+    const progress = getProgress();
+
+    if (!trainConnector || !madridMapElement) return;
+
+    trainConnector.classList.remove("is-riding");
+    void trainConnector.offsetWidth;
+    trainConnector.classList.add("is-riding");
+
+    const madridUnlocked = progress.highestUnlocked >= WORLDS.madrid.start;
+    message.textContent = madridUnlocked
+        ? "Riding the train from Barcelona Sants to Madrid Atocha…"
+        : "Train preview — finish Barcelona level 194 first to ride into Madrid.";
+
+    window.setTimeout(() => {
+        if (madridUnlocked) madridMapElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        updateMessage();
+    }, 1200);
+
+    window.setTimeout(() => {
+        trainConnector.classList.remove("is-riding");
+    }, 1550);
+}
+
+function openLevel(worldKey, level) {
+    const world = WORLDS[worldKey];
+    const progress = getProgress();
+
     if (level < progress.highestUnlocked) {
-        showPhoto(level);
+        showPhoto(worldKey, level);
     } else if (level > progress.highestUnlocked) {
-        message.textContent = progress.highestUnlocked < BARCELONA_START
-            ? "Finish Eilat level 91 before beginning Spain."
-            : "Complete the previous Barcelona level first.";
+        message.textContent = progress.highestUnlocked < world.start
+            ? world.lockedMessage
+            : world.previousMessage;
     } else {
-        startQuestion(level);
+        startQuestion(worldKey, level);
     }
 }
 
-function startQuestion(level) {
+function startQuestion(worldKey, level) {
     if (vocabulary.length < 4) {
         message.textContent = "The vocabulary file needs at least four words.";
         return;
     }
 
+    currentWorld = worldKey;
     currentLevel = level;
-    // A level always receives its own word. Only after every vocabulary word
-    // has appeared once does the sequence begin again from the first word.
     currentQuestion = vocabulary[(level - 1) % vocabulary.length];
     correctAnswer = currentQuestion.explanation;
-    questionTitle.textContent = "Barcelona Level " + level;
+    questionTitle.textContent = WORLDS[worldKey].name + " Level " + level;
     questionText.textContent = 'What does "' + currentQuestion.word + '" mean?';
     questionChoices.innerHTML = "";
     questionResult.textContent = "";
@@ -199,39 +282,44 @@ function checkAnswer(choice) {
     closeQuestionButton.hidden = false;
 }
 
-function showPhoto(level) {
-    photoTitle.textContent = "Barcelona Level " + level;
+function showPhoto(worldKey, level) {
+    photoTitle.textContent = WORLDS[worldKey].name + " Level " + level;
     photoImage.src = "game_photos/g" + level + ".jpg";
+    photoImage.alt = "Unlocked " + WORLDS[worldKey].name + " memory";
     photoPanel.style.display = "flex";
 }
 
 closeQuestionButton.addEventListener("click", () => {
     const showUnlockedPhoto = closeQuestionButton.textContent === "See Photo";
     questionPanel.style.display = "none";
-    buildBarcelona();
-    if (showUnlockedPhoto && currentLevel) showPhoto(currentLevel);
+    buildSpain();
+    if (showUnlockedPhoto && currentLevel && currentWorld) showPhoto(currentWorld, currentLevel);
 });
 
 closePhotoButton.addEventListener("click", () => {
     photoPanel.style.display = "none";
-    buildBarcelona();
+    buildSpain();
 });
+
+if (rideToMadridButton) rideToMadridButton.addEventListener("click", rideTrainToMadrid);
 
 window.addEventListener("resize", () => {
     if (isPhoneLayout() === usesPhoneLayout) return;
 
     usesPhoneLayout = isPhoneLayout();
-    positions = createRoutePositions(usesPhoneLayout ? PHONE_COLUMN_COUNTS : DESKTOP_COLUMN_COUNTS);
-    buildBarcelona();
+    Object.entries(WORLDS).forEach(([key, world]) => {
+        worldState[key].positions = createRoutePositions(usesPhoneLayout ? world.phoneColumns : world.desktopColumns);
+    });
+    buildSpain();
 });
 
 fetch("vocabulary_template.json")
     .then(response => response.json())
     .then(words => {
         vocabulary = words;
-        buildBarcelona();
+        buildSpain();
     })
     .catch(() => {
         message.textContent = "Could not load vocabulary_template.json";
-        buildBarcelona();
+        buildSpain();
     });

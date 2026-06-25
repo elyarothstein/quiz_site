@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Spain Adventure</title>
-    <link rel="stylesheet" href="spain.css?v=20260624-all-motion">
+    <link rel="stylesheet" href="spain.css?v=20260625-madrid-train-down">
 </head>
 <body>
     <main id="spainGame">
@@ -67,11 +67,79 @@
             <svg id="barcelonaPath" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
         </section>
 
-        <section class="madridFuture" aria-label="Madrid future world">
-            <p>SPAIN WORLD TWO</p>
-            <h2>Madrid</h2>
-            <div class="madridSilhouette"><span></span><span></span><span></span></div>
-            <strong>Our next Spanish adventure will continue here.</strong>
+        <section class="spainTrainConnector" aria-label="Train from Barcelona to Madrid">
+            <button id="rideToMadrid" type="button" class="trainStation barcelonaStation" aria-label="Ride the train from Barcelona Sants to Madrid Atocha">
+                <strong>Barcelona Sants</strong>
+                <small>Estació de Barcelona</small>
+            </button>
+            <div class="trainTrack">
+                <span class="fastTrain" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i>
+                </span>
+            </div>
+            <div class="trainStation madridStation">
+                <strong>Madrid Atocha</strong>
+                <small>Estación de Madrid</small>
+            </div>
+            <p>Click Barcelona Sants to ride down to Madrid • Tren Barcelona → Madrid</p>
+        </section>
+
+        <section id="madridMap" aria-label="Madrid photo game world">
+            <div class="madridWorld" aria-hidden="true">
+                <div class="madridSky"></div>
+                <div class="madridStreetGrid"></div>
+                <div class="madridBuildings"></div>
+                <div class="madridParks"></div>
+                <div class="madridNightShade"></div>
+                <div class="madridNightLights"></div>
+                <div class="madridChristmas canopyMadridOne"></div>
+                <div class="madridChristmas canopyMadridTwo"></div>
+                <div class="madridChristmas canopyMadridThree"></div>
+
+                <div class="madridTitle">MADRID <small>MADRID</small></div>
+
+                <div class="madridLandmark schweppesTower">
+                    <b>Gran Vía • Schweppes</b>
+                    <div class="capitolTower"><i>Schweppes</i></div>
+                </div>
+
+                <div class="madridLandmark royalPalace">
+                    <b>Royal Palace</b>
+                    <div class="palaceBody"><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="madridLandmark puertaSol">
+                    <b>Puerta del Sol</b>
+                    <div class="solClock">Km 0</div>
+                </div>
+
+                <div class="madridLandmark pradoMuseum">
+                    <b>Museo del Prado</b>
+                    <div class="museumFacade"><i></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="madridLandmark zooMadrid">
+                    <b>Zoo Aquarium</b>
+                    <div class="zooPark">🦁 🐘 🦒</div>
+                </div>
+
+                <div class="madridLandmark jurassicMadrid">
+                    <b>Jurassic World</b>
+                    <div class="dinoGate">🦖</div>
+                </div>
+
+                <div class="madridLandmark carMuseum">
+                    <b>Old Car Museum</b>
+                    <div class="classicCar">🚗</div>
+                </div>
+
+                <div class="madridLandmark gameMuseum">
+                    <b>Video Game Museum</b>
+                    <div class="gameArcade">🎮</div>
+                </div>
+            </div>
+
+            <svg id="madridPath" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
         </section>
     </main>
 
@@ -88,11 +156,11 @@
     <div id="photoPanel" class="modal" role="dialog" aria-modal="true">
         <div class="modalBox photoBox">
             <h2 id="photoTitle"></h2>
-            <img id="photoImage" alt="Unlocked Barcelona memory">
+            <img id="photoImage" alt="Unlocked Spain memory">
             <button id="closePhoto" type="button">Close</button>
         </div>
     </div>
 
-    <script src="spain.js?v=20260624-question-cycle-2"></script>
+    <script src="spain.js?v=20260625-madrid-train-down"></script>
 </body>
 </html>
