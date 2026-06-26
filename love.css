@@ -1472,6 +1472,25 @@
         #calendarMessage {
             max-width: 650px;
             line-height: 1.4;
+            margin: 10px auto;
+        }
+
+        #calendarHoursSetting {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px auto 8px;
+            padding: 8px 12px;
+            border: 2px solid #3b0055;
+            border-radius: 8px;
+            background: rgba(255,193,223,0.82);
+            font-weight: bold;
+        }
+
+        #showCalendarHoursToggle {
+            width: 18px;
+            height: 18px;
+            accent-color: #3b0055;
         }
 
         #calendarGrid {
@@ -1534,8 +1553,11 @@
         .calendarWord {
             display: grid;
             place-items: center;
-            height: 100%;
-            font-size: clamp(15px, 2vw, 22px);
+            height: calc(100% - 18px);
+            padding: 2px;
+            box-sizing: border-box;
+            font-size: clamp(12px, 1.6vw, 18px);
+            line-height: 1.15;
             text-shadow: 0 1px 4px rgba(255,255,255,0.9);
         }
 

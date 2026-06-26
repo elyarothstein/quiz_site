@@ -143,8 +143,10 @@
         // These dates control the countdown calendar.
         const calendarStartDate = "2026-06-18";
         const calendarEndDate = "2026-08-03";
+        const americaArrivalTime = new Date("2026-08-04T05:55:00+03:00");
         const revealedCalendarDaysKey = "revealedCountdownDays";
         const testRevealedCalendarDaysKey = "testRevealedCountdownDays";
+        const showCalendarHoursKey = "showCountdownHours";
 
         // This stores the first photo world.
         const photoWorlds = [
@@ -425,6 +427,9 @@
 
         // Get the calendar message element.
         const calendarMessageEl = document.getElementById("calendarMessage");
+
+        // Get the calendar hours setting.
+        const showCalendarHoursToggle = document.getElementById("showCalendarHoursToggle");
 
         // Get the calendar grid element.
         const calendarGridEl = document.getElementById("calendarGrid");
@@ -718,6 +723,21 @@
             return year + "-" + month + "-" + day;
         }
 
+        // This function gets today's date in Israel.
+        function getIsraelTodayText() {
+            const parts = new Intl.DateTimeFormat("en-US", {
+                timeZone: "Asia/Jerusalem",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            }).formatToParts(new Date());
+            const year = parts.find((part) => part.type === "year").value;
+            const month = parts.find((part) => part.type === "month").value;
+            const day = parts.find((part) => part.type === "day").value;
+
+            return year + "-" + month + "-" + day;
+        }
+
         // This function creates a local date from YYYY-MM-DD text.
         function createCalendarDate(dateText) {
             const parts = dateText.split("-").map(Number);
@@ -760,22 +780,52 @@
             localStorage.setItem(getCalendarStorageKey(), JSON.stringify(days));
         }
 
-        // This function counts how many days are left until America day.
-        function getDaysUntilAmerica(date) {
-            const endDate = createCalendarDate(calendarEndDate);
-            const millisecondsPerDay = 24 * 60 * 60 * 1000;
+        // This function checks whether today's calendar square should show hours too.
+        function shouldShowCalendarHours() {
+            return localStorage.getItem(showCalendarHoursKey) !== "false";
+        }
 
-            return Math.round((endDate - date) / millisecondsPerDay);
+        // This function saves whether today's calendar square should show hours too.
+        function saveShowCalendarHours(shouldShowHours) {
+            localStorage.setItem(showCalendarHoursKey, shouldShowHours ? "true" : "false");
+        }
+
+        // This function creates a Jerusalem-time moment from one calendar date.
+        function createIsraelCalendarMoment(dateText) {
+            return new Date(dateText + "T00:00:00+03:00");
+        }
+
+        // This function counts how much time is left until the flight to America.
+        function getTimeUntilAmerica(fromDate) {
+            const millisecondsPerDay = 24 * 60 * 60 * 1000;
+            const millisecondsPerHour = 60 * 60 * 1000;
+            const remainingMilliseconds = Math.max(0, americaArrivalTime - fromDate);
+            const days = Math.floor(remainingMilliseconds / millisecondsPerDay);
+            const hours = Math.floor((remainingMilliseconds % millisecondsPerDay) / millisecondsPerHour);
+
+            return { days: days, hours: hours };
+        }
+
+        // This function makes the countdown text.
+        function formatTimeUntilAmerica(timeLeft, includeHours) {
+            const dayText = timeLeft.days === 1 ? "day" : "days";
+
+            if (!includeHours) {
+                return timeLeft.days + " " + dayText + " left";
+            }
+
+            const hourText = timeLeft.hours === 1 ? "hour" : "hours";
+
+            return timeLeft.days + " " + dayText + " and " + timeLeft.hours + " " + hourText + " left";
         }
 
         // This function gets the photo and countdown text for one calendar day.
-        function getCalendarDayGift(dayIndex, date) {
-            const daysLeft = getDaysUntilAmerica(date);
-            const dayText = daysLeft === 1 ? "day left" : "days left";
+        function getCalendarDayGift(dayIndex, dateText, includeHours, fromDate) {
+            const timeLeft = getTimeUntilAmerica(fromDate || createIsraelCalendarMoment(dateText));
 
             return {
                 photo: calendarPhotos[dayIndex % calendarPhotos.length],
-                word: daysLeft + " " + dayText
+                word: formatTimeUntilAmerica(timeLeft, includeHours)
             };
         }
 
@@ -796,7 +846,7 @@
         // Builds every date square and decides whether it is locked or revealed.
         function buildCalendar() {
             const testDate = getCalendarTestDate();
-            const todayText = testDate || formatCalendarDate(new Date());
+            const todayText = testDate || getIsraelTodayText();
             const startDate = createCalendarDate(calendarStartDate);
             const endDate = createCalendarDate(calendarEndDate);
             const revealedDays = getRevealedCalendarDays();
@@ -804,7 +854,7 @@
             calendarGridEl.innerHTML = "";
             calendarMessageEl.textContent = testDate
                 ? "Testing calendar date: " + testDate + ". Remove ?testCalendar=" + testDate + " from the URL to go back to normal."
-                : "Open one square each day until August 3, the day you fly to America and we will be together again.";
+                : "Open one square each day until August 4 at 5:55 AM Israel time, when you fly to America and we will be together again.";
 
             let dayIndex = 0;
 
@@ -813,7 +863,9 @@
                 const isToday = dateText === todayText;
                 const canOpen = dateText <= todayText;
                 const isRevealed = revealedDays.includes(dateText);
-                const gift = getCalendarDayGift(dayIndex, date);
+                const includeHours = isToday && shouldShowCalendarHours();
+                const countdownFromDate = includeHours && !testDate ? new Date() : createIsraelCalendarMoment(dateText);
+                const gift = getCalendarDayGift(dayIndex, dateText, includeHours, countdownFromDate);
                 const button = document.createElement("button");
                 const dateLabel = date.toLocaleDateString("en-US", {
                     month: "short",
@@ -846,6 +898,28 @@
                 dayIndex++;
             }
         }
+
+        // This function prepares the calendar hour setting.
+        function setupCalendarHoursSetting() {
+            if (!showCalendarHoursToggle) {
+                return;
+            }
+
+            showCalendarHoursToggle.checked = shouldShowCalendarHours();
+
+            showCalendarHoursToggle.onchange = function() {
+                saveShowCalendarHours(showCalendarHoursToggle.checked);
+                buildCalendar();
+            };
+        }
+
+        setupCalendarHoursSetting();
+
+        setInterval(function() {
+            if (calendarScreen.style.display === "block" && shouldShowCalendarHours()) {
+                buildCalendar();
+            }
+        }, 60 * 1000);
 
         // This function gets saved photo world progress.
         function getPhotoWorldProgress() {
